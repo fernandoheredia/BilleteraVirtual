@@ -1,0 +1,85 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "transaccion": [
+    {
+      "id": 1,
+      "userId": 1,
+      "monedaInicial": "Deposito",
+      "monedaFinal": "ARS",
+      "monto": 10000,
+      "fecha": "2022/10/08"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "monedaInicial": "ARS",
+      "monedaFinal": "BTC",
+      "monto": 8000,
+      "fecha": "2022/10/08"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "monedaInicial": "BTC",
+      "monedaFinal": "ETH",
+      "monto": 4000,
+      "fecha": "2022/10/08"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "monedaInicial": "BTC",
+      "monedaFinal": "ARS",
+      "monto": 2000,
+      "fecha": "2022/10/08"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "monedaInicial": "ARS",
+      "monedaFinal": "Retiro",
+      "monto": 4000,
+      "fecha": "2022/10/08"
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "monedaInicial": "Deposito",
+      "monedaFinal": "ARS",
+      "monto": 10000,
+      "fecha": "2022/10/08"
+    },
+    {
+      "id": 7,
+      "userId": 2,
+      "monedaInicial": "ARS",
+      "monedaFinal": "ETH",
+      "monto": 8000,
+      "fecha": "2022/10/08"
+    },
+    {
+      "id": 8,
+      "userId": 3,
+      "monedaInicial": "ARS",
+      "monedaFinal": "BNB",
+      "monto": 1000,
+      "fecha": "2022/10/1"
+    }
+  ]
+}
