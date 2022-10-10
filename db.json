@@ -23,7 +23,7 @@
       "monedaInicial": "Deposito",
       "monedaFinal": "ARS",
       "monto": 10000,
-      "fecha": "2022/10/08"
+      "fecha": "08/10/2022"
     },
     {
       "id": 2,
@@ -31,7 +31,7 @@
       "monedaInicial": "ARS",
       "monedaFinal": "BTC",
       "monto": 8000,
-      "fecha": "2022/10/08"
+      "fecha": "08/10/2022"
     },
     {
       "id": 3,
@@ -39,7 +39,7 @@
       "monedaInicial": "BTC",
       "monedaFinal": "ETH",
       "monto": 4000,
-      "fecha": "2022/10/08"
+      "fecha": "08/10/2022"
     },
     {
       "id": 4,
@@ -47,7 +47,7 @@
       "monedaInicial": "BTC",
       "monedaFinal": "ARS",
       "monto": 2000,
-      "fecha": "2022/10/08"
+      "fecha": "08/10/2022"
     },
     {
       "id": 5,
@@ -55,7 +55,7 @@
       "monedaInicial": "ARS",
       "monedaFinal": "Retiro",
       "monto": 4000,
-      "fecha": "2022/10/08"
+      "fecha": "08/10/2022"
     },
     {
       "id": 6,
@@ -63,7 +63,7 @@
       "monedaInicial": "Deposito",
       "monedaFinal": "ARS",
       "monto": 10000,
-      "fecha": "2022/10/08"
+      "fecha": "08/10/2022"
     },
     {
       "id": 7,
@@ -71,7 +71,7 @@
       "monedaInicial": "ARS",
       "monedaFinal": "ETH",
       "monto": 8000,
-      "fecha": "2022/10/08"
+      "fecha": "09/10/2022"
     },
     {
       "id": 8,
@@ -79,7 +79,63 @@
       "monedaInicial": "ARS",
       "monedaFinal": "BNB",
       "monto": 1000,
-      "fecha": "2022/10/1"
+      "fecha": "08/10/2022"
+    },
+    {
+      "id": 9,
+      "userId": 1,
+      "monedaInicial": "ARS",
+      "monedaFinal": "BNB",
+      "monto": 1000,
+      "fecha": "09/10/2022"
+    },
+    {
+      "id": 10,
+      "userId": 1,
+      "monedaInicial": "BNB",
+      "monedaFinal": "ETH",
+      "monto": 10000,
+      "fecha": "09/10/2022"
+    },
+    {
+      "id": 11,
+      "userId": 1,
+      "monedaInicial": "ETH",
+      "monedaFinal": "USDT",
+      "monto": 2000,
+      "fecha": "09/10/2022"
+    },
+    {
+      "id": 12,
+      "userId": 1,
+      "monedaInicial": "USDT",
+      "monedaFinal": "ARS",
+      "monto": 12000,
+      "fecha": "10/10/2022"
+    },
+    {
+      "id": 13,
+      "userId": 3,
+      "monedaInicial": "USDT",
+      "monedaFinal": "ARS",
+      "monto": 12000,
+      "fecha": "10/10/2022"
+    },
+    {
+      "id": 14,
+      "userId": 3,
+      "monedaInicial": "ARS",
+      "monedaFinal": "BNB",
+      "monto": 7000,
+      "fecha": "10/10/2022"
+    },
+    {
+      "id": 15,
+      "userId": 2,
+      "monedaInicial": "ARS",
+      "monedaFinal": "BNB",
+      "monto": 7000,
+      "fecha": "10/10/2022"
     }
   ]
 }

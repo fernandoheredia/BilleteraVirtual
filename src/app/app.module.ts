@@ -10,6 +10,10 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { CuentaPersonalComponent } from './pages/cuenta-personal/cuenta-personal.component';
 import { HistorialTransaccionesComponent } from './components/historial-transacciones/historial-transacciones.component';
 import { HomeComponent } from './pages/home/home.component';
+import { IntercambiarComponent } from './components/intercambiar/intercambiar.component';
+import { Pagina404Component } from './pages/pagina404/pagina404.component';
+import { DepositarComponent } from './components/depositar/depositar.component';
+import { RetirarComponent } from './components/retirar/retirar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { HomeComponent } from './pages/home/home.component';
     FooterComponent,
     CuentaPersonalComponent,
     HistorialTransaccionesComponent,
-    HomeComponent
+    HomeComponent,
+    IntercambiarComponent,
+    Pagina404Component,
+    DepositarComponent,
+    RetirarComponent
   ],
   imports: [
     BrowserModule,

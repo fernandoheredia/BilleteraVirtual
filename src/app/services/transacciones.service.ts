@@ -19,13 +19,13 @@ export class TransaccionesService {
     return this.http.get("http://localhost:3000/transaccion/", {params: params} );
   }
   createTransaccion(id:number, userId:number, monedaInicial:string, monedaFinal:string, monto:number, fecha:string){
-return this.http.post("http://localhost:3000/transaccion/",{
-  id : id,
-  userId : userId,
-  monedaInicial: monedaInicial,
-  monedaFinal : monedaFinal, 
-  monto : monto,
-  fecha: fecha
-} )
+    return this.http.post("http://localhost:3000/transaccion/",{
+    id : id,
+    userId : userId,
+    monedaInicial: monedaInicial,
+    monedaFinal : monedaFinal, 
+    monto : monto,
+    fecha: fecha
+    })
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransaccionesService } from "../../services/transacciones.service";
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-historial-transacciones',
@@ -7,10 +8,10 @@ import { TransaccionesService } from "../../services/transacciones.service";
   styleUrls: ['./historial-transacciones.component.css']
 })
 export class HistorialTransaccionesComponent implements OnInit {
-  logo : string = '';
-  destino :string = '';
-  cantidad: number= 0;
-  dia: string= '';
+  //variables globales
+  dataTransacciones: Array<any> = [];
+  date:any
+  userId:number = 1
 
 
   constructor(
@@ -20,17 +21,45 @@ export class HistorialTransaccionesComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this._servicioTransaccion.getTodasTransacciones(1).subscribe(resp => {
-      console.log(resp);
-      console.log(typeof resp);
+    this.ultimasTransacciones(this.userId);
+    this.date = new Date();
+  }
+  ultimasTransacciones(userId:number){
+    this.dataTransacciones= []
+    this._servicioTransaccion.getTodasTransacciones(userId).subscribe(resp => {
+      console.log('La respuesta es', resp);
+      let i:number;
+      if (resp.length > 4) {
+        i = 4;
+      }else{
+        i = 0 ;
+      }
+      for (let index = (resp.length -1); index >= i; index--) {
+        const element = resp[index];
+        this.dataTransacciones.push(element);
+      }
+      console.log('Objeto a trabajar: ',this.dataTransacciones)
 
     },error=>{
-      console.log(error);
+      console.warn(error.message);
     })
-    this.logo  = 'ARS';
-    this.destino = 'BNB';
-    this.cantidad = 10000;
-    this.dia = '2022/10/02';
+  }
+  todasTransacciones(userId:number){
+    this.dataTransacciones= []
+    this._servicioTransaccion.getTodasTransacciones(userId).subscribe(resp => {
+      console.log('La respuesta es',resp);
+      for (let index = (resp.length -1); index >= 0 ; index--) {
+        const element = resp[index];
+        //console.log(element)
+        this.dataTransacciones.push(element)
+        
+      }
+      console.log('Objeto a trabajar: ',this.dataTransacciones)
+
+    },error=>{
+      console.warn(error.message);
+    })
+
   }
 
   nuevaTransaccion(id:number, userId:number, monedaInicial:string, monedaFinal:string, monto:number, fecha:string){
