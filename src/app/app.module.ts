@@ -14,6 +14,8 @@ import { IntercambiarComponent } from './components/intercambiar/intercambiar.co
 import { Pagina404Component } from './pages/pagina404/pagina404.component';
 import { DepositarComponent } from './components/depositar/depositar.component';
 import { RetirarComponent } from './components/retirar/retirar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { RetirarComponent } from './components/retirar/retirar.component';
     IntercambiarComponent,
     Pagina404Component,
     DepositarComponent,
-    RetirarComponent
+    RetirarComponent,
+    LoginComponent,
+    RecuperarContrasenaComponent
   ],
   imports: [
     BrowserModule,

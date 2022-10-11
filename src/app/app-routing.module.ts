@@ -6,13 +6,19 @@ import { IntercambiarComponent } from './components/intercambiar/intercambiar.co
 import { Pagina404Component } from './pages/pagina404/pagina404.component';
 import { DepositarComponent } from './components/depositar/depositar.component';
 import { RetirarComponent } from './components/retirar/retirar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
+
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path:'login',component: LoginComponent},
+  {path:'recuperar-contraseña',component:RecuperarContrasenaComponent},
   {path: 'cuenta-personal', component: CuentaPersonalComponent, children:[
     {path:'intercambiar', component: IntercambiarComponent},
     {path:'depositar', component: DepositarComponent},
-    {path:'retirar', component: RetirarComponent}
+    {path:'retirar', component: RetirarComponent},
+    
     
     ]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
