@@ -141,16 +141,18 @@
 
   "usuario":[
     {
-      "email":"leomessi@gmail.com" ,
-      "password":"leo",
+      "userId": 1,
+      "email": "leomessi@gmail.com",
+      "password": "leo",
       "Nombre": "Lionel Andres",
-      "Apellido":"Messi"
+      "Apellido": "Messi"
     },
     {
-      "email":"mateo@gmail.com" ,
-      "password":"a",
+      "userId": 2,
+      "email": "mateo@gmail.com",
+      "password": "a",
       "Nombre": "Mateo",
-      "Apellido":"Taricco"
+      "Apellido": "Taricco"
     }
   ]
 }

@@ -1,33 +1,48 @@
+<div class="container mt-3 mb-5" style="width: 40%">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="container mb-4"><h1>Iniciar Sesion</h1></div>
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input
+        ((keyup))="habilitarBotonEntrar()"
+        [(ngModel)]="enteredEmail"
+        name="email"
+        type="email"
+        id="email"
+        class="form-control"
+        required
+      />
+      <label class="email-label" for="email">Direccion email</label>
+    </div>
 
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <input
+      (keyup)="habilitarBotonEntrar()"
+       
+      [(ngModel)]="enteredPassword"
+        name="password"
+        type="password"
+        id="password"
+        class="form-control"
+        required
+      />
+      <label class="password-label" for="password">Contraseña</label>
+    </div>
 
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col">
+        <!-- Simple link -->
+        <a href="recuperar-contraseña">Olvide mi contraseña</a>
+      </div>
+    </div>
+    
 
-<div class="container mt-3 mb-5" style="width: 40%;">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-        <div class="container mb-4"><h1>Iniciar Sesion</h1></div>
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-          <input [(ngModel)]="enteredEmail" name="email" type="email" id="email" class="form-control" required />
-          <label class="email-label" for="email">Direccion email</label>
-        </div>
-      
-        <!-- Password input -->
-        <div class="form-outline mb-4">
-          <input [(ngModel)]="enteredPassword" name="password" type="password" id="password" class="form-control" required />
-          <label class="password-label" for="password">Contraseña</label>
-        </div>
-      
-        <!-- 2 column grid layout for inline styling -->
-        <div class="row mb-4">
-          
-      
-          <div class="col">
-            <!-- Simple link -->
-            <a href="recuperar-contraseña">Olvide mi contraseña</a>
-          </div>
-        </div>
-      
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-      </form>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="!entrarHabilitado" >Entrar</button>
+  </form>
+  <p *ngIf="!validezCampo" class="mensajeError">
+    Tu contraseña no es correcta. Vuelve a comprobarla.
+  </p>
 </div>
-
