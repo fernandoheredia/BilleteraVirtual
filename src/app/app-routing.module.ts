@@ -8,6 +8,8 @@ import { DepositarComponent } from './components/depositar/depositar.component';
 import { RetirarComponent } from './components/retirar/retirar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
+import { RetirarDetalleComponent } from './components/retirar-detalle/retirar-detalle.component';
+import { RetirarFinalComponent } from './components/retirar-final/retirar-final.component';
 
 
 const routes: Routes = [
@@ -18,8 +20,8 @@ const routes: Routes = [
     {path:'intercambiar', component: IntercambiarComponent},
     {path:'depositar', component: DepositarComponent},
     {path:'retirar', component: RetirarComponent},
-    
-    
+    {path:'retirar-detalle', component: RetirarDetalleComponent},
+    {path:'retirar-final', component: RetirarFinalComponent}
     ]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: Pagina404Component}
