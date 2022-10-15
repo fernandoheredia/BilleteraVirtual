@@ -154,5 +154,22 @@
       "Nombre": "Mateo",
       "Apellido": "Taricco"
     }
+  ],
+
+  "portafolio":[
+    {
+      "id":1,
+      "userId":2,
+      "ars":150,
+      "btn":5,
+      "eth":10
+    },
+    {
+      "id":2,
+      "userId":1,
+      "ars":1500,
+      "btn":3,
+      "eth":15
+    }
   ]
 }

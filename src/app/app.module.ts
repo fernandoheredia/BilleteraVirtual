@@ -19,6 +19,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
 import { RetirarDetalleComponent } from './components/retirar-detalle/retirar-detalle.component';
 import { RetirarFinalComponent } from './components/retirar-final/retirar-final.component';
+import { PortafolioCriptoComponent } from './components/portafolio-cripto/portafolio-cripto.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RetirarFinalComponent } from './components/retirar-final/retirar-final.
     LoginComponent,
     RecuperarContrasenaComponent,
     RetirarDetalleComponent,
-    RetirarFinalComponent
+    RetirarFinalComponent,
+    PortafolioCriptoComponent
   ],
   imports: [
     BrowserModule,

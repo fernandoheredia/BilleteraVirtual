@@ -1,0 +1,54 @@
+<section class="bg-dark p-4 rounded mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3 class="text-white">Portafolio de criptomonedas</h3>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Moneda</th>
+                <th scope="col">Monto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let item of billetera">
+                <tr>
+                  <th scope="row">"ARS"</th>
+                  <td>
+                    <div>
+                      <p class="m-0">{{ item.ars }}</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">"BTN"</th>
+                  <td>
+                    <div>
+                      <p class="m-0">{{ item.btn }}</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">"ETH"</th>
+                  <td>
+                    <div>
+                      <p class="m-0">{{ item.eth }}</p>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <button
+            class="btn btn-primary m-2"
+            (click)="miPortafolio(this.userId)">
+            Ver mi Billetera>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

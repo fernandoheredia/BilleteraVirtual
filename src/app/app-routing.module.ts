@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
 import { RetirarDetalleComponent } from './components/retirar-detalle/retirar-detalle.component';
 import { RetirarFinalComponent } from './components/retirar-final/retirar-final.component';
+import { PortafolioCriptoComponent } from './components/portafolio-cripto/portafolio-cripto.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path:'depositar', component: DepositarComponent},
     {path:'retirar', component: RetirarComponent},
     {path:'retirar-detalle', component: RetirarDetalleComponent},
-    {path:'retirar-final', component: RetirarFinalComponent}
+    {path:'retirar-final', component: RetirarFinalComponent},
+    {path:'portafolio-cripto',component:PortafolioCriptoComponent}
     ]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: Pagina404Component}
