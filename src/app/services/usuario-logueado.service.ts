@@ -14,4 +14,5 @@ export class UsuarioLogueadoService {
   setUsuarioLogueado(usuario:number){
     this.usuarioLogueado = usuario
   }
+
 }

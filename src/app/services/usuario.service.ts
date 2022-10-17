@@ -17,5 +17,14 @@ export class UsuarioService {
   let params = new HttpParams().set('email', email);
     return this.http.get("http://localhost:3000/usuario/", {params: params} );  
   }
+
+
+  //JGJ
+  getUsuarioId(id: number):Observable<any>
+  {  
+  let params = new HttpParams().set('userId', id);
+    return this.http.get("http://localhost:3000/usuario/", {params: params} );  
+  }
+  //JGJ
   
 }

@@ -138,8 +138,7 @@
       "fecha": "10/10/2022"
     }
   ],
-
-  "usuario":[
+  "usuario": [
     {
       "userId": 1,
       "email": "leomessi@gmail.com",
@@ -155,21 +154,182 @@
       "Apellido": "Taricco"
     }
   ],
-
-  "portafolio":[
+  "portafolio": [
     {
-      "id":1,
-      "userId":2,
-      "ars":150,
-      "btn":5,
-      "eth":10
+      "id": 1,
+      "userId": 2,
+      "ars": 150,
+      "btn": 5,
+      "eth": 10
     },
     {
-      "id":2,
-      "userId":1,
-      "ars":1500,
-      "btn":3,
-      "eth":15
+      "id": 2,
+      "userId": 1,
+      "ars": 1500,
+      "btn": 3,
+      "eth": 15
+    }
+  ],
+  "transaccionFinal": [
+    {
+      "id": 1,
+      "idUsuario": 1,
+      "codigoMovimiento": "D",
+      "cuenta": "ARS",
+      "fecha": "16/10/2022",
+      "debe": 0,
+      "haber": 20000,
+      "cotARSvsBTC": 0
+    },
+    {
+      "id": 2,
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "16/10/2022",
+      "debe": 10000,
+      "haber": 0,
+      "cotARSvsBTC": 0
+    },
+    {
+      "id": 3,
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "16/10/2022",
+      "debe": 0,
+      "haber": 34.6,
+      "cotARSvsBTC": 0
+    },
+    {
+      "id": 4,
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "16/10/2022",
+      "debe": 10000,
+      "haber": 0,
+      "cotARSvsBTC": 0
+    },
+    {
+      "id": 5,
+      "idUsuario": 1,
+      "codigoMovimiento": "D",
+      "cuenta": "ARS",
+      "fecha": "17/10/2022",
+      "debe": 0,
+      "haber": 50000,
+      "cotARSvsBTC": 0
+    },
+    {
+      "id": 6,
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "17/10/2022",
+      "debe": 30000,
+      "haber": 0,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 7,
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "17/10/2022",
+      "debe": 0,
+      "haber": 103.44,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 8,
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "17/10/2022",
+      "debe": 10000,
+      "haber": 0,
+      "cotARSvsBTC": 0
+    },
+    {
+      "id": 9,
+      "idUsuario": 2,
+      "codigoMovimiento": "D",
+      "cuenta": "ARS",
+      "fecha": "22/10/2022",
+      "debe": 0,
+      "haber": 100000,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 10,
+      "idUsuario": 2,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "22/10/2022",
+      "debe": 40000,
+      "haber": 0,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 11,
+      "idUsuario": 2,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "22/10/2022",
+      "debe": 0,
+      "haber": 137.45,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 12,
+      "idUsuario": 3,
+      "codigoMovimiento": "D",
+      "cuenta": "ARS",
+      "fecha": "23/10/2022",
+      "debe": 0,
+      "haber": 10000,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 13,
+      "idUsuario": 3,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "23/10/2022",
+      "debe": 8000,
+      "haber": 0,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 14,
+      "idUsuario": 3,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "23/10/2022",
+      "debe": 0,
+      "haber": 27.49,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 15,
+      "idUsuario": 3,
+      "codigoMovimiento": "CI",
+      "cuenta": "BTC",
+      "fecha": "23/10/2022",
+      "debe": 10,
+      "haber": 0,
+      "cotARSvsBTC": 290
+    },
+    {
+      "id": 16,
+      "idUsuario": 3,
+      "codigoMovimiento": "CF",
+      "cuenta": "ARS",
+      "fecha": "23/10/2022",
+      "debe": 0,
+      "haber": 2900,
+      "cotARSvsBTC": 290
     }
   ]
 }
