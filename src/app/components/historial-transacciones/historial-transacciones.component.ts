@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransaccionesService } from "../../services/transacciones.service";
 
-
-
-
 @Component({
   selector: 'app-historial-transacciones',
   templateUrl: './historial-transacciones.component.html',
@@ -12,19 +9,24 @@ import { TransaccionesService } from "../../services/transacciones.service";
 export class HistorialTransaccionesComponent implements OnInit {
   //variables globales
   dataTransacciones: Array<any> = [];
-  userId:number = 1
-
-
+  userId:number = 3
+  transaccionesTodas: boolean = true
+  
   constructor(
     private _servicioTransaccion:TransaccionesService
   ) {
-
+    
    }
 
   ngOnInit(): void {
     this.ultimasTransacciones(this.userId);
+    this._servicioTransaccion.precioBTCvsUSD().subscribe(resp=>{
+      console.log(resp)
+    },error=>console.log(error))
   }
+
   ultimasTransacciones(userId:number){
+    this.transaccionesTodas = true;
     this.dataTransacciones= []
     this._servicioTransaccion.getTodasTransacciones(userId).subscribe(resp => {
       let i:number;
@@ -87,6 +89,7 @@ export class HistorialTransaccionesComponent implements OnInit {
     })
   }
   todasTransacciones(userId:number){
+    this.transaccionesTodas = false
     this.dataTransacciones= []
     this._servicioTransaccion.getTodasTransacciones(userId).subscribe(resp => {
       for (let index = (resp.length -1); index >= 0 ; index--) {
@@ -146,10 +149,5 @@ export class HistorialTransaccionesComponent implements OnInit {
 
   }
 
-  nuevaTransaccion(id:number, userId:number, monedaInicial:string, monedaFinal:string, monto:number, fecha:string){
-    this._servicioTransaccion.createTransaccion(id, userId, monedaInicial, monedaFinal, monto, fecha).subscribe(resp =>
-      console.log(resp))
-
-  }
 
 }

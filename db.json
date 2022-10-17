@@ -330,6 +330,26 @@
       "debe": 0,
       "haber": 2900,
       "cotARSvsBTC": 290
+    },
+    {
+      "idUsuario": 0,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "17/10/2022",
+      "debe": 10000,
+      "haber": 0,
+      "cotARSvsBTC": 400,
+      "id": 17
+    },
+    {
+      "idUsuario": 0,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "17/10/2022",
+      "debe": 0,
+      "haber": 130,
+      "cotARSvsBTC": 400,
+      "id": 18
     }
   ]
 }

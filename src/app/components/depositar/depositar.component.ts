@@ -23,5 +23,16 @@ export class DepositarComponent implements OnInit {
       console.log(error)
     })
   }
+  retiroTransacc(montoRetirar:number){
+    this._transaccionService.retiroTransaccion(this.userID, montoRetirar).subscribe(resp => console.log(resp)
+    ,err=>console.log(err)
+    )
+  }
+  intercambioTransacc(cuentaDebitar:string,cuentaDestino:string,montoDebitar:number,montoDestino:number,cotARSvsBTC:number)
+  {
+    this._transaccionService.cambioTransaccionDebitar(this.userID, cuentaDebitar, montoDebitar, cotARSvsBTC).subscribe(resp => console.log(resp),error=>console.log(error));
+
+    this._transaccionService.cambioTransaccionDestino(this.userID,cuentaDestino,montoDestino,cotARSvsBTC).subscribe(resp => console.log(resp),error=>console.log(error));
+  }
 
 }

@@ -37,25 +37,52 @@ export class TransaccionesService {
     cotARSvsBTC: 290
     },{ responseType: "json" , withCredentials: false  })
   }
-
-  intercambioTransaccion(){}
-  retiroTransaccion(){}
-
-
-
-
-
-
-
-
-  createTransaccion(id:number, userId:number, monedaInicial:string, monedaFinal:string, monto:number, fecha:string){
-    return this.http.post("http://localhost:3000/transaccion/",{
-    id : id,
-    userId : userId,
-    monedaInicial: monedaInicial,
-    monedaFinal : monedaFinal, 
-    monto : monto,
-    fecha: fecha
-    })
+  cambioTransaccionDebitar(idUsuario:number,cuentaDebitar:string, montoDebitar:number, cotARSvsBTC:number ):Observable<any>
+  {
+    return this.http.post("http://localhost:3000/transaccionFinal/",{
+    
+      idUsuario: idUsuario,
+      codigoMovimiento: "CI",
+      cuenta: cuentaDebitar,
+      fecha: this.date,
+      debe : montoDebitar, 
+      haber: 0,
+      cotARSvsBTC:cotARSvsBTC
+    },{ responseType: "json" , withCredentials: false  })
   }
+  cambioTransaccionDestino(idUsuario:number,cuentaDestino:string,montoDestino:number,cotARSvsBTC:number ):Observable<any>
+  {
+    return this.http.post("http://localhost:3000/transaccionFinal/",{
+    idUsuario: idUsuario,
+    codigoMovimiento: "CF",
+    cuenta: cuentaDestino,
+    fecha: this.date,
+    debe : 0, 
+    haber: montoDestino,
+    cotARSvsBTC: cotARSvsBTC
+    },{ responseType: "json" , withCredentials: false  })
+  }
+
+
+  retiroTransaccion(idUsuario:number, debe:number):Observable<any>
+  {
+    return this.http.post("http://localhost:3000/transaccionFinal/",{
+    
+    idUsuario: idUsuario,
+    codigoMovimiento: "R",
+    cuenta: "ARS",
+    fecha: this.date,
+    debe : debe, 
+    haber: 0,
+    cotARSvsBTC: 290
+    },{ responseType: "json" , withCredentials: false  })
+  }
+precioBTCvsUSD(){
+  let params = new HttpParams();
+  params = params.append('ids', 'bitcoin');
+  params = params.append('vs_currencies', 'usd');
+  return this.http.get("https://api.coingecko.com/api/v3/simple/price", {params: params})
+}
+
+
 }
