@@ -24,7 +24,7 @@ export class TransaccionesService {
     return this.http.get("http://localhost:3000/transaccionFinal/", {params: params} );
   }
   
-  depositoTransaccion(idUsuario:number, haber:number ):Observable<any>
+  depositoTransaccion(idUsuario:number, haber:number, cotizacionBTC:number ):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
@@ -34,10 +34,10 @@ export class TransaccionesService {
     fecha: this.date,
     debe : 0, 
     haber: haber,
-    cotARSvsBTC: 290
+    cotARSvsBTC: cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
   }
-  cambioTransaccionDebitar(idUsuario:number,cuentaDebitar:string, montoDebitar:number, cotARSvsBTC:number ):Observable<any>
+  cambioTransaccionDebitar(idUsuario:number,cuentaDebitar:string, montoDebitar:number, cotizacionBTC:number ):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
@@ -47,10 +47,10 @@ export class TransaccionesService {
       fecha: this.date,
       debe : montoDebitar, 
       haber: 0,
-      cotARSvsBTC:cotARSvsBTC
+      cotARSvsBTC:cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
   }
-  cambioTransaccionDestino(idUsuario:number,cuentaDestino:string,montoDestino:number,cotARSvsBTC:number ):Observable<any>
+  cambioTransaccionDestino(idUsuario:number,cuentaDestino:string,montoDestino:number,cotizacionBTC:number ):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     idUsuario: idUsuario,
@@ -59,12 +59,12 @@ export class TransaccionesService {
     fecha: this.date,
     debe : 0, 
     haber: montoDestino,
-    cotARSvsBTC: cotARSvsBTC
+    cotARSvsBTC: cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
   }
 
 
-  retiroTransaccion(idUsuario:number, debe:number):Observable<any>
+  retiroTransaccion(idUsuario:number, debe:number, cotizacionBTC:number):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
@@ -74,15 +74,13 @@ export class TransaccionesService {
     fecha: this.date,
     debe : debe, 
     haber: 0,
-    cotARSvsBTC: 290
+    cotARSvsBTC: cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
   }
-precioBTCvsUSD(){
-  let params = new HttpParams();
-  params = params.append('ids', 'bitcoin');
-  params = params.append('vs_currencies', 'usd');
-  return this.http.get("https://api.coingecko.com/api/v3/simple/price", {params: params})
-}
+  precioBTCvsUSD():Observable<any>
+  {
+    return this.http.get("https://api.coingecko.com/api/v3/coins/bitcoin")
+  }
 
 
 }
