@@ -1,1 +1,64 @@
-<p>intercambiar works!</p>
+<div
+  class="modal fade"
+  id="intercambiarModal"
+  tabindex="-1"
+  aria-labelledby="intercambiarModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="intercambiarModalLabel">
+          Cambio de Moneda
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p>Quiero cambiar desde...</p>
+          <div>
+            <select name="" id="">
+              <option value="ARS">ARS</option>
+              <option value="BTC">BTC</option>
+            </select>
+            <p>Disponibles 012983012983102 ARS</p>
+          </div>
+          <input type="number" />
+          <input
+            type="submit"
+            value="Cotizar"
+            (click)="cotizar(2957005, 'ARS')"
+          />
+        </div>
+        <div>
+          <p>Voy a recibir...</p>
+          <h3>{{ cotizado }} {{ monedaCotizado }}</h3>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          routerLink="/cuenta-personal"
+        >
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-dismiss="modal"
+          routerLink="/cuenta-personal"
+          (click)="intercambioTransacc('ARS', 2957005)"
+        >
+          Cambiar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
