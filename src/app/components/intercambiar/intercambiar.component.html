@@ -22,10 +22,16 @@
         <div>
           <p>Quiero cambiar desde...</p>
           <div>
-            <select name="" id="">
-              <option value="ARS">ARS</option>
-              <option value="BTC">BTC</option>
-            </select>
+            <form [formGroup]="form">
+              <select formControlName="cuentas" [(ngModel)]="selectedValue" (change)="changeSuit($event)">
+                <option value="" disabled>Seleccionar Cuenta</option>
+                <option *ngFor="let moneda  of monedasWallet" [ngValue]="moneda" >
+                  {{moneda}}
+                </option>
+                
+              </select>
+            </form>
+            <p>Seleccionado: </p>
             <p>Disponibles 012983012983102 ARS</p>
           </div>
           <input type="number" />

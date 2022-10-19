@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-intercambiar',
@@ -12,6 +14,12 @@ export class IntercambiarComponent implements OnInit {
   montoDisponible: number = 0;
   cotizado: number = 0;
   monedaCotizado: string = '';
+  monedasWallet:Array<string> = ['ARS', 'BTC', 'ETH' ] ;
+  moneda: string = '';
+  form = new FormGroup({
+    cuentas: new FormControl(this.monedasWallet)
+  })
+  selectedValue:string = ''
 
   constructor(private _transaccionService: TransaccionesService) {}
 
@@ -113,4 +121,29 @@ export class IntercambiarComponent implements OnInit {
         (error) => console.log(error)
       );
   }
+
+  changeSuit(event:any){
+    let hola = event.target.value;
+    console.log("EVENTOOO", hola);
+    console.log(typeof hola)
+  }
+  
+
+/*
+Juan, y si no necesitas que sea en las dos direcciones el binding puedes probar esto: <select (change)="updateSorting($event)">
+<option disabled selected>Sorting</option>
+<option value="pointDes">pointDes</option>
+<option value="timeDes">timeDes</option>
+<option value="timeAsc">timeAsc</option>
+<option value="pointAsc">pointAsc</option>
+</select>
+updateSorting(e: any) {
+// console.log((e.target as HTMLSelectElement)?.value); // also work
+console.log(e.target.value);
+}
+*/
+
+
+
+
 }
