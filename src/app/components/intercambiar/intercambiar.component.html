@@ -31,8 +31,11 @@
                 
               </select>
             </form>
-            <p>Seleccionado: </p>
-            <p>Disponibles 012983012983102 ARS</p>
+            
+            <div  [ngClass]="{'my-4': !displayCuentaSeleccionada }"  >
+            <p class="m-0" *ngIf="displayCuentaSeleccionada">Seleccionado: {{selectedValue}}</p>
+            <p class="m-0"  *ngIf="displayCuentaSeleccionada">Disponibles {{montoDisponible}} {{selectedValue}}</p>
+            </div>
           </div>
           <input type="number" />
           <input

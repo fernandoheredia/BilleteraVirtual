@@ -14,12 +14,13 @@ export class IntercambiarComponent implements OnInit {
   montoDisponible: number = 0;
   cotizado: number = 0;
   monedaCotizado: string = '';
-  monedasWallet:Array<string> = ['ARS', 'BTC', 'ETH' ] ;
+  monedasWallet:Array<string> = ['ARS', 'BTC' ] ;
   moneda: string = '';
   form = new FormGroup({
     cuentas: new FormControl(this.monedasWallet)
   })
   selectedValue:string = ''
+  displayCuentaSeleccionada:boolean= false
 
   constructor(private _transaccionService: TransaccionesService) {}
 
@@ -123,25 +124,11 @@ export class IntercambiarComponent implements OnInit {
   }
 
   changeSuit(event:any){
-    let hola = event.target.value;
-    console.log("EVENTOOO", hola);
-    console.log(typeof hola)
+    let cuentaSeleccionada = this.selectedValue
+    this.displayCuentaSeleccionada = true
+    console.log(cuentaSeleccionada);
+    this.getMontoDisponible(cuentaSeleccionada);
   }
-  
-
-/*
-Juan, y si no necesitas que sea en las dos direcciones el binding puedes probar esto: <select (change)="updateSorting($event)">
-<option disabled selected>Sorting</option>
-<option value="pointDes">pointDes</option>
-<option value="timeDes">timeDes</option>
-<option value="timeAsc">timeAsc</option>
-<option value="pointAsc">pointAsc</option>
-</select>
-updateSorting(e: any) {
-// console.log((e.target as HTMLSelectElement)?.value); // also work
-console.log(e.target.value);
-}
-*/
 
 
 
