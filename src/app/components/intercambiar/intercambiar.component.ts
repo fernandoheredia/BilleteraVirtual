@@ -16,9 +16,14 @@ export class IntercambiarComponent implements OnInit {
   monedaCotizado: string = '';
   monedasWallet:Array<string> = ['ARS', 'BTC' ] ;
   moneda: string = '';
+  montoIngresado:number = 0
   form = new FormGroup({
     cuentas: new FormControl(this.monedasWallet)
   })
+  formIntercambiar = new FormGroup({
+    monto : new FormControl(this.montoIngresado)
+  })
+
   selectedValue:string = ''
   displayCuentaSeleccionada:boolean= false
 
@@ -26,7 +31,6 @@ export class IntercambiarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPrecioBTCvsARS();
-    this.getMontoDisponible('BTC');
   }
   getPrecioBTCvsARS() {
     this._transaccionService.precioBTCvsUSD().subscribe(
@@ -126,8 +130,14 @@ export class IntercambiarComponent implements OnInit {
   changeSuit(event:any){
     let cuentaSeleccionada = this.selectedValue
     this.displayCuentaSeleccionada = true
-    console.log(cuentaSeleccionada);
     this.getMontoDisponible(cuentaSeleccionada);
+  }
+  onSubmit(){
+  let monto = this.formIntercambiar.value
+  console.log('monto a cotizar',monto.monto);
+  console.log('cuenta seleccionada', this.selectedValue)
+  this.cotizar(monto.monto, this.selectedValue)
+
   }
 
 
