@@ -12,32 +12,38 @@
               </tr>
             </thead>
             <tbody>
-              <ng-container *ngFor="let item of billetera">
+              
                 <tr>
-                  <th scope="row">"ARS"</th>
+                  <th scope="row">
+                    <img
+                      src="{{ billetera.ars_img}}"
+                      width="60px"
+                      height="60px"
+                      alt="ARS"
+                    />
+                  </th>
                   <td>
                     <div>
-                      <p class="m-0">{{ item.ars }}</p>
+                      <p class="m-0">{{ billetera.ars }}</p>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row">"BTN"</th>
+                  <th scope="row">
+                    <img
+                      src="{{ billetera.btc_img}}"
+                      width="60px"
+                      height="60px"
+                      alt="BTC"
+                    />
+                  </th>
                   <td>
                     <div>
-                      <p class="m-0">{{ item.btn }}</p>
+                      <p class="m-0">{{ billetera.btc }}</p>
                     </div>
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">"ETH"</th>
-                  <td>
-                    <div>
-                      <p class="m-0">{{ item.eth }}</p>
-                    </div>
-                  </td>
-                </tr>
-              </ng-container>
+              
             </tbody>
           </table>
         </div>
@@ -52,3 +58,4 @@
     </div>
   </div>
 </section>
+

@@ -12,3 +12,10 @@ export interface DataTransacciones {
     imgCuenta:            string;
     monto:                number;
 }
+
+export interface Portafolio {
+    ars: number;
+    btc: number;
+    ars_img: string;
+    btc_img: string;
+}

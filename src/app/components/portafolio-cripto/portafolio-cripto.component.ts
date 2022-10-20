@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PortafolioService } from 'src/app/services/portafolio.service';
+import { TransaccionesService } from 'src/app/services/transacciones.service';
+import {Portafolio} from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-portafolio-cripto',
@@ -8,20 +9,64 @@ import { PortafolioService } from 'src/app/services/portafolio.service';
 })
 export class PortafolioCriptoComponent implements OnInit {
 
-  userId:number=1; //harcodeo user id
-  billetera:any; //property publica para el binding con vista
+  userId:number=3; //harcodeo user id
+  billetera :Portafolio = {
+    ars:0,
+    btc:0,
+    ars_img:'',
+    btc_img:''
+  }; //property publica para el binding con vista
+  
 
-  constructor(private miServicio:PortafolioService) { }
+  constructor(private miServicio:TransaccionesService) { }
 
   ngOnInit(): void {
     this.miPortafolio(this.userId);
   }
 
-  miPortafolio(userId:number)
+  miPortafolio(userId: number)
   {
-    this.miServicio.getPortafolio(userId).subscribe(data => {
-      console.log(data);
-      this.billetera = data;
+    this.miServicio.getTodasTransacciones(userId).subscribe((data) => {
+      let total_ars:number = 0;
+      let total_btc:number = 0;
+
+      for(let index = data.length-1;index>=0;index--){
+        const element = data[index];
+
+        switch(element.cuenta){
+          case 'ARS':
+            if(element.haber!=0)
+            {
+              total_ars += element.haber;
+            }
+            else
+            {
+              total_ars -= element.debe;
+            }
+            break;
+
+          case 'BTC':
+            if(element.haber!=0)
+            {
+              total_btc += element.haber;
+            }
+            else
+            {
+              total_btc -= element.debe;
+            }
+            break;
+
+          default:
+            break;
+        }
+      }
+      
+      this.billetera.ars = total_ars;
+      this.billetera.btc = total_btc;
+      this.billetera.ars_img = '../../../assets/img/ARS.png';
+      this.billetera.btc_img = '../../../assets/img/BTC.png';
+      console.log('Objeto a trabajar: ', this.billetera);
+
     }, error=>{
       console.warn(error.message);
     }
@@ -29,3 +74,4 @@ export class PortafolioCriptoComponent implements OnInit {
   }
 
 }
+
