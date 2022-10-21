@@ -13,7 +13,7 @@ export class TransaccionesService {
     private http: HttpClient
   ) {
     console.log("El servicio TransaccionesService está funcionando")
-    this.date = formatDate(new Date(), 'dd/MM/yyyy', 'en');
+    this.date = formatDate(new Date(), 'dd/MM/yyyy h:MM:ss', 'en');
     console.log('La fecha es ',this.date)
    }
 

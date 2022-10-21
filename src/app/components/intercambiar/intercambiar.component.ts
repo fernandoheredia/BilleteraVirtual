@@ -17,6 +17,8 @@ export class IntercambiarComponent implements OnInit {
   monedasWallet:Array<string> = ['ARS', 'BTC' ] ;
   moneda: string = '';
   montoIngresado:number = 0
+  fondosInsuficientes: boolean = false
+  alertShow: boolean =false
   form = new FormGroup({
     cuentas: new FormControl(this.monedasWallet)
   })
@@ -66,7 +68,13 @@ export class IntercambiarComponent implements OnInit {
 
   cotizar(montoCambiar: number, cuentaOrigen: string) {
     let loCotizado: number ;
+    if (montoCambiar > this.montoDisponible) {
+      this.fondosInsuficientes = true
+      this.cotizado = 0
 
+      return 
+    }
+    this.fondosInsuficientes = false
     switch (cuentaOrigen) {
       case 'ARS':
         loCotizado = montoCambiar / this.arsVsBtc;
@@ -84,11 +92,24 @@ export class IntercambiarComponent implements OnInit {
     }
     this.cotizado = loCotizado;
   }
+  reset(){
+    this.selectedValue = ''
+    this.displayCuentaSeleccionada = false
+    this.montoIngresado= 0
+    this.cotizado = 0
+    this.monedaCotizado= ''
+    this.fondosInsuficientes = false
+
+  }
 
   intercambioTransacc(cuentaDebitar: string, montoDebitar: number) {
     let cuentaDestino: string = '';
     let montoDestino: number = 0;
     let precioBTC: number = this.arsVsBtc;
+    if (montoDebitar == 0) {
+      this.fondosInsuficientes = true
+      return
+    }
     switch (cuentaDebitar) {
       case 'ARS':
         cuentaDestino = 'BTC';
@@ -125,6 +146,11 @@ export class IntercambiarComponent implements OnInit {
         (resp) => console.log(resp),
         (error) => console.log(error)
       );
+      this.alertShow = true
+      setTimeout(() => {
+        location.reload()
+      }, 500);
+      
   }
 
   changeSuit(event:any){

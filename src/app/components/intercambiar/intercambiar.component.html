@@ -5,6 +5,7 @@
   aria-labelledby="intercambiarModalLabel"
   aria-hidden="true"
 >
+
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -20,7 +21,7 @@
       </div>
       <div class="modal-body">
         <div>
-          <p>Quiero cambiar desde...</p>
+          <p class="fs-6 mb-1 text-start ms-3 fst-italic">Quiero cambiar desde...</p>
           <div>
             <form [formGroup]="form">
               <select class="form-select"  formControlName="cuentas" [(ngModel)]="selectedValue" (change)="changeSuit($event)">
@@ -32,17 +33,17 @@
               </select>
             </form>
             
-            <div class="row my-2 mx-1"  [ngClass]="{'my-2': !displayCuentaSeleccionada }"  >
+            <div class="row my-2 mx-1" *ngIf="displayCuentaSeleccionada"  >
               <div class="col m-0 ">
-                <p class="m-0 text-start " *ngIf="displayCuentaSeleccionada">Seleccionado: {{selectedValue}}</p>
+                <p class="mt-1 mb-3 text-start fst-italic " >Seleccionado: {{selectedValue}}</p>
               </div>
               <div class="col m-0 ">
-                <p class="m-0 text-end"  *ngIf="displayCuentaSeleccionada">Disponibles {{montoDisponible}} {{selectedValue}}</p>
+                <p class="mt-1 mb-3 text-end fst-italic"  >Disponibles {{montoDisponible}} {{selectedValue}}</p>
               </div>
             </div>
           </div>
 
-          <form [formGroup]="formIntercambiar" (ngSubmit)="onSubmit()" class="row" >
+          <form [formGroup]="formIntercambiar" (ngSubmit)="onSubmit()" class="row mt-2" >
             <div class="col-8">
               <input formControlName="monto" [(ngModel)]="montoIngresado"   class="col form-control" type="number" placeholder="Inserte una cantidad" />
             </div>
@@ -54,9 +55,12 @@
             </div>
           </form>
         </div>
-        <div>
-          <p>Voy a recibir...</p>
-          <h3>{{ cotizado }} {{ monedaCotizado }}</h3>
+        <div *ngIf="fondosInsuficientes">
+          <p class="fs-4 text-danger">El monto debe ser inferior a {{montoDisponible}}</p>
+        </div>
+        <div *ngIf=" cotizado != 0">
+          <p class="fs-6 mt-1 mb-3 text-start ms-3 fst-italic">Voy a recibir:  <span class="fs-4 "> {{ cotizado }} {{ monedaCotizado }}</span></p>
+          <h3></h3>
         </div>
       </div>
       <div class="modal-footer">
@@ -64,20 +68,27 @@
           type="button"
           class="btn btn-secondary"
           data-bs-dismiss="modal"
+          (click)="reset()"
           routerLink="/cuenta-personal"
         >
           Cerrar
         </button>
+
         <button
           type="button"
           class="btn btn-success"
-          data-bs-dismiss="modal"
+          [disabled]="fondosInsuficientes"
           routerLink="/cuenta-personal"
-          (click)="intercambioTransacc('ARS', 2957005)"
+          (click)="intercambioTransacc(selectedValue, montoIngresado)"
         >
           Cambiar
         </button>
+
       </div>
+      <div *ngIf="alertShow"  class="alert alert-success alert-dismissible fade show" role="alert">
+        <p class="m-0 fs-4">Transaccion realizada con exito ! </p> 
+         <button type="button" class="btn-close" data-bs-dismiss="alert" routerLink="/cuenta-personal" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
     </div>
   </div>
 </div>
