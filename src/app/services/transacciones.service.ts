@@ -8,13 +8,13 @@ import {formatDate} from '@angular/common';
   providedIn: 'root'
 })
 export class TransaccionesService {
-  date: string
+  date: number
   constructor(
     private http: HttpClient
   ) {
     console.log("El servicio TransaccionesService está funcionando")
-    this.date = formatDate(new Date(), 'dd/MM/yyyy h:MM:ss', 'en');
-    console.log('La fecha es ',this.date)
+    this.date = Date.now();
+    console.log('La fecha es ',formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en'))
    }
 
 
@@ -31,7 +31,7 @@ export class TransaccionesService {
     idUsuario: idUsuario,
     codigoMovimiento: "D",
     cuenta: "ARS",
-    fecha: this.date,
+    fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : 0, 
     haber: haber,
     cotARSvsBTC: cotizacionBTC
@@ -44,7 +44,7 @@ export class TransaccionesService {
       idUsuario: idUsuario,
       codigoMovimiento: "CI",
       cuenta: cuentaDebitar,
-      fecha: this.date,
+      fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
       debe : montoDebitar, 
       haber: 0,
       cotARSvsBTC:cotizacionBTC
@@ -56,7 +56,7 @@ export class TransaccionesService {
     idUsuario: idUsuario,
     codigoMovimiento: "CF",
     cuenta: cuentaDestino,
-    fecha: this.date,
+    fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : 0, 
     haber: montoDestino,
     cotARSvsBTC: cotizacionBTC
@@ -71,7 +71,7 @@ export class TransaccionesService {
     idUsuario: idUsuario,
     codigoMovimiento: "R",
     cuenta: "ARS",
-    fecha: this.date,
+    fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : debe, 
     haber: 0,
     cotARSvsBTC: cotizacionBTC
