@@ -9,11 +9,13 @@ import { RetirarComponent } from './components/retirar/retirar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
 import { PortafolioCriptoComponent } from './components/portafolio-cripto/portafolio-cripto.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path:'login',component: LoginComponent},
+  {path:'registro', component:RegistroComponent},
   {path:'recuperar-contraseña',component:RecuperarContrasenaComponent},
   {path: 'cuenta-personal', component: CuentaPersonalComponent, children:[
     {path:'intercambiar', component: IntercambiarComponent},
