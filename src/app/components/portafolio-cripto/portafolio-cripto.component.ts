@@ -9,7 +9,7 @@ import {Portafolio} from 'src/app/interfaces/interfaces';
 })
 export class PortafolioCriptoComponent implements OnInit {
 
-  userId:number=3; //harcodeo user id
+  userId:number=1; //harcodeo user id
   billetera :Portafolio = {
     ars:0,
     btc:0,
