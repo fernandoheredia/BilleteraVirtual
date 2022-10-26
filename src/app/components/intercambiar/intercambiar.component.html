@@ -9,17 +9,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="intercambiarModalLabel">
-          Cambio de Moneda
-        </h1>
+        <p class="modal-title fs-4" id="intercambiarModalLabel">Cambio de Moneda</p>
+        
         <button
           type="button"
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          (click)="reset()"
+          routerLink="/cuenta-personal"
         ></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body my-4 mx-2">
         <div>
           <p class="fs-6 mb-1 text-start ms-3 fst-italic">Quiero cambiar desde...</p>
           <div>
