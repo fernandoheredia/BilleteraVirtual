@@ -10,10 +10,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
 import { PortafolioCriptoComponent } from './components/portafolio-cripto/portafolio-cripto.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'quienes-somos', component: QuienesSomosComponent},
   {path:'login',component: LoginComponent},
   {path:'registro', component:RegistroComponent},
   {path:'recuperar-contraseña',component:RecuperarContrasenaComponent},

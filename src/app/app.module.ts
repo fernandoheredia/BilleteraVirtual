@@ -21,6 +21,8 @@ import { RetirarDetalleComponent } from './components/retirar-detalle/retirar-de
 import { RetirarFinalComponent } from './components/retirar-final/retirar-final.component';
 import { PortafolioCriptoComponent } from './components/portafolio-cripto/portafolio-cripto.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
     RetirarDetalleComponent,
     RetirarFinalComponent,
     PortafolioCriptoComponent,
-    RegistroComponent
+    RegistroComponent,
+    QuienesSomosComponent
   ],
   imports: [
     BrowserModule,
