@@ -38,7 +38,7 @@ export class IntercambiarComponent implements OnInit {
     this._transaccionService.precioBTCvsUSD().subscribe(
       (resp) => {
         this.arsVsBtc = resp.market_data.current_price.ars;
-        console.log('Precio del Bitcoin en Pesos = ', this.arsVsBtc);
+        
       },
       (error) => console.log(error)
     );

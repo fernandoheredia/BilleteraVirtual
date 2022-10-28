@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TransaccionesService } from "../../services/transacciones.service";
 
+import { FormGroup, FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-depositar',
   templateUrl: './depositar.component.html',
@@ -9,14 +11,29 @@ import { TransaccionesService } from "../../services/transacciones.service";
 export class DepositarComponent implements OnInit {
   userID:number = 1
   arsVsBtc: number = 0
+  montoIngresado: number =0;
+  alertShow: boolean =false
+  formDepositar = new FormGroup({
+    monto : new FormControl(this.montoIngresado)
+  })
+
   constructor(
     private _transaccionService:TransaccionesService
   ) {}
    
 
   ngOnInit(): void {
-
+    this.getPrecioBTCvsARS();
     
+  }
+  getPrecioBTCvsARS() {
+    this._transaccionService.precioBTCvsUSD().subscribe(
+      (resp) => {
+        this.arsVsBtc = resp.market_data.current_price.ars;
+        
+      },
+      (error) => console.log(error)
+    );
   }
 
   nuevoDeposito( monto:number){
@@ -26,11 +43,23 @@ export class DepositarComponent implements OnInit {
       console.log(error)
     })
   }
-  retiroTransacc(montoRetirar:number){
-    this._transaccionService.retiroTransaccion(this.userID, montoRetirar, this.arsVsBtc).subscribe(resp => console.log(resp)
-    ,err=>console.log(err)
-    )
-  }
 
+  reset(){
+    this.montoIngresado = 0;
+    this.alertShow =false
+
+  }
+  onSubmit(){
+    let monto = this.formDepositar.value
+    this.montoIngresado = monto.monto
+    console.log('monto a depositar', this.montoIngresado);
+    this.nuevoDeposito( this.montoIngresado);
+    this.alertShow =true
+    setTimeout(() => {
+      location.reload()
+    }, 500);
+  
+    }
+  
 
 }

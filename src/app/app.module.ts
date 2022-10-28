@@ -22,6 +22,7 @@ import { RetirarFinalComponent } from './components/retirar-final/retirar-final.
 import { PortafolioCriptoComponent } from './components/portafolio-cripto/portafolio-cripto.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
+import { BalanceTotalComponent } from './components/balance-total/balance-total.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
     RetirarFinalComponent,
     PortafolioCriptoComponent,
     RegistroComponent,
-    QuienesSomosComponent
+    QuienesSomosComponent,
+    BalanceTotalComponent
   ],
   imports: [
     BrowserModule,

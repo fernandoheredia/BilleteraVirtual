@@ -1,22 +1,23 @@
 <div class="container mt-3 mb-5">
   <h1>Cuenta Personal</h1>
   <section class="bg-dark p-4 my-4 rounded">
-    <div class="row">
-      <div class="col">
-        <h3 class="text-white">Balance Total</h3>
-        <p class="text-white text-center my-4 fs-1">
-          <strong>$2500</strong><span>Ars</span>
-        </p>
-      </div>
-    </div>
+    <app-balance-total></app-balance-total>
+  
     <div class="row">
       <div class="col text-center">
-        <a class="btn btn-primary" routerLink="/cuenta-personal/depositar">
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#depositarModal"
+          routerLink="/cuenta-personal/depositar">
           Depositar
-        </a>
+        </button>
+        <app-depositar ></app-depositar>
+
       </div>
       <div class="col text-center">
-        <!-- Button trigger modal -->
         <button
           type="button"
           class="btn btn-primary"
@@ -32,9 +33,7 @@
       </div>
     </div>
   </section>
-  <!-- Depositar - Intercambiar - Retirar-->
   <app-retirar></app-retirar>
   <app-portafolio-cripto></app-portafolio-cripto>
   <app-historial-transacciones></app-historial-transacciones>
-  <div style="min-height: 50vh"></div>
 </div>

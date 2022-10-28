@@ -1,3 +1,59 @@
-<p>depositar works!</p>
-<button class="btn btn-success" (click)="nuevoDeposito(80000)">Depositar 80000 !</button>
-<button class="btn btn-danger" (click)="retiroTransacc(8000)"> Retirar 8000 ARS</button>
+<div
+  class="modal fade"
+  id="depositarModal"
+  tabindex="-1"
+  aria-labelledby="depositarModalLabel"
+  aria-hidden="true"
+>
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title fs-4" id="depositarModalLabel">Depositar</p>
+        
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="reset()"
+          routerLink="/cuenta-personal"
+        ></button>
+      </div>
+      <div class="modal-body my-4 mx-2">
+        <div>
+          <p class="fs-5 mb-1 text-start ">Ingrese monto a depositar (ARS)</p>
+
+          <form [formGroup]="formDepositar" (ngSubmit)="onSubmit()" class="row mt-2" >
+            <div class="col-8">
+              <input formControlName="monto" [(ngModel)]="montoIngresado"   class="col form-control" type="number" placeholder="Inserte una cantidad" />
+            </div>
+            <div class="col-4 d-grid" width="20%">
+            <button class="btn btn-secondary"
+            type="submit"
+            
+            >Depositar</button>
+            </div>
+          </form>
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="reset()"
+          routerLink="/cuenta-personal"
+        >
+          Cerrar
+        </button>
+
+      </div>
+      <div *ngIf="alertShow"  class="alert alert-success alert-dismissible fade show" role="alert">
+        <p class="m-0 fs-4">Transaccion realizada con exito ! </p> 
+         <button type="button" class="btn-close" data-bs-dismiss="alert" routerLink="/cuenta-personal" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+    </div>
+  </div>
+</div>
