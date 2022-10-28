@@ -111,6 +111,126 @@
       "haber": 0.0031050028115800457,
       "cotARSvsBTC": 3220609,
       "id": 8
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:39 hrs",
+      "debe": 0.00819,
+      "haber": 0,
+      "cotARSvsBTC": 3225423,
+      "id": 9
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:39 hrs",
+      "debe": 0,
+      "haber": 26416.214369999998,
+      "cotARSvsBTC": 3225423,
+      "id": 10
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:41 hrs",
+      "debe": 6416,
+      "haber": 0,
+      "cotARSvsBTC": 3226075,
+      "id": 11
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:41 hrs",
+      "debe": 0,
+      "haber": 0.001988794432863464,
+      "cotARSvsBTC": 3226075,
+      "id": 12
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:41 hrs",
+      "debe": 0.002,
+      "haber": 0,
+      "cotARSvsBTC": 3226075,
+      "id": 13
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:41 hrs",
+      "debe": 0,
+      "haber": 6452.150000000001,
+      "cotARSvsBTC": 3226075,
+      "id": 14
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:42 hrs",
+      "debe": 10000,
+      "haber": 0,
+      "cotARSvsBTC": 3226380,
+      "id": 15
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:42 hrs",
+      "debe": 0,
+      "haber": 0.0030994489179823827,
+      "cotARSvsBTC": 3226380,
+      "id": 16
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:42 hrs",
+      "debe": 0.004,
+      "haber": 0,
+      "cotARSvsBTC": 3226380,
+      "id": 17
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:42 hrs",
+      "debe": 0,
+      "haber": 12905.52,
+      "cotARSvsBTC": 3226380,
+      "id": 18
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:44 hrs",
+      "debe": 30000,
+      "haber": 0,
+      "cotARSvsBTC": 3227495,
+      "id": 19
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:44 hrs",
+      "debe": 0,
+      "haber": 0.009295134461865936,
+      "cotARSvsBTC": 3227495,
+      "id": 20
     }
   ],
   "team": [

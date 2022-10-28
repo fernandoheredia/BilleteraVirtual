@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { TransaccionesService } from "../../services/transacciones.service";
 
 
@@ -7,7 +7,7 @@ import { TransaccionesService } from "../../services/transacciones.service";
   templateUrl: './balance-total.component.html',
   styleUrls: ['./balance-total.component.css']
 })
-export class BalanceTotalComponent implements OnInit {
+export class BalanceTotalComponent implements OnInit{
   userId:number = 1
   balanceTotal: any = 0
   arsVsBtc: number = 0
@@ -16,12 +16,19 @@ export class BalanceTotalComponent implements OnInit {
   constructor(
     private _transaccionService:TransaccionesService
   ) {
-    this.getPrecioBTCvsARS();
+    
    }
 
   ngOnInit(): void {
-  
-  this.getBalanceTotal();
+
+    this.getPrecioBTCvsARS();
+    setTimeout(() => {
+      this.getBalanceTotal(); 
+    }, 300);
+
+  }
+  OnChanges(): void {
+    this.getBalanceTotal();
   }
 
   getPrecioBTCvsARS() {
@@ -44,7 +51,7 @@ export class BalanceTotalComponent implements OnInit {
 
         for (let index = 0; index < respuesta.length; index++) {
           const element = respuesta[index];
-          console.log(element)
+          
           if (element.cuenta == 'ARS') {
             haberes += element.haber;
             deberes += element.debe;
@@ -55,7 +62,6 @@ export class BalanceTotalComponent implements OnInit {
           }
         }
         const disponible = haberes - deberes;
-
         this.balanceTotal = disponible.toFixed(2);
         console.log('Balance Total', this.balanceTotal);
       },
