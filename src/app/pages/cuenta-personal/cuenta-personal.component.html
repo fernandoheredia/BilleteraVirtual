@@ -11,9 +11,8 @@
     </div>
     <div class="row">
       <div class="col text-center">
-        <a class="btn btn-primary" routerLink="/cuenta-personal/depositar">
-          Depositar
-        </a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#depositarModal" routerLink="/cuenta-personal/depositar">Depositar</button>
+        <app-depositar></app-depositar>
       </div>
       <div class="col text-center">
         <!-- Button trigger modal -->
@@ -30,6 +29,7 @@
       <div class="col text-center">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" routerLink="/cuenta-personal/retirar">Retirar</button>
       </div>
+      <app-retirar></app-retirar>
     </div>
   </section>
   <!-- Depositar - Intercambiar - Retirar-->
