@@ -24,7 +24,7 @@
                       placeholder="CBU/CVU" value="{{cbu}}">
                   </div>
                   <div class="mb-3">
-                    <input type="text" id="disabledTextInput" formControlName="monto" class="form-control"
+                    <input type="text" id="disabledTextInput" formControlName="monto" [(ngModel)]="montoIngresado" class="form-control"
                       placeholder="Monto a enviar">
                   </div>
                   <div class="mb-3">
@@ -64,16 +64,16 @@
                   </svg>
                   <legend>Banco o billetera digital</legend>
                   <div class="mb-3">
-                    <label class="form-label">Monto a anviar</label><br>
-                    <!--<label class="form-label">{{usuario[0].monto}}</label>-->
+                    <label class="form-label">Monto a enviar</label><br>
+                    <label class="form-label">{{montoIngresado}}</label>
                   </div>
                   <div class="mb-3">
                     <label class="">Beneficiario</label><br>
-                    <!--<label class="form-label">{{usuario[0].nombre}}</label>-->
+                    <label class="form-label">{{beneficiario}}</label>
                   </div>
                   <div class="mb-3">
                     <label class="form-label">CBU/CVU</label><br>
-                    <!--<label class="form-label">{{usuario[0].cbu}}</label>-->
+                    <label class="form-label">{{cbu}}</label>
                   </div>
                   <div class="mb-3">
                     <div class="mb-3">

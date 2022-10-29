@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -16,7 +16,10 @@ export class RetirarComponent implements OnInit {
   montoIngresado: number = 0;
   User:any;
 
-  form: FormGroup;
+  form: FormGroup = new FormGroup({
+    monto: new FormControl(this.montoIngresado)
+  });
+
   usuario: any;
   constructor(
     private miServicio:TransaccionesService,
