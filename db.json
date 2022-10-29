@@ -5,14 +5,16 @@
       "email": "leomessi@gmail.com",
       "password": "leo",
       "Nombre": "Lionel Andres",
-      "Apellido": "Messi"
+      "Apellido": "Messi",
+      "cbu": 2056789900
     },
     {
       "userId": 2,
       "email": "mateo@gmail.com",
       "password": "a",
       "Nombre": "Mateo",
-      "Apellido": "Taricco"
+      "Apellido": "Taricco",
+      "cbu": 6953189852
     }
   ],
   "portafolio": [
@@ -64,164 +66,223 @@
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CI",
+      "codigoMovimiento": "D",
       "cuenta": "ARS",
-      "fecha": "21/10/2022 - 12:37 hrs",
-      "debe": 15000,
-      "haber": 0,
-      "cotARSvsBTC": 2928526,
+      "fecha": "28/10/2022 - 17:03 hrs",
+      "debe": 0,
+      "haber": 20000,
+      "cotARSvsBTC": 3218273,
       "id": 4
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CF",
-      "cuenta": "BTC",
-      "fecha": "21/10/2022 - 12:37 hrs",
-      "debe": 0,
-      "haber": 0.005122030673451423,
-      "cotARSvsBTC": 2928526,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:03 hrs",
+      "debe": 20000,
+      "haber": 0,
+      "cotARSvsBTC": 3218273,
       "id": 5
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CI",
-      "cuenta": "ARS",
-      "fecha": "21/10/2022 - 12:37 hrs",
-      "debe": 15000,
-      "haber": 0,
-      "cotARSvsBTC": 2928526,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:03 hrs",
+      "debe": 0,
+      "haber": 0.006214513187663073,
+      "cotARSvsBTC": 3218273,
       "id": 6
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CF",
-      "cuenta": "BTC",
-      "fecha": "21/10/2022 - 12:37 hrs",
-      "debe": 0,
-      "haber": 0.005122030673451423,
-      "cotARSvsBTC": 2928526,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:16 hrs",
+      "debe": 10000,
+      "haber": 0,
+      "cotARSvsBTC": 3220609,
       "id": 7
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CI",
+      "codigoMovimiento": "CF",
       "cuenta": "BTC",
-      "fecha": "21/10/2022 - 12:38 hrs",
-      "debe": 0.005,
-      "haber": 0,
-      "cotARSvsBTC": 2928526,
+      "fecha": "28/10/2022 - 17:16 hrs",
+      "debe": 0,
+      "haber": 0.0031050028115800457,
+      "cotARSvsBTC": 3220609,
       "id": 8
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CF",
-      "cuenta": "ARS",
-      "fecha": "21/10/2022 - 12:38 hrs",
-      "debe": 0,
-      "haber": 14642.630000000001,
-      "cotARSvsBTC": 2928526,
+      "codigoMovimiento": "CI",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:39 hrs",
+      "debe": 0.00819,
+      "haber": 0,
+      "cotARSvsBTC": 3225423,
       "id": 9
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CI",
+      "codigoMovimiento": "CF",
       "cuenta": "ARS",
-      "fecha": "24/10/2022 - 18:31 hrs",
-      "debe": 14000,
-      "haber": 0,
-      "cotARSvsBTC": 2991871,
+      "fecha": "28/10/2022 - 17:39 hrs",
+      "debe": 0,
+      "haber": 26416.214369999998,
+      "cotARSvsBTC": 3225423,
       "id": 10
     },
     {
       "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:41 hrs",
+      "debe": 6416,
+      "haber": 0,
+      "cotARSvsBTC": 3226075,
+      "id": 11
+    },
+    {
+      "idUsuario": 1,
       "codigoMovimiento": "CF",
       "cuenta": "BTC",
-      "fecha": "24/10/2022 - 18:31 hrs",
+      "fecha": "28/10/2022 - 17:41 hrs",
       "debe": 0,
-      "haber": 0.004679346134910229,
-      "cotARSvsBTC": 2991871,
-      "id": 11
+      "haber": 0.001988794432863464,
+      "cotARSvsBTC": 3226075,
+      "id": 12
     },
     {
       "idUsuario": 1,
       "codigoMovimiento": "CI",
       "cuenta": "BTC",
-      "fecha": "24/10/2022 - 18:31 hrs",
-      "debe": 0.008,
+      "fecha": "28/10/2022 - 17:41 hrs",
+      "debe": 0.002,
       "haber": 0,
-      "cotARSvsBTC": 2991871,
-      "id": 12
+      "cotARSvsBTC": 3226075,
+      "id": 13
     },
     {
       "idUsuario": 1,
       "codigoMovimiento": "CF",
       "cuenta": "ARS",
-      "fecha": "24/10/2022 - 18:31 hrs",
+      "fecha": "28/10/2022 - 17:41 hrs",
       "debe": 0,
-      "haber": 23934.968,
-      "cotARSvsBTC": 2991871,
-      "id": 13
+      "haber": 6452.150000000001,
+      "cotARSvsBTC": 3226075,
+      "id": 14
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:42 hrs",
+      "debe": 10000,
+      "haber": 0,
+      "cotARSvsBTC": 3226380,
+      "id": 15
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:42 hrs",
+      "debe": 0,
+      "haber": 0.0030994489179823827,
+      "cotARSvsBTC": 3226380,
+      "id": 16
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:42 hrs",
+      "debe": 0.004,
+      "haber": 0,
+      "cotARSvsBTC": 3226380,
+      "id": 17
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:42 hrs",
+      "debe": 0,
+      "haber": 12905.52,
+      "cotARSvsBTC": 3226380,
+      "id": 18
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "28/10/2022 - 17:44 hrs",
+      "debe": 30000,
+      "haber": 0,
+      "cotARSvsBTC": 3227495,
+      "id": 19
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "28/10/2022 - 17:44 hrs",
+      "debe": 0,
+      "haber": 0.009295134461865936,
+      "cotARSvsBTC": 3227495,
+      "id": 20
     }
   ],
   "team": [
     {
       "id": 1,
-      "name": "Juan Rodriguez", 
+      "name": "Juan Rodriguez",
       "perfil": "Web Developer NodeJS + Angular",
       "imagen": "../../../assets/img/team/imagen1.jpg"
-      
-      
     },
     {
       "id": 2,
-      "name": "Natalia Murat", 
+      "name": "Natalia Murat",
       "perfil": "Desarrolladora web",
       "imagen": "../../../assets/img/team/imagen2.jpeg"
-      
     },
     {
       "id": 3,
-      "name": "Pilar Montenegro", 
+      "name": "Pilar Montenegro",
       "perfil": "Desarrolladora web",
       "imagen": "../../../assets/img/team/imagen3.jpeg"
-      
     },
     {
       "id": 4,
-      "name": "Mateo Ferrero", 
+      "name": "Mateo Ferrero",
       "perfil": "Backend Developer C# .NET",
       "imagen": "../../../assets/img/team/imagen4.jpeg"
-      
     },
     {
       "id": 5,
-      "name": "Agustín López", 
+      "name": "Agustín López",
       "perfil": "Desarrollador web .Net",
       "imagen": "../../../assets/img/team/imagen5.jpeg"
-      
     },
     {
       "id": 6,
-      "name": "Fernanda Manzano", 
+      "name": "Fernanda Manzano",
       "perfil": "UI/UX Designer - Tester QA - Front end developer",
       "imagen": "../../../assets/img/team/imagen6.jpeg"
-      
     },
-    
     {
       "id": 7,
-      "name": "Ana Julia Ferreyra", 
+      "name": "Ana Julia Ferreyra",
       "perfil": "PHP Developer",
       "imagen": "../../../assets/img/team/imagen7.jpeg"
-      
     },
     {
       "id": 8,
-      "name": "Fernando Heredia", 
+      "name": "Fernando Heredia",
       "perfil": "Desarrollador Web",
       "imagen": "../../../assets/img/team/imagen8.jpeg"
-      
     }
-    
   ]
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TransaccionesService } from "../../services/transacciones.service";
+
 
 @Component({
   selector: 'app-depositar',
@@ -7,30 +9,36 @@ import { TransaccionesService } from "../../services/transacciones.service";
   styleUrls: ['./depositar.component.css']
 })
 export class DepositarComponent implements OnInit {
-  userID:number = 1
-  arsVsBtc: number = 0
-  constructor(
-    private _transaccionService:TransaccionesService
-  ) {}
-   
 
+  form: FormGroup;
+  cbu: string = '20200307611000021352553';
+  alias: string = 'ANGULAR.PIL.DEV';
+  monto: number = 0;
+  constructor(
+    private formbuilder:FormBuilder)
+    {
+      this.form=this.formbuilder.group({
+        monto:['', [Validators.required]]
+    })
+    }
+  
   ngOnInit(): void {
 
-    
   }
 
-  nuevoDeposito( monto:number){
-    this._transaccionService.depositoTransaccion( this.userID, monto, this.arsVsBtc ).subscribe(resp =>{
-      console.log(resp)
-    },error=>{
-      console.log(error)
-    })
+  copyInputMessage(inputElement: any){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
   }
-  retiroTransacc(montoRetirar:number){
-    this._transaccionService.retiroTransaccion(this.userID, montoRetirar, this.arsVsBtc).subscribe(resp => console.log(resp)
-    ,err=>console.log(err)
-    )
+  Continuar(){
+    if(this.form.valid)
+    {
+    console.log("Datos ingresados correctamente.");
   }
-
-
+  else
+  {
+    console.log("Datos ingresados de manera erronea.");
+  }
+}
 }

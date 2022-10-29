@@ -16,6 +16,7 @@
                 <tr>
                   <th scope="row">
                     <img
+                    class="m-0"
                       src="{{ billetera.ars_img}}"
                       width="60px"
                       height="60px"
@@ -23,14 +24,15 @@
                     />
                   </th>
                   <td>
-                    <div>
-                      <p class="m-0">{{ billetera.ars }}</p>
+                    <div class="my-3">
+                      <p class="m-0 fs-4">{{ billetera.ars }}</p>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">
-                    <img
+                    <img 
+                    class="m-0"
                       src="{{ billetera.btc_img}}"
                       width="60px"
                       height="60px"
@@ -38,21 +40,14 @@
                     />
                   </th>
                   <td>
-                    <div>
-                      <p class="m-0">{{ billetera.btc }}</p>
+                    <div class="my-3">
+                      <p class="m-0 fs-4">{{ billetera.btc }}</p>
                     </div>
                   </td>
                 </tr>
               
             </tbody>
           </table>
-        </div>
-        <div>
-          <button
-            class="btn btn-primary m-2"
-            (click)="miPortafolio(userId)">
-            Ver mi Billetera>
-          </button>
         </div>
       </div>
     </div>
