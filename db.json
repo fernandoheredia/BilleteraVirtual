@@ -5,14 +5,16 @@
       "email": "leomessi@gmail.com",
       "password": "leo",
       "Nombre": "Lionel Andres",
-      "Apellido": "Messi"
+      "Apellido": "Messi",
+      "cbu": 2056789900
     },
     {
       "userId": 2,
       "email": "mateo@gmail.com",
       "password": "a",
       "Nombre": "Mateo",
-      "Apellido": "Taricco"
+      "Apellido": "Taricco",
+      "cbu": 6953189852
     }
   ],
   "portafolio": [

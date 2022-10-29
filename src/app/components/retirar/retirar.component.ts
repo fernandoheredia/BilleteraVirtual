@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-retirar',
@@ -8,10 +9,18 @@ import { TransaccionesService } from 'src/app/services/transacciones.service';
   styleUrls: ['./retirar.component.css']
 })
 export class RetirarComponent implements OnInit {
+
+  userId: number = 1;
+  beneficiario = '';
+  cbu:number=0;
+  montoIngresado: number = 0;
+  User:any;
+
   form: FormGroup;
   usuario: any;
   constructor(
     private miServicio:TransaccionesService,
+    private userService:UsuarioService,
     private formbuilder:FormBuilder) {
       this.form=this.formbuilder.group({
         nombre:['', [Validators.required]],
@@ -21,7 +30,17 @@ export class RetirarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.mostrarBeneficiario(this.userId);
+  }
 
+  mostrarBeneficiario(userId:number){
+    this.userService.getUsuarioId(userId).subscribe((data)=>{
+      this.User = data[0];
+      this.beneficiario = this.User.Nombre;
+      this.cbu = this.User.cbu;
+      console.log("cbu: ", this.cbu);
+    }
+    )
   }
 
   Continuar(){
