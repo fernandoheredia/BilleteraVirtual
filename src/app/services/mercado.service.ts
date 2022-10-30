@@ -14,7 +14,7 @@ export class MercadoService {
   url:string = 'https://api.coingecko.com/api/v3/simple/price'
   obtenerPrecios():Observable<any>{
     let parametros = new HttpParams();
-    parametros = parametros.append('ids', 'bitcoin,ethereum');
+    parametros = parametros.append('ids', 'bitcoin,ethereum,tether,binancecoin,cardano');
     parametros = parametros.append('vs_currencies', 'ars');
     return this.http.get(this.url, {params: parametros})
   }
