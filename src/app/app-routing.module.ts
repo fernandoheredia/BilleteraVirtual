@@ -11,7 +11,7 @@ import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recup
 import { PortafolioCriptoComponent } from './components/portafolio-cripto/portafolio-cripto.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
-
+import { MercadoComponent } from './pages/mercado/mercado.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -25,6 +25,7 @@ const routes: Routes = [
     {path:'retirar', component: RetirarComponent},
     {path:'portafolio-cripto',component:PortafolioCriptoComponent}
     ]},
+  {path: 'mercado', component: MercadoComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: Pagina404Component}
 ];

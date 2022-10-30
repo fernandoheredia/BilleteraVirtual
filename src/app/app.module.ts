@@ -23,6 +23,7 @@ import { PortafolioCriptoComponent } from './components/portafolio-cripto/portaf
 import { RegistroComponent } from './pages/registro/registro.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { BalanceTotalComponent } from './components/balance-total/balance-total.component';
+import { MercadoComponent } from './pages/mercado/mercado.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { BalanceTotalComponent } from './components/balance-total/balance-total.
     PortafolioCriptoComponent,
     RegistroComponent,
     QuienesSomosComponent,
-    BalanceTotalComponent
+    BalanceTotalComponent,
+    MercadoComponent
   ],
   imports: [
     BrowserModule,
