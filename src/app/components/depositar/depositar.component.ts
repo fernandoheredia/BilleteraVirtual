@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TransaccionesService } from "../../services/transacciones.service";
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TransaccionesService } from '../../services/transacciones.service';
 
 
 @Component({
@@ -10,12 +10,19 @@ import { TransaccionesService } from "../../services/transacciones.service";
 })
 export class DepositarComponent implements OnInit {
 
-  form: FormGroup;
   cbu: string = '20200307611000021352553';
   alias: string = 'ANGULAR.PIL.DEV';
-  monto: number = 0;
+  montoIngresado: number = 0;
+  userId: number = 1;
+  arsVsBtc: number = 0;
+
+  form: FormGroup = new FormGroup({
+    monto: new FormControl(this.montoIngresado)
+  });
+
   constructor(
-    private formbuilder:FormBuilder)
+    private formbuilder:FormBuilder,
+    private transaccionService:TransaccionesService)
     {
       this.form=this.formbuilder.group({
         monto:['', [Validators.required]]
@@ -23,7 +30,6 @@ export class DepositarComponent implements OnInit {
     }
   
   ngOnInit(): void {
-
   }
 
   copyInputMessage(inputElement: any){
@@ -31,14 +37,14 @@ export class DepositarComponent implements OnInit {
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);
   }
-  Continuar(){
-    if(this.form.valid)
-    {
-    console.log("Datos ingresados correctamente.");
+
+  generarDeposito(haber:number){
+    let precioBTC: number = this.arsVsBtc;
+    haber = this.montoIngresado;
+
+    this.transaccionService.depositoTransaccion(this.userId, haber, precioBTC).subscribe(
+      (resp) => console.log(resp),
+      (error) => console.log(error)
+    );
   }
-  else
-  {
-    console.log("Datos ingresados de manera erronea.");
-  }
-}
 }
