@@ -14,11 +14,19 @@ export class RetirarComponent implements OnInit {
   beneficiario = '';
   cbu:number=0;
   montoIngresado: number = 0;
+  montoRetirar: number = 0;
+  arsVsBtc:number = 0;
+  disponible_ARS:number=0;
+  showAlert:boolean=false;
   User:any;
 
   form: FormGroup = new FormGroup({
     monto: new FormControl(this.montoIngresado)
   });
+
+  formRetirar: FormGroup = new FormGroup({
+    retiro : new FormControl(this.montoRetirar)
+  })
 
   usuario: any;
   constructor(
@@ -34,6 +42,16 @@ export class RetirarComponent implements OnInit {
 
   ngOnInit(): void {
     this.mostrarBeneficiario(this.userId);
+    this.getPrecioBTCvsARS();
+  }
+
+  getPrecioBTCvsARS(){
+    this.miServicio.precioBTCvsUSD().subscribe(
+      (data)=>{
+        this.arsVsBtc = data.market_data.current_price.ars;
+      },
+      (error)=>console.log(error)
+    );
   }
 
   mostrarBeneficiario(userId:number){
@@ -44,6 +62,54 @@ export class RetirarComponent implements OnInit {
       console.log("cbu: ", this.cbu);
     }
     )
+  }
+
+  getTotalARS(){
+    this.miServicio.getTodasTransacciones(this.userId).subscribe(
+      (data)=> {
+        let haber_ARS:number=0;
+        let debe_ARS:number=0;
+        let datos = data;
+
+        for(let index=0;index<datos.length;index++){
+          const element = datos[index];
+          if(element.cuenta=='ARS'){
+            haber_ARS += element.haber;
+            debe_ARS += element.debe;
+          }
+        }
+        const disponible = haber_ARS-debe_ARS;
+        this.disponible_ARS = disponible;
+        console.log('Pesos disponibles: ', this.disponible_ARS);
+      },
+      (error)=>console.log(error)
+    );
+  }
+
+  retirar(montoRetirar:number){
+    this.getTotalARS();
+    let precioBTC:number=this.arsVsBtc;
+    let tipo:boolean = typeof montoRetirar =='number';
+
+    if(this.disponible_ARS<montoRetirar||montoRetirar<=0){
+      console.log('Error: no se puede realizar retiro con el monto ingresado',montoRetirar);
+      console.log('Monto es number: ', tipo);
+      this.showAlert = true;
+      return;
+    }
+    
+    this.miServicio.retiroTransaccion(this.userId,montoRetirar,precioBTC).subscribe(
+      (data)=>console.log(data),
+      (error) => console.log(error)
+    );
+  }
+
+  reset(){
+    this.showAlert=false;
+    this.montoIngresado = 0;
+    this.disponible_ARS =0;
+    this.disponible_ARS = 0;
+    location.reload();
   }
 
   Continuar(){
