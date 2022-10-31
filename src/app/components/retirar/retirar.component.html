@@ -18,13 +18,23 @@
                   <div class="mb-3">
                     <input type="text" id="disabledTextInput" formControlName="nombre" class="form-control"
                       placeholder="Beneficiario" value="{{beneficiario}}">
+                      <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)" class="alert">
+                        <div *ngIf="nombre?.errors?.['required']">
+                          Nombre de beneficiario requerido
+                        </div>
+                      </div>  
                   </div>
                   <div class="mb-3">
                     <input type="text" id="disabledTextInput" formControlName="cbu" class="form-control"
-                      placeholder="CBU/CVU" value="{{cbu}}">
+                      placeholder="CBU/CVU" value="{{cbuBeneficiario}}">
+                      <div *ngIf="cbu?.invalid && (cbu?.dirty || nombre?.touched)" class="alert">
+                        <div *ngIf="cbu?.errors?.['required']">
+                          CBU requerido
+                        </div>
+                      </div> 
                   </div>
                   <div class="mb-3">
-                    <input type="number" id="disabledTextInput" formControlName="monto" [(ngModel)]="montoIngresado" class="form-control"
+                    <input type="number" id="disabledTextInput" formControlName="monto" class="form-control"
                       placeholder="Monto a enviar">
                   </div>
                   <div class="mb-3">
@@ -69,7 +79,7 @@
                   </div>
                   <div class="mb-3">
                     <label class="form-label">CBU/CVU</label><br>
-                    <label class="form-label">{{cbu}}</label>
+                    <label class="form-label">{{cbuBeneficiario}}</label>
                   </div>
                   <div class="mb-3">
                     <div class="mb-3">
@@ -83,8 +93,9 @@
                      <!--<label class="form-label">{{montoIngresado}}</label>--> 
                     </div>
                   <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#retirar-final" (click)="retirar(montoIngresado)">Confirmar
+                    data-bs-target="#retirar-final" (click)="retirar()">Confirmar
                   </button>
+                  <!--<button type="button" class="btn btn-secondary mr-2" data-dismiss="modal" routerLink="/cuenta-personal" (click)="reset()">Close</button>--> 
                 </form>
                 </div>
             </div>

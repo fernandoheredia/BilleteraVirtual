@@ -233,6 +233,16 @@
       "haber": 0.009295134461865936,
       "cotARSvsBTC": 3227495,
       "id": 20
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "31/10/2022 - 15:05 hrs",
+      "debe": 100,
+      "haber": 0,
+      "cotARSvsBTC": 3194341,
+      "id": 21
     }
   ],
   "team": [

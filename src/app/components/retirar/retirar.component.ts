@@ -12,7 +12,7 @@ export class RetirarComponent implements OnInit {
 
   userId: number = 1;
   beneficiario = '';
-  cbu:number=0;
+  cbuBeneficiario:number=0;
   montoIngresado: number = 0;
   montoRetirar: number = 0;
   arsVsBtc:number = 0;
@@ -20,13 +20,8 @@ export class RetirarComponent implements OnInit {
   showAlert:boolean=false;
   User:any;
 
-  form: FormGroup = new FormGroup({
-    monto: new FormControl(this.montoIngresado)
-  });
-
-  formRetirar: FormGroup = new FormGroup({
-    retiro : new FormControl(this.montoRetirar)
-  })
+  form!: FormGroup;
+  formRetirar!: FormGroup
 
   usuario: any;
   constructor(
@@ -37,12 +32,28 @@ export class RetirarComponent implements OnInit {
         nombre:['', [Validators.required]],
         cbu:['',[Validators.required,]],
         monto:['', [Validators.required]]
+    }),
+    this.formRetirar = this.formbuilder.group({
+      retiro:['',[Validators.required]]
     })
   }
 
   ngOnInit(): void {
     this.mostrarBeneficiario(this.userId);
     this.getPrecioBTCvsARS();
+    this.getTotalARS();
+  }
+
+  get nombre(){
+    return this.form.get("nombre");
+  }
+
+  get cbu(){
+    return this.form.get("cbu");
+  }
+
+  get monto(){
+    return this.form.get("retiro");
   }
 
   getPrecioBTCvsARS(){
@@ -58,7 +69,7 @@ export class RetirarComponent implements OnInit {
     this.userService.getUsuarioId(userId).subscribe((data)=>{
       this.User = data[0];
       this.beneficiario = this.User.Nombre;
-      this.cbu = this.User.cbu;
+      this.cbuBeneficiario = this.User.cbu;
       console.log("cbu: ", this.cbu);
     }
     )
@@ -86,19 +97,21 @@ export class RetirarComponent implements OnInit {
     );
   }
 
-  retirar(montoRetirar:number){
-    this.getTotalARS();
+  retirar(){
+    //this.getTotalARS();
     let precioBTC:number=this.arsVsBtc;
-    let tipo:boolean = typeof montoRetirar =='number';
+    console.log('Pesos disponibles: ', this.disponible_ARS);
+    let tipo: boolean = (typeof this.montoIngresado === 'string');
+    console.log("El monto ingresado es string: ", tipo);
+    //let montoRetiro:number=this.formRetirar.get('retiro')?.value;
 
-    if(this.disponible_ARS<montoRetirar||montoRetirar<=0){
-      console.log('Error: no se puede realizar retiro con el monto ingresado',montoRetirar);
-      console.log('Monto es number: ', tipo);
+    if(this.disponible_ARS<this.montoIngresado||this.montoIngresado<=0){
+      console.log('Error: no se puede realizar retiro con el monto ingresado',this.montoIngresado);
       this.showAlert = true;
       return;
     }
     
-    this.miServicio.retiroTransaccion(this.userId,montoRetirar,precioBTC).subscribe(
+    this.miServicio.retiroTransaccion(this.userId,this.montoIngresado,precioBTC).subscribe(
       (data)=>console.log(data),
       (error) => console.log(error)
     );
@@ -113,6 +126,7 @@ export class RetirarComponent implements OnInit {
   }
 
   Continuar(){
+    this.montoIngresado = this.form.get('monto')?.value;
     if(this.form.valid)
     {
     console.log("datos ingresados correctamente")
@@ -121,5 +135,6 @@ export class RetirarComponent implements OnInit {
   {
     console.log("datos ingresados de manera erronea")
   }
+  
 }
 }
