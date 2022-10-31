@@ -26,6 +26,8 @@ import { BalanceTotalComponent } from './components/balance-total/balance-total.
 import { MercadoComponent } from './pages/mercado/mercado.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,9 @@ import { MercadoComponent } from './pages/mercado/mercado.component';
     RegistroComponent,
     QuienesSomosComponent,
     BalanceTotalComponent,
-    MercadoComponent
+    MercadoComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
