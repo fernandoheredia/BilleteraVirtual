@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="success === false">
   <div class="row">
     <div class="col-12">
       <div class="w-100 d-block my-5">
@@ -7,83 +7,138 @@
             <div class="card">
               <div class="card border border-5 border-secondary">
                 <div class="card-body bg-dark text-white">
-                    <form>
-                      <div><h1>Registrate</h1></div>
-                      <!-- Email input -->
-                      <div class="form-outline mb-4">
-                        <input
-                          name="email"
-                          type="email"
-                          id="email"
-                          class="form-control"
-                          required
-                        />
-                        <label class="email-label" for="email"
-                          >Direccion email</label
+                  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                    <div><h1>Registrate</h1></div>
+
+                    <!-- nombre -->
+                    <div class="form-outline mb-4">
+                      <input
+                        [(ngModel)]="enteredNombre"
+                        name="nombre"
+                        type="text"
+                        id="nombre"
+                        class="form-control"
+                        required
+                      />
+                      <label class="nombre" for="nombre">Nombre</label>
+                    </div>
+                    <!-- apellido -->
+                    <div class="form-outline mb-4">
+                      <input
+                        [(ngModel)]="enteredApellido"
+                        name="apellido"
+                        type="text"
+                        id="apellido"
+                        class="form-control"
+                        required
+                      />
+                      <label class="apellido" for="apellido">Apellido</label>
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                      <input
+                        [(ngModel)]="enteredEmail"
+                        name="email"
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        required
+                      />
+                      <label class="email-label" for="email"
+                        >Direccion email</label
+                      >
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                      <input
+                        [(ngModel)]="enteredPassword"
+                        name="password"
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        required
+                      />
+                      <label class="password-label" for="password"
+                        >Contraseña (6 o más caracteres)</label
+                      >
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-check form-switch">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="flexSwitchCheckDefault"
+                        
+                      />
+                      <label
+                        class="form-check-label"
+                        for="flexSwitchCheckDefault"
+                      >
+                        Acepto las
+                        <a href="#" class="politicas"
+                          ><span>Condiciones de uso</span></a
                         >
-                      </div>
-
-                      <!-- Password input -->
-                      <div class="form-outline mb-4">
-                        <input
-                          name="password"
-                          type="password"
-                          id="password"
-                          class="form-control"
-                          required
-                        />
-                        <label class="password-label" for="password"
-                          >Contraseña (6 o más caracteres)</label
+                        , la
+                        <a href="#" class="politicas"
+                          ><span> Politica de privacidad</span></a
                         >
-                      </div>
-
-                      <!-- Checkbox -->
-                      <div class="form-check form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="flexSwitchCheckDefault"
-                        />
-                        <label
-                          class="form-check-label"
-                          for="flexSwitchCheckDefault"
+                        y la
+                        <a href="#" class="politicas"
+                          ><span> Politica de cookies</span></a
                         >
-                          Acepto las
-                          <a href="#" class="politicas"
-                            ><span>Condiciones de uso</span></a
-                          >
-                          , la
-                          <a href="#" class="politicas"
-                            ><span> Politica de privacidad</span></a
-                          >
-                          y la
-                          <a href="#" class="politicas"
-                            ><span> Politica de cookies</span></a
-                          >
-                          de Wallet.
-                        </label>
-                      </div>
+                        de Wallet.
+                      </label>
+                    </div>
 
-                      <!-- 2 column grid layout for inline styling -->
-                      <div class="row mb-4">
-                        <div class="col">
-                          <!-- Simple link -->
-                          <a href="recuperar-contraseña">Ya tengo una cuenta</a>
-                        </div>
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mb-4">
+                      <div class="col">
+                        <!-- Simple link -->
+                        <a href="recuperar-contraseña">Ya tengo una cuenta</a>
                       </div>
+                    </div>
 
-                      <!-- Submit button -->
-                      <button type="submit" class="btn btn-primary btn-block">
-                        Crear usuario
-                      </button>
-                    </form>
-                  </div>
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block">
+                      Crear usuario
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div style="min-height: 20vh"></div>
+  </div>
+</div>
+
+<div class="container" *ngIf="success === true">
+  <div class="row">
+    <div class="col-12">
+      <div class="w-100 d-block my-5">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-5">
+            <div class="card">
+              <div class="card border border-5 border-secondary">
+                <div class="card-body bg-dark text-white">
+                  <img
+                    src="../../../assets/img/success.png"
+                    class="img-fluid"
+                    alt="Registro exitoso"
+                  />
+                  Registro exitoso
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div style="min-height: 20vh"></div>
   </div>
 </div>

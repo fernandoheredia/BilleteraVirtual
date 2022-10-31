@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Route, Router, RouterLink } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-registro',
@@ -6,10 +11,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-
-  constructor() { }
+  success:boolean = false;
+  enteredEmail:string = '';
+  enteredPassword:string='';
+  enteredNombre:string='';
+  enteredApellido:string='';
+  
+  
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(f: NgForm){
+    
+    
+      this.usuarioService.setUsuario(this.enteredEmail,this.enteredPassword,this.enteredNombre,this.enteredApellido).subscribe(
+        (val) => {
+          this.success = true;
+          setTimeout( () => { this.router.navigate(['/home']); }, 1000 );
+          
+      },
+      response => {
+          alert('Lo sentimos, no pudimos registrar tu usuario. Intentalo mas tarde')
+      }
+      )
+    
+   
+      
   }
 
 }
