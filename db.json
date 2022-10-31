@@ -23,6 +23,14 @@
       "Apellido": "una prueba",
       "cbu": 3348523303,
       "id": 3
+    },
+    {
+      "email": "mateotari@gmail.com",
+      "password": "probando",
+      "Nombre": "Mateo",
+      "Apellido": "Taricco",
+      "cbu": 7526189641,
+      "id": 4
     }
   ],
   "portafolio": [
