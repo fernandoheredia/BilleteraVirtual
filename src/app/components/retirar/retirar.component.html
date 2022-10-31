@@ -18,13 +18,23 @@
                   <div class="mb-3">
                     <input type="text" id="disabledTextInput" formControlName="nombre" class="form-control"
                       placeholder="Beneficiario" value="{{beneficiario}}">
+                      <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)" class="alert">
+                        <div *ngIf="nombre?.errors?.['required']">
+                          Nombre de beneficiario requerido
+                        </div>
+                      </div>  
                   </div>
                   <div class="mb-3">
                     <input type="text" id="disabledTextInput" formControlName="cbu" class="form-control"
-                      placeholder="CBU/CVU" value="{{cbu}}">
+                      placeholder="CBU/CVU" value="{{cbuBeneficiario}}">
+                      <div *ngIf="cbu?.invalid && (cbu?.dirty || nombre?.touched)" class="alert">
+                        <div *ngIf="cbu?.errors?.['required']">
+                          CBU requerido
+                        </div>
+                      </div> 
                   </div>
                   <div class="mb-3">
-                    <input type="text" id="disabledTextInput" formControlName="monto" [(ngModel)]="montoIngresado" class="form-control"
+                    <input type="number" id="disabledTextInput" formControlName="monto" class="form-control"
                       placeholder="Monto a enviar">
                   </div>
                   <div class="mb-3">
@@ -45,14 +55,14 @@
     </div>
   </div>
 </div>
-<div></div>
 <!-- Modal retirar fin -->
+
 <!-- Modal retirar-detalle -->
 <div class="modal fade" id="retirar-detalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <form>
+        
           <div class="row justify-content-around">
               <div class="">
                 <div class="card-content p-2 bg-dark text-white">
@@ -65,33 +75,38 @@
                   </svg>
                   <legend>Banco o billetera digital</legend>
                   <div class="mb-3">
-                    <label class="form-label">Monto a enviar</label><br>
-                    <label class="form-label">{{montoIngresado}}</label>
-                  </div>
-                  <div class="mb-3">
                     <label class="">Beneficiario</label><br>
                     <label class="form-label">{{beneficiario}}</label>
                   </div>
                   <div class="mb-3">
                     <label class="form-label">CBU/CVU</label><br>
-                    <label class="form-label">{{cbu}}</label>
+                    <label class="form-label">{{cbuBeneficiario}}</label>
                   </div>
                   <div class="mb-3">
                     <div class="mb-3">
                       <input type="text" id="disabledTextInput" class="form-control" placeholder="PIN de transacción">
                     </div>
                   </div>
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#retirar-final">Confirmar</button>
+                  <form [formGroup]="formRetirar">
+                    <div class="mb-3">
+                      <label class="form-label">Monto a enviar</label><br>
+                     <input formControName="retiro" [ngModel]="montoIngresado" readonly placeholder="{{montoIngresado}}" value="{{montoIngresado}}" type="number">
+                     <!--<label class="form-label">{{montoIngresado}}</label>--> 
+                    </div>
+                  <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#retirar-final" (click)="retirar()">Confirmar
+                  </button>
+                  <!--<button type="button" class="btn btn-secondary mr-2" data-dismiss="modal" routerLink="/cuenta-personal" (click)="reset()">Close</button>--> 
+                </form>
                 </div>
             </div>
-          </div>
-        </form>
+          </div>        
       </div>
     </div>
   </div>
 </div>
 <!-- Modal retirar-detalle fin -->
+
 <!-- Modal retirar-final-->
 <div class="modal fade" id="retirar-final" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -114,7 +129,7 @@
                   </div>
                   <div class="">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
-                      routerLink="/cuenta-personal">Aceptar</button>
+                      routerLink="/cuenta-personal" (click)="reset()">Aceptar</button>
                   </div>
                 </div>
               </div>
@@ -122,6 +137,12 @@
         </form>
       </div>
     </div>
+
+    <div *ngIf="showAlert" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <p class="m-0 fs-4">No se puede realizar retiro con monto ingresado</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" routerLink="/cuenta-personal" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
   </div>
 </div>
 <!-- Modal retrira-final fin -->

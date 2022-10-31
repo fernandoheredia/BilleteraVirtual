@@ -23,6 +23,14 @@
       "Apellido": "una prueba",
       "cbu": 3348523303,
       "id": 3
+    },
+    {
+      "email": "mateotari@gmail.com",
+      "password": "probando",
+      "Nombre": "Mateo",
+      "Apellido": "Taricco",
+      "cbu": 7526189641,
+      "id": 4
     }
   ],
   "portafolio": [
@@ -244,13 +252,63 @@
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "D",
+      "codigoMovimiento": "R",
       "cuenta": "ARS",
-      "fecha": "31/10/2022 - 18:42 hrs",
-      "debe": 0,
-      "haber": 10000,
-      "cotARSvsBTC": 0,
+      "fecha": "31/10/2022 - 15:05 hrs",
+      "debe": 100,
+      "haber": 0,
+      "cotARSvsBTC": 3194341,
       "id": 21
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "31/10/2022 - 15:06 hrs",
+      "debe": 100,
+      "haber": 0,
+      "cotARSvsBTC": 3194341,
+      "id": 22
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "31/10/2022 - 15:18 hrs",
+      "debe": 100,
+      "haber": 0,
+      "cotARSvsBTC": 3198007,
+      "id": 23
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "31/10/2022 - 18:36 hrs",
+      "debe": 100,
+      "haber": 0,
+      "cotARSvsBTC": 3201334,
+      "id": 24
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CI",
+      "cuenta": "ARS",
+      "fecha": "31/10/2022 - 18:37 hrs",
+      "debe": 150,
+      "haber": 0,
+      "cotARSvsBTC": 3201334,
+      "id": 25
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "CF",
+      "cuenta": "BTC",
+      "fecha": "31/10/2022 - 18:37 hrs",
+      "debe": 0,
+      "haber": 0.000046855467127141375,
+      "cotARSvsBTC": 3201334,
+      "id": 26
     }
   ],
   "team": [

@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
       this.usuarioService.setUsuario(this.enteredEmail,this.enteredPassword,this.enteredNombre,this.enteredApellido).subscribe(
         (val) => {
           this.success = true;
-          setTimeout( () => { this.router.navigate(['/home']); }, 1000 );
+          setTimeout( () => { this.router.navigate(['/cuenta-personal']); }, 1000 );
           
       },
       response => {
