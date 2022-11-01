@@ -55,6 +55,14 @@
       "Apellido": "Rodriguez",
       "cbu": 2545709891,
       "id": 7
+    },
+    {
+      "email": "nadiapilarm@kdkkd.com",
+      "password": "dskdkkdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+      "Nombre": "Nadia pilar",
+      "Apellido": "Montenegro",
+      "cbu": 4042353875,
+      "id": 8
     }
   ],
   "transaccionFinal": [
@@ -367,6 +375,16 @@
       "haber": 30,
       "cotARSvsBTC": 0,
       "id": 31
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "D",
+      "cuenta": "ARS",
+      "fecha": "01/11/2022 - 13:21 hrs",
+      "debe": 0,
+      "haber": 5.5555555555555556e+32,
+      "cotARSvsBTC": 0,
+      "id": 32
     }
   ],
   "team": [
@@ -380,49 +398,55 @@
       "id": 2,
       "name": "Natalia Murat",
       "perfil": "Desarrolladora web",
-      "imagen": "../../../assets/img/team/imagen2.jpeg"
+      "imagen": "../../../assets/img/team/imagen2.jpg"
     },
     {
       "id": 3,
       "name": "Pilar Montenegro",
       "perfil": "Desarrolladora web",
-      "imagen": "../../../assets/img/team/imagen3.jpeg"
+      "imagen": "../../../assets/img/team/imagen3.jpg"
     },
     {
       "id": 4,
       "name": "Mateo Ferrero",
       "perfil": "Backend Developer C# .NET",
-      "imagen": "../../../assets/img/team/imagen4.jpeg"
+      "imagen": "../../../assets/img/team/imagen4.jpg"
     },
     {
       "id": 5,
       "name": "Agustín López",
       "perfil": "Desarrollador web .Net",
-      "imagen": "../../../assets/img/team/imagen5.jpeg"
+      "imagen": "../../../assets/img/team/imagen5.jpg"
     },
     {
       "id": 6,
       "name": "Fernanda Manzano",
       "perfil": "UI/UX Designer - Tester QA - Front end developer",
-      "imagen": "../../../assets/img/team/imagen6.jpeg"
+      "imagen": "../../../assets/img/team/imagen6.jpg"
     },
     {
       "id": 7,
       "name": "Ana Julia Ferreyra",
       "perfil": "PHP Developer",
-      "imagen": "../../../assets/img/team/imagen7.jpeg"
+      "imagen": "../../../assets/img/team/imagen7.jpg"
     },
     {
       "id": 8,
       "name": "Fernando Heredia",
       "perfil": "Desarrollador Web",
-      "imagen": "../../../assets/img/team/imagen8.jpeg"
+      "imagen": "../../../assets/img/team/imagen8.jpg"
     },
     {
       "id": 9,
       "name": "Mateo Taricco",
       "perfil": "Desarrollador Web",
       "imagen": "../../../assets/img/team/imagen9.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Pablo Adrián Vera",
+      "perfil": "Desarrollador Web",
+      "imagen": "../../../assets/img/team/imagen10.jpg"
     }
   ]
 }
