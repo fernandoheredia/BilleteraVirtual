@@ -24,7 +24,7 @@ export class BalanceTotalComponent implements OnInit{
     this.getPrecioBTCvsARS();
     setTimeout(() => {
       this.getBalanceTotal(); 
-    }, 300);
+    }, 500);
 
   }
   OnChanges(): void {

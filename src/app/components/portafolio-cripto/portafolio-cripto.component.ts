@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import {Portafolio} from 'src/app/interfaces/interfaces';
+import { CurrencyPipe } from '@angular/common';
+import { CurrencyFormat } from 'src/app/models/pipemonedas';
 
 @Component({
   selector: 'app-portafolio-cripto',
@@ -18,7 +20,9 @@ export class PortafolioCriptoComponent implements OnInit {
   }; //property publica para el binding con vista
   
 
-  constructor(private miServicio:TransaccionesService) { }
+  constructor(
+    private miServicio:TransaccionesService
+    ) { }
 
   ngOnInit(): void {
     this.miPortafolio(this.userId);
