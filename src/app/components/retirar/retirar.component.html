@@ -22,7 +22,7 @@
                         <div *ngIf="nombre?.errors?.['required']">
                           Nombre de beneficiario requerido
                         </div>
-                      </div>  
+                      </div>
                   </div>
                   <div class="mb-3">
                     <input type="text" id="disabledTextInput" formControlName="cbu" class="form-control"
@@ -31,7 +31,7 @@
                         <div *ngIf="cbu?.errors?.['required']">
                           CBU requerido
                         </div>
-                      </div> 
+                      </div>
                   </div>
                   <div class="mb-3">
                     <input type="number" id="disabledTextInput" formControlName="monto" class="form-control"
@@ -62,7 +62,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        
+
           <div class="row justify-content-around">
               <div class="">
                 <div class="card-content p-2 bg-dark text-white">
@@ -91,16 +91,16 @@
                     <div class="mb-3">
                       <label class="form-label">Monto a enviar</label><br>
                      <input formControName="retiro" [ngModel]="montoIngresado" readonly placeholder="{{montoIngresado}}" value="{{montoIngresado}}" type="number">
-                     <!--<label class="form-label">{{montoIngresado}}</label>--> 
+                     <!--<label class="form-label">{{montoIngresado}}</label>-->
                     </div>
                   <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#retirar-final" (click)="retirar()">Confirmar
                   </button>
-                  <!--<button type="button" class="btn btn-secondary mr-2" data-dismiss="modal" routerLink="/cuenta-personal" (click)="reset()">Close</button>--> 
+                  <!--<button type="button" class="btn btn-secondary mr-2" data-dismiss="modal" routerLink="/cuenta-personal" (click)="reset()">Close</button>-->
                 </form>
                 </div>
             </div>
-          </div>        
+          </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Retirar } from 'src/app/models/retirar';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -56,7 +57,7 @@ export class RetirarComponent implements OnInit {
     return this.form.get("retiro");
   }
 
-  getPrecioBTCvsARS(){
+ /* getPrecioBTCvsARS(){
     this.miServicio.precioBTCvsUSD().subscribe(
       (data)=>{
         this.arsVsBtc = data.market_data.current_price.ars;
@@ -65,7 +66,7 @@ export class RetirarComponent implements OnInit {
     );
   }
 
-  mostrarBeneficiario(userId:number){
+  /*mostrarBeneficiario(userId:number){
     this.userService.getUsuarioId(userId).subscribe((data)=>{
       this.User = data[0];
       this.beneficiario = this.User.Nombre;
@@ -75,7 +76,7 @@ export class RetirarComponent implements OnInit {
     )
   }
 
-  getTotalARS(){
+  /*getTotalARS(){
     this.miServicio.getTodasTransacciones(this.userId).subscribe(
       (data)=> {
         let haber_ARS:number=0;
@@ -95,9 +96,9 @@ export class RetirarComponent implements OnInit {
       },
       (error)=>console.log(error)
     );
-  }
+  }*/
 
-  retirar(){
+  /*retirar(){
     //this.getTotalARS();
     let precioBTC:number=this.arsVsBtc;
     console.log('Pesos disponibles: ', this.disponible_ARS);
@@ -110,12 +111,12 @@ export class RetirarComponent implements OnInit {
       this.showAlert = true;
       return;
     }
-    
+
     this.miServicio.retiroTransaccion(this.userId,this.montoIngresado,precioBTC).subscribe(
       (data)=>console.log(data),
       (error) => console.log(error)
     );
-  }
+  }*/
 
   reset(){
     this.showAlert=false;
@@ -134,7 +135,16 @@ export class RetirarComponent implements OnInit {
   else
   {
     console.log("datos ingresados de manera erronea")
-  }
-  
+  }*/
+
 }
+retiro()
+{
+  if(this.form.valid){
+  let nombre:string = this.form.get("nombre")?.value;
+  let cbu:number = this.form.get("nombre")?.value;
+  let monto:number = this.form.get("nombre")?.value;
+  let retirar:Retirar = new Retirar(nombre,cbu,monto);
+  this.miServicio.retiroTransaccion(retirar).subscribe(respueta=>{})
 }
+}}
