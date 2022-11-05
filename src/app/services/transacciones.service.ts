@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {formatDate} from '@angular/common';
+import { Transaccion } from '../models/transaccion';
 
 
 @Injectable({
@@ -64,7 +65,7 @@ export class TransaccionesService {
   }
 
 
-  retiroTransaccion(idUsuario:number, debe:number, cotizacionBTC:number):Observable<any>
+  /*retiroTransaccion(idUsuario:number, debe:number, cotizacionBTC:number):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
@@ -76,7 +77,14 @@ export class TransaccionesService {
     haber: 0,
     cotARSvsBTC: cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
+  }*/
+
+  retiroTransaccion(transaccion:Transaccion):Observable<any>
+  {
+    return this.http.post("http://localhost:3000/transaccionFinal/",transaccion,
+    { responseType: "json" , withCredentials: false  })
   }
+  
   precioBTCvsUSD():Observable<any>
   {
     return this.http.get("https://api.coingecko.com/api/v3/coins/bitcoin")
