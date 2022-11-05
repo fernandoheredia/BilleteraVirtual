@@ -395,6 +395,56 @@
       "haber": 0,
       "cotARSvsBTC": 3378164,
       "id": 33
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "05/11/2022 - 17:53 hrs",
+      "debe": 100,
+      "haber": 0,
+      "cotARSvsBTC": 3379993,
+      "id": 34
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "05/11/2022 - 18:05 hrs",
+      "debe": 100,
+      "haber": 0,
+      "cotARSvsBTC": 3376825,
+      "id": 35
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "05/11/2022 - 18:05 hrs",
+      "debe": 100,
+      "haber": 0,
+      "cotARSvsBTC": 3376825,
+      "id": 36
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "05/11/2022 - 19:24 hrs",
+      "debe": 0,
+      "haber": 0,
+      "cotARSvsBTC": 3379654,
+      "id": 37
+    },
+    {
+      "idUsuario": 1,
+      "codigoMovimiento": "R",
+      "cuenta": "ARS",
+      "fecha": "05/11/2022 - 19:25 hrs",
+      "debe": 10,
+      "haber": 0,
+      "cotARSvsBTC": 3378462,
+      "id": 38
     }
   ],
   "team": [

@@ -16,8 +16,10 @@
                   <h5><label>Tranferencia bancaria</label></h5>
                   <legend>Banco o billetera digital</legend>
                   <div class="mb-3">
-                    <input type="text" id="disabledTextInput" formControlName="nombre" class="form-control"
-                      placeholder="Beneficiario" value="{{beneficiario}}">
+                    <select type="text" id="disabledTextInput" formControlName="nombre" class="form-control"
+                      placeholder="Beneficiario" readonly type="text">
+                      <option value="{{beneficiario}}">beneficiario</option>
+                    </select>
                       <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)" class="alert">
                         <div *ngIf="nombre?.errors?.['required']">
                           Nombre de beneficiario requerido
@@ -25,8 +27,10 @@
                       </div>
                   </div>
                   <div class="mb-3">
-                    <input type="text" id="disabledTextInput" formControlName="cbu" class="form-control"
-                      placeholder="CBU/CVU" value="{{cbuBeneficiario}}">
+                    <select type="text" id="disabledTextInput" formControlName="cbu" class="form-control"
+                      placeholder="CBU/CVU">
+                      <option value="{{cbuBeneficiario}}">beneficiario</option>
+                      </select>
                       <div *ngIf="cbu?.invalid && (cbu?.dirty || nombre?.touched)" class="alert">
                         <div *ngIf="cbu?.errors?.['required']">
                           CBU requerido

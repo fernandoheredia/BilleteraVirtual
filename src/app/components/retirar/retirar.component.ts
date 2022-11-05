@@ -13,6 +13,8 @@ import {formatDate} from '@angular/common';
 })
 export class RetirarComponent implements OnInit {
 
+  a="Lionel Andres"
+
   userId: number = 1;
   beneficiario = '';
   cbuBeneficiario:number=0;
@@ -22,7 +24,7 @@ export class RetirarComponent implements OnInit {
   showAlertMonto:boolean=false;
   showAlertDestino:boolean=false;
   User:any;
-  
+
   amountState:boolean=false;
 
   form!: FormGroup;
@@ -112,10 +114,10 @@ export class RetirarComponent implements OnInit {
     //let montoRetiro:number=this.formRetirar.get('retiro')?.value;
     //validación que haría en modal anterior
 
-    //creacion de obj transacción de tipo 'R' 
+    //creacion de obj transacción de tipo 'R'
     let retiroT:Transaccion=new Transaccion(this.userId,"R","ARS",fecha,
                             debe,0,precioBTC);
-    
+
     this.miServicio.retiroTransaccion(retiroT).subscribe(
       (data)=>console.log(data),
       (error) => console.log(error)
@@ -151,23 +153,17 @@ export class RetirarComponent implements OnInit {
       console.log('Error: no se puede realizar retiro con el monto ingresado',this.montoIngresado);
       this.showAlertMonto = true;
       return;
-    }else if (this.form.get('cbu')?.value!=this.cbuBeneficiario||
-    this.form.get('nombre')?.value!=this.beneficiario) 
+    }
+    if (this.form.get('cbu')?.value!=this.cbuBeneficiario||
+    this.form.get('nombre')?.value!=this.beneficiario)
     {
+
       console.log('Error: cuenta de destino no registrada');
       this.showAlertDestino = true;
       return;
     }
 
-    if(this.form.valid)
-    {
-      console.log("datos ingresados correctamente");
-    }
-    else
-    { 
-      console.log("datos ingresados de manera erronea");
-      return;
-    }
+
 
 }
 
