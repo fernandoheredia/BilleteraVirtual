@@ -80,14 +80,20 @@
                     type="number"
                     placeholder="Inserte una cantidad"
                   />
+                  <br>
+                  <div *ngIf="showAlertMonto" class="alert alert-danger fade show" role="alert">
+                    Monto ingresado invalido!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" routerLink="/cuenta-personal" data-bs-dismiss="modal" aria-label="Close" (click)="reset()"></button>
+                  </div>
                 </div>
                 <button
-                  type="button"
-                  class="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#depositar-detalle"
-                  (click)="generarDeposito(montoIngresado)"
-                >
+                    type="button"
+                    class="btn btn-primary"
+                    [disabled]="showAlertMonto"
+                    routerLink="/cuenta-personal"
+                    (click)="generarDeposito(montoIngresado)"
+                    data-bs-dismiss="alert"
+                    >
                   Continuar
                 </button>
               </div>
@@ -97,4 +103,3 @@
       </div>
     </div>
   </div>
-</div>
