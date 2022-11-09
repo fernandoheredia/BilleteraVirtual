@@ -16,8 +16,8 @@
                   <h5><label>Tranferencia bancaria</label></h5>
                   <legend>Banco o billetera digital</legend>
                   <div class="mb-3">
-                    <input type="text" id="disabledTextInput" formControlName="nombre" class="form-control"
-                      placeholder="Beneficiario" value="{{beneficiario}}">
+                    <input type="text" id="nombreInput" formControlName="nombre" class="form-control"
+                      placeholder="Beneficiario">
                       <div *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)" class="alert">
                         <div *ngIf="nombre?.errors?.['required']">
                           Nombre de beneficiario requerido
@@ -25,27 +25,33 @@
                       </div>
                   </div>
                   <div class="mb-3">
-                    <input type="text" id="disabledTextInput" formControlName="cbu" class="form-control"
-                      placeholder="CBU/CVU" value="{{cbuBeneficiario}}">
-                      <div *ngIf="cbu?.invalid && (cbu?.dirty || nombre?.touched)" class="alert">
+                    <input type="text" id="cbuInput" formControlName="cbu" class="form-control"
+                      placeholder="CBU/CVU" >
+                      <div *ngIf="cbu?.invalid && (cbu?.dirty || cbu?.touched)" class="alert">
                         <div *ngIf="cbu?.errors?.['required']">
                           CBU requerido
                         </div>
                       </div>
                   </div>
                   <div class="mb-3">
-                    <input type="number" (input)="onAmountInput()" id="disabledTextInput" formControlName="monto" class="form-control"
+                    <input type="number" id="montoInput" formControlName="monto" class="form-control"
                       placeholder="Monto a enviar">
+                      <div *ngIf="monto?.invalid && (monto?.dirty || monto?.touched)" class="alert">
+                        <div *ngIf="monto?.errors?.['required']">
+                          Monto requerido
+                        </div>
+                      </div>
                   </div>
                   <div class="mb-3">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck">
+                      <input class="form-check-input" type="checkbox" id="chbx" (change)="checkForm($event)">
                       <label class="form-check-label" for="disabledFieldsetCheck">
                         Can't check this
                       </label>
                     </div>
                   </div>
-                  <button type="button" [disabled]="amountState" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#retirar-detalle"
+                  <p *ngIf="amountState">El monto ingresado no es válido</p>
+                  <button type="button" id="btn" disabled [(ngModel)]="amount" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#retirar-detalle"
                     (click)="Continuar()">Continuar</button>
                 </div>
               </div>
@@ -53,6 +59,15 @@
         </form>
       </div>
     </div>
+    
+  </div>
+  <div *ngIf="showAlertMonto" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p class="m-0 fs-4">No se puede realizar retiro con monto ingresado</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div *ngIf="showAlertDestino" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p class="m-0 fs-4">La cuenta de destino no está registrada</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 </div>
 <!-- Modal retirar fin -->
@@ -134,16 +149,6 @@
         </form>
       </div>
     </div>
-
-    <div *ngIf="showAlertMonto" class="alert alert-warning alert-dismissible fade show" role="alert">
-      <p class="m-0 fs-4">No se puede realizar retiro con monto ingresado</p>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" routerLink="/cuenta-personal" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div *ngIf="showAlertDestino" class="alert alert-warning alert-dismissible fade show" role="alert">
-      <p class="m-0 fs-4">La cuenta de destino no está registrada</p>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" routerLink="/cuenta-personal" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-
   </div>
 </div>
 <!-- Modal retrira-final fin -->
