@@ -17,6 +17,7 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./retirar.component.css'],
 })
 export class RetirarComponent implements OnInit {
+
   userId: number = 1;
   beneficiario = '';
   cbuBeneficiario: number = 0;
@@ -117,6 +118,7 @@ export class RetirarComponent implements OnInit {
     //validación que haría en modal anterior
 
     //creacion de obj transacción de tipo 'R'
+
     let retiroT: Transaccion = new Transaccion(
       this.userId,
       'R',
@@ -156,6 +158,7 @@ export class RetirarComponent implements OnInit {
   }*/
 
   //disable si faltan campos o monto no válido
+
   Continuar() {}
 
   checkForm(e: any) {
@@ -211,6 +214,7 @@ export class RetirarComponent implements OnInit {
       return;
     }
   }
+
 
   /*retiro()
 {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { resetFakeAsyncZone } from '@angular/core/testing';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TransaccionesService } from '../../services/transacciones.service';
 
@@ -15,6 +16,8 @@ export class DepositarComponent implements OnInit {
   montoIngresado: number = 0;
   userId: number = 1;
   arsVsBtc: number = 0;
+
+  showAlertMonto:boolean=false;
 
   form: FormGroup = new FormGroup({
     monto: new FormControl(this.montoIngresado)
@@ -42,9 +45,27 @@ export class DepositarComponent implements OnInit {
     let precioBTC: number = this.arsVsBtc;
     haber = this.montoIngresado;
 
-    this.transaccionService.depositoTransaccion(this.userId, haber, precioBTC).subscribe(
-      (resp) => console.log(resp),
-      (error) => console.log(error)
-    );
+    if (haber <= 0) {
+      this.showAlertMonto = true;
+      return;
+    }
+
+    if (haber > 0) {
+      this.transaccionService.depositoTransaccion(this.userId, haber, precioBTC).subscribe(
+        (resp) => console.log(resp),
+        (error) => console.log(error)
+      );
+      this.showAlertMonto = false;
+      setTimeout(() => {
+        location.reload()
+      }, 500);  
+    }
+    else{
+      this.showAlertMonto = true;
+    }
+  }
+
+  reset(){
+    this.showAlertMonto = false;
   }
 }
