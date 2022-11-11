@@ -24,6 +24,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { BalanceTotalComponent } from './components/balance-total/balance-total.component';
 import { MercadoComponent } from './pages/mercado/mercado.component';
+import { ARSPipe } from './pipes/ars.pipe';
+import { BTCPipe } from './pipes/btc.pipe';
 
 
 
@@ -49,6 +51,8 @@ import { MercadoComponent } from './pages/mercado/mercado.component';
     QuienesSomosComponent,
     BalanceTotalComponent,
     MercadoComponent,
+    ARSPipe,
+    BTCPipe,
     
     
   ],
