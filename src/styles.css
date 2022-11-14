@@ -4,7 +4,7 @@
   --secondary: #678094;
   --light: #a4b0bc;
   --dark: #0c2438;
-  --blanco: #fff;
+  --blanco: rgb(246, 246, 246);
   --verde: rgb(71, 179, 71);
   --rojo: rgb(222, 44, 44);
   --border-radius: 3px;
@@ -58,6 +58,21 @@ color: var(--secondary);
 }
 .rounded{
   border-radius: var(--border-radius) !important;
+}
+.table{
+  vertical-align: middle !important;
+}
+.table-dark{
+    --light: var(--blanco);
+    --bs-table-color:var(--primary) ;
+    --bs-table-bg: var(--dark);
+    --bs-table-border-color: var(--secondary);
+    --bs-table-striped-bg: var(--light);
+    --bs-table-striped-color: var(--dark);
+    --bs-table-active-bg: var(--primary);
+    --bs-table-active-color: var(--dark);
+    --bs-table-hover-bg: var(--primary);
+    --bs-table-hover-color: var(--dark);
 }
 
 
