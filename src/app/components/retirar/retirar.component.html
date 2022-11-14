@@ -37,7 +37,7 @@
                     placeholder="Beneficiario"
                   />
                   <div
-                    *ngIf="
+                    *ngIf=" 
                       nombre?.invalid && (nombre?.dirty || nombre?.touched)
                     "
                     class="alert"
@@ -103,8 +103,7 @@
                 <button
                   type="button"
                   id="btn"
-                  disabled
-                  [(ngModel)]="amount"
+                  [disabled]="hola"
                   class="btn btn-primary"
                   data-bs-toggle="modal"
                   data-bs-target="#retirar-detalle"

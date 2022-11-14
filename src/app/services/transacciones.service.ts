@@ -5,10 +5,14 @@ import {formatDate} from '@angular/common';
 import { Transaccion } from '../models/transaccion';
 
 
+enum codigoTransaccion {Deposito = 'D' , CambioInicial= 'CI', CambioFinal= 'CF' , Retiro= 'R'}
+enum codigoCuenta { pesosArgentinos = 'ARS', bitcoin = 'BTC'}
 @Injectable({
   providedIn: 'root'
 })
 export class TransaccionesService {
+
+
   date: number
   constructor(
     private http: HttpClient
@@ -30,20 +34,21 @@ export class TransaccionesService {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
     idUsuario: idUsuario,
-    codigoMovimiento: "D",
-    cuenta: "ARS",
+    codigoMovimiento: codigoTransaccion.Deposito,
+    cuenta: codigoCuenta.pesosArgentinos,
     fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : 0, 
     haber: haber,
     cotARSvsBTC: cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
   }
+
   cambioTransaccionDebitar(idUsuario:number,cuentaDebitar:string, montoDebitar:number, cotizacionBTC:number ):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
       idUsuario: idUsuario,
-      codigoMovimiento: "CI",
+      codigoMovimiento: codigoTransaccion.CambioInicial,
       cuenta: cuentaDebitar,
       fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
       debe : montoDebitar, 
@@ -55,7 +60,7 @@ export class TransaccionesService {
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     idUsuario: idUsuario,
-    codigoMovimiento: "CF",
+    codigoMovimiento: codigoTransaccion.CambioFinal,
     cuenta: cuentaDestino,
     fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : 0, 
@@ -65,21 +70,22 @@ export class TransaccionesService {
   }
 
 
-  /*retiroTransaccion(idUsuario:number, debe:number, cotizacionBTC:number):Observable<any>
+  retiroTransaccion(idUsuario:number, debe:number, cotizacionBTC:number):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
     idUsuario: idUsuario,
-    codigoMovimiento: "R",
-    cuenta: "ARS",
+    codigoMovimiento: codigoTransaccion.Retiro,
+    cuenta: codigoCuenta.pesosArgentinos,
     fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : debe, 
     haber: 0,
     cotARSvsBTC: cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
-  }*/
+  }
 
-  retiroTransaccion(transaccion:Transaccion):Observable<any>
+  
+  retiroTransaccion2(transaccion:Transaccion):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",transaccion,
     { responseType: "json" , withCredentials: false  })

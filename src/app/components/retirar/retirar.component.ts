@@ -28,7 +28,7 @@ export class RetirarComponent implements OnInit {
   showAlertDestino: boolean = false;
   User: any;
   amountState: boolean = false;
-  amount: number = 0;
+  hola: boolean = true;
 
   form!: FormGroup;
 
@@ -44,6 +44,7 @@ export class RetirarComponent implements OnInit {
       monto: ['', [Validators.required]],
     });
   }
+
 
   ngOnInit(): void {
     this.mostrarBeneficiario(this.userId);
@@ -129,7 +130,7 @@ export class RetirarComponent implements OnInit {
       precioBTC
     );
 
-    this.miServicio.retiroTransaccion(retiroT).subscribe(
+    this.miServicio.retiroTransaccion2(retiroT).subscribe(
       (data) => console.log(data),
       (error) => console.log(error)
     );
