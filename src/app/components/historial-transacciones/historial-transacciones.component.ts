@@ -65,9 +65,11 @@ export class HistorialTransaccionesComponent implements OnInit {
           }
           switch (element.cuenta) {
             case 'ARS':
+              element.booleanARS = true;
               element.imgCuenta = '../../../assets/img/ARS.png';
               break;
             case 'BTC':
+              element.booleanARS = false;
               element.imgCuenta = '../../../assets/img/BTC.png';
               break;
             default:
@@ -75,15 +77,16 @@ export class HistorialTransaccionesComponent implements OnInit {
           }
           if (element.debe == 0) {
             //Ingreso de dinero a la cuenta element.cuenta
-            element.monto = '+' + element.haber;
+            element.signo = '+ ';
+            element.monto = element.haber;
           }
           if (element.haber == 0) {
             //Egreso de dinero de la cuenta element.cuenta
-            element.monto = '-' + element.debe;
+            element.signo = '- ';
+            element.monto = element.debe;
           }
           this.dataTransacciones.push(element);
         }
-        console.log('Objeto a trabajar: ', this.dataTransacciones);
       },
       (error) => {
         console.warn(error.message);
@@ -128,9 +131,11 @@ export class HistorialTransaccionesComponent implements OnInit {
           }
           switch (element.cuenta) {
             case 'ARS':
+              element.booleanARS = true;
               element.imgCuenta = '../../../assets/img/ARS.png';
               break;
             case 'BTC':
+              element.booleanARS = false;
               element.imgCuenta = '../../../assets/img/BTC.png';
               break;
             default:
@@ -138,16 +143,17 @@ export class HistorialTransaccionesComponent implements OnInit {
           }
           if (element.debe == 0) {
             //Ingreso de dinero a la cuenta element.cuenta
-            element.monto = '+' + element.haber;
+            element.signo = '+ ';
+            element.monto = element.haber;
           }
           if (element.haber == 0) {
             //Egreso de dinero de la cuenta element.cuenta
-            element.monto = '-' + element.debe;
+            element.signo = '- ';
+            element.monto = element.debe;
           }
 
           this.dataTransacciones.push(element);
         }
-        console.log('Objeto a trabajar: ', this.dataTransacciones);
       },
       (error) => {
         console.warn(error.message);

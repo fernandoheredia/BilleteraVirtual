@@ -40,7 +40,7 @@
                   </div>
                 </td>
                 <td [ngClass]="item.classRed ? 'text-danger2' : 'text-success2'">
-                  {{ item.monto  }}
+                  {{ item.signo }}{{ item.booleanARS ? (item.monto | ARS) : (item.monto | BTC)   }}
                 </td>
               </tr>
             </ng-container>

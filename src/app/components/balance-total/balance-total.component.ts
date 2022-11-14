@@ -61,9 +61,7 @@ export class BalanceTotalComponent implements OnInit{
             deberes += (element.debe * this.arsVsBtc);
           }
         }
-        const disponible = haberes - deberes;
-        this.balanceTotal = disponible.toFixed(2);
-        console.log('Balance Total', this.balanceTotal);
+        this.balanceTotal = haberes - deberes;
       },
       (error) => console.log(error)
     );

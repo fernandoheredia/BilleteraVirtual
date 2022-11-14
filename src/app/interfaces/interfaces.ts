@@ -11,6 +11,8 @@ export interface DataTransacciones {
     idUsuario:            number;
     imgCuenta:            string;
     monto:                number;
+    signo:                string;
+    booleanARS:           boolean;
 }
 
 export interface Portafolio {

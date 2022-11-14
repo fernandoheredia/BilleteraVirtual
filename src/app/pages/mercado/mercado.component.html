@@ -4,40 +4,39 @@
       <div class="row">
           <div class="col-12">
             <div class="border-5">
-              <table class="table table-bordered table-striped table-dark">
-                <caption>Listado de precios de criptomonedas.</caption>
+              <table class="table table-striped table-dark text-light">
                 <thead>
                   <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Moneda</th>
-                    <th scope="col">Valor en pesos</th>
+                    <th scope="col" class=" text-blanco"></th>
+                    <th scope="col" class=" text-blanco">Moneda</th>
+                    <th scope="col" class=" text-blanco">Valor en pesos</th>
                   </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="text-light">
                   <tr>
-                    <th scope="row"><img src="../../../assets/img/BTC.png" class="img-fluid" alt="Logo BTC"></th>
-                    <td>BTC</td>
-                    <td>$ {{ this.precios.bitcoin.ars }}</td>
+                    <td scope="row"><img src="../../../assets/img/BTC.png" class="img-fluid" alt="Logo BTC"></td>
+                    <td class="text-light">BTC</td>
+                    <td class="text-light">$ {{ this.precios.bitcoin.ars }}</td>
                   </tr>
-                  <tr>
+                  <tr >
                     <th scope="row"><img src="../../../assets/img/ETH.png" class="img-fluid" alt="Logo ETH"></th>
-                    <td>ETH</td>
-                    <td>${{ this.precios.ethereum.ars }}</td>
+                    <td class="text-light">ETH</td>
+                    <td class="text-light">${{ this.precios.ethereum.ars }}</td>
                   </tr>
                   <tr>
                     <th scope="row"><img src="../../../assets/img/USDT.png" class="img-fluid" alt="Logo ETH"></th>
-                    <td>USDT</td>
-                    <td>${{ this.precios.tether.ars }}</td>
+                    <td class="text-light">USDT</td>
+                    <td class="text-light">${{ this.precios.tether.ars }}</td>
                   </tr>
                   <tr>
                     <th scope="row"><img src="../../../assets/img/BNB.png" class="img-fluid" alt="Logo ETH"></th>
-                    <td>BNB</td>
-                    <td>${{ this.precios.binancecoin.ars }}</td>
+                    <td class="text-light">BNB</td>
+                    <td class="text-light">${{ this.precios.binancecoin.ars }}</td>
                   </tr>
                   <tr>
                     <th scope="row"><img src="../../../assets/img/ADA.png" class="img-fluid" alt="Logo ETH"></th>
-                    <td>ADA</td>
-                    <td>${{ this.precios.cardano.ars }}</td>
+                    <td class="text-light">ADA</td>
+                    <td class="text-light">${{ this.precios.cardano.ars }}</td>
                   </tr>
                 </tbody>
               </table>
