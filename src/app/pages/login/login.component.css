@@ -1,3 +1,6 @@
-p{
-    color: red;
+.login{
+    min-height: 100vh;
+}
+.mensajeError{
+    color: var(--rojo);
 }

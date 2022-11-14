@@ -1,7 +1,7 @@
-<section class="bg-dark p-4 rounded">
+<section class="bg-secundario p-4 rounded">
   <div class="row">
     <div class="col">
-      <h3 class="text-white">Historial de transacciones</h3>
+      <h3 class="text-white fs-3">Historial de transacciones</h3>
       <div>
         <button
           *ngIf="!transaccionesTodas"
@@ -19,28 +19,28 @@
         </button>
       </div>
       <div class="table-responsive">
-        <table class="table table-dark table-hover">
+        <table class="table table-striped table-dark table-hover">
           <tbody>
             <ng-container>
               <tr *ngFor="let item of dataTransacciones">
-                <th scope="row">
+                <th scope="row " class="align-middle">
                   <img
                     src="{{ item.imgCuenta }}"
-                    width="60px"
-                    height="60px"
+                    width="50px"
+                    height="50px"
                     alt="moneda {{ item.cuenta }}"
                   />
                 </th>
                 <td>
-                  <div>
-                    <p class="m-0" [ngClass]="item.classRed ? 'text-danger2' : 'text-success2'">
+                  <div class="align-middle text-end pe-5">
+                    <p class="m-0 fs-5" [ngClass]="item.classRed ? 'text-danger2' : 'text-success2'">
                       {{ item.codigoMovimientoText }}{{ item.cuenta }}
                     </p>
-                    <p class="m-0 fst-italic">{{ item.fecha }}</p>
+                    <p class="m-0 fs-6 fst-italic">{{ item.fecha }}</p>
                   </div>
                 </td>
-                <td [ngClass]="item.classRed ? 'text-danger2' : 'text-success2'">
-                  {{ item.signo }}{{ item.booleanARS ? (item.monto | ARS) : (item.monto | BTC)   }}
+                <td class="align-middle text-end pe-5"  >
+                 <p class="m-0 fs-5" [ngClass]="item.classRed ? 'text-danger2' : 'text-success2'">  {{ item.signo }}{{ item.booleanARS ? (item.monto | ARS) : (item.monto | BTC)   }} </p>
                 </td>
               </tr>
             </ng-container>

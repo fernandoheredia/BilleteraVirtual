@@ -1,6 +1,6 @@
 .text-danger2{
-    color: rgb(222, 44, 44);
+    color: var(--rojo);
 }
 .text-success2{
-    color: rgb(71, 179, 71);
+    color: var(--verde);
 }
