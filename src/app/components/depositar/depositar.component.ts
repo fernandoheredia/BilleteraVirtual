@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { TransaccionesService } from '../../services/transacciones.service';
 
 
@@ -11,8 +12,8 @@ import { TransaccionesService } from '../../services/transacciones.service';
 })
 export class DepositarComponent implements OnInit {
 
-  cbu: string = '20200307611000021352553';
-  alias: string = 'ANGULAR.PIL.DEV';
+  nombreUsuario:string = '';
+  cbuUsuario: number = 0;
   montoIngresado: number = 0;
   userId: number = 1;
   arsVsBtc: number = 0;
@@ -25,16 +26,28 @@ export class DepositarComponent implements OnInit {
 
   constructor(
     private formbuilder:FormBuilder,
-    private transaccionService:TransaccionesService)
-    {
+    private transaccionService:TransaccionesService,
+    private usuarioService:UsuarioService
+    ){
       this.form=this.formbuilder.group({
         monto:['', [Validators.required]]
     })
     }
   
   ngOnInit(): void {
+    this.infoUsuarioById(this.userId);
   }
-
+  infoUsuarioById(id:number){
+  this.usuarioService.getUsuarioId(id).subscribe(
+      (resp) =>{
+        let [respuesta] = resp;
+        console.log('RESPUESDLASKJ',respuesta)
+        this.cbuUsuario = respuesta.cbu;
+        this.nombreUsuario = respuesta.Nombre + ' ' + respuesta.Apellido;
+      },
+      (err)=> console.log(err)
+    );
+  }
   copyInputMessage(inputElement: any){
     inputElement.select();
     document.execCommand('copy');
