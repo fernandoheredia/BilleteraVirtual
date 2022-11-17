@@ -2,11 +2,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {formatDate} from '@angular/common';
-import { Transaccion } from '../models/transaccion';
+import { Transaccion } from '../models/transaccion'
+import { CodigoCuenta } from "../enums/codigo-cuenta";
+import { CodigoTransaccion } from "../enums/codigo-transaccion";
 
-
-enum codigoTransaccion {Deposito = 'D' , CambioInicial= 'CI', CambioFinal= 'CF' , Retiro= 'R'}
-enum codigoCuenta { pesosArgentinos = 'ARS', bitcoin = 'BTC'}
 @Injectable({
   providedIn: 'root'
 })
@@ -34,8 +33,8 @@ export class TransaccionesService {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
     idUsuario: idUsuario,
-    codigoMovimiento: codigoTransaccion.Deposito,
-    cuenta: codigoCuenta.pesosArgentinos,
+    codigoMovimiento: CodigoTransaccion.Deposito,
+    cuenta: CodigoCuenta.pesosArgentinos,
     fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : 0, 
     haber: haber,
@@ -48,7 +47,7 @@ export class TransaccionesService {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
       idUsuario: idUsuario,
-      codigoMovimiento: codigoTransaccion.CambioInicial,
+      codigoMovimiento: CodigoTransaccion.CambioInicial,
       cuenta: cuentaDebitar,
       fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
       debe : montoDebitar, 
@@ -60,7 +59,7 @@ export class TransaccionesService {
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     idUsuario: idUsuario,
-    codigoMovimiento: codigoTransaccion.CambioFinal,
+    codigoMovimiento: CodigoTransaccion.CambioFinal,
     cuenta: cuentaDestino,
     fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : 0, 
@@ -75,8 +74,8 @@ export class TransaccionesService {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
     idUsuario: idUsuario,
-    codigoMovimiento: codigoTransaccion.Retiro,
-    cuenta: codigoCuenta.pesosArgentinos,
+    codigoMovimiento: CodigoTransaccion.Retiro,
+    cuenta: CodigoCuenta.pesosArgentinos,
     fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : debe, 
     haber: 0,
