@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoAPI", "CryptoAPI\CryptoAPI.csproj", "{A6B96A78-A6DC-4279-9C22-3120D7D206A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{30E10114-746D-49A4-A849-14525F610DEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{36771CB2-CD87-4577-83CC-7A9D069ED857}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6B96A78-A6DC-4279-9C22-3120D7D206A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B96A78-A6DC-4279-9C22-3120D7D206A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B96A78-A6DC-4279-9C22-3120D7D206A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B96A78-A6DC-4279-9C22-3120D7D206A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E10114-746D-49A4-A849-14525F610DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E10114-746D-49A4-A849-14525F610DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E10114-746D-49A4-A849-14525F610DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E10114-746D-49A4-A849-14525F610DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36771CB2-CD87-4577-83CC-7A9D069ED857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36771CB2-CD87-4577-83CC-7A9D069ED857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36771CB2-CD87-4577-83CC-7A9D069ED857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36771CB2-CD87-4577-83CC-7A9D069ED857}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45D6C32C-0442-4CAD-9224-A89A856F128B}
+	EndGlobalSection
+EndGlobal
