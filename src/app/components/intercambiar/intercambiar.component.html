@@ -1,3 +1,4 @@
+<!-- Intercambiar -->
 <div
   class="modal fade"
   id="intercambiarModal"
@@ -10,7 +11,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <p class="modal-title fs-4" id="intercambiarModalLabel">Cambio de Moneda</p>
-        
+
         <button
           type="button"
           class="btn-close"
@@ -30,10 +31,10 @@
                 <option  *ngFor="let moneda  of monedasWallet" [ngValue]="moneda" >
                   {{moneda}}
                 </option>
-                
+
               </select>
             </form>
-            
+
             <div class="row my-2 mx-1" *ngIf="displayCuentaSeleccionada"  >
               <div class="col m-0 ">
                 <p class="mt-1 mb-3 text-start fst-italic " >Seleccionado: {{selectedValue}}</p>
@@ -87,7 +88,7 @@
 
       </div>
       <div *ngIf="alertShow"  class="alert alert-success alert-dismissible fade show" role="alert">
-        <p class="m-0 fs-4">Transaccion realizada con exito ! </p> 
+        <p class="m-0 fs-4">Transaccion realizada con exito ! </p>
          <button type="button" class="btn-close" data-bs-dismiss="alert" routerLink="/cuenta-personal" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
     </div>
