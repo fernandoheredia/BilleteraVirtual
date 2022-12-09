@@ -8,7 +8,7 @@ namespace CryptoAPI.Controllers
     [ApiController]
     public class OperacionController : ControllerBase
     {
-        // GET: api/<OperacionController>
+        // GET: api/<OperacionController> sdafadsfjgdaslkhfga
         [HttpGet]
         public List<Operacion> Get()
         {
