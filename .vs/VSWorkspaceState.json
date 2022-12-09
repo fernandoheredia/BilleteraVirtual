@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Back",
+    "\\Back\\CryptoAPI",
+    "\\Back\\CryptoAPI\\Entities"
   ],
-  "SelectedNode": "\\C:\\Users\\Delider\\Source\\Repos\\fsnet7-team7",
+  "SelectedNode": "\\Back\\CryptoAPI\\Entities\\crypto_dbContext.cs",
   "PreviewInSolutionExplorer": false
 }

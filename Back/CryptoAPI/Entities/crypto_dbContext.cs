@@ -22,6 +22,7 @@ namespace Entities
         public virtual DbSet<Operacion> Operaciones { get; set; } = null!;
         public virtual DbSet<TipoOperacion> TiposOperaciones { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
+        //public virtual DbSet<Usuario> Login { get;set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
