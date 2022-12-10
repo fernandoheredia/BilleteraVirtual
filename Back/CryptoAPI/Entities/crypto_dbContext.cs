@@ -22,14 +22,15 @@ namespace Entities
         public virtual DbSet<Operacion> Operaciones { get; set; } = null!;
         public virtual DbSet<TipoOperacion> TiposOperaciones { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
-        //public virtual DbSet<Usuario> Login { get;set; } = null!;
+        public virtual DbSet<Login> Logins { get;set; } = null!;
+        public virtual DbSet<VistaUsuario> VistaUsuarios { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=AGUSTIN-PC\\SQLEXPRESS; Database=MiBilletera; user=sa; Password=sa_access; TrustServerCertificate=True");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-4LA7817; Database=crypto_db; user=sa; Password=sa_access; TrustServerCertificate=True");
             }
         }
 
@@ -196,6 +197,24 @@ namespace Entities
                 entity.Property(e => e.Password)
                     .HasMaxLength(50)
                     .HasColumnName("password");
+            });
+
+            modelBuilder.Entity<Login>(entity => //vista agregada para usr
+            {
+                entity.HasNoKey();
+                entity.ToView("Logins");
+                entity.Property(e => e.Email).IsUnicode(false);
+                entity.Property(e => e.Password).IsUnicode(false);
+            });
+
+            modelBuilder.Entity<VistaUsuario>(entity => //vista agregada para usr
+            {
+                entity.HasKey(e => e.IdUsuario);
+                entity.ToView("VistaUsuarios");
+                entity.Property(e => e.IdUsuario);
+                entity.Property(e => e.Email).IsUnicode(false);
+                entity.Property(e => e.Nombre).IsUnicode(false);
+                entity.Property(e => e.Apellido).IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);
