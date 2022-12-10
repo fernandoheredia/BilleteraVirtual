@@ -1,5 +1,5 @@
 ﻿using Entities;
-//using Negocio;
+using Negocio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CryptoAPI.Controllers
@@ -14,24 +14,7 @@ namespace CryptoAPI.Controllers
         {
             using (var db = new crypto_dbContext())
             {
-                return db.Operaciones.ToList();
-            }
-        }
-
-        // GET api/<OperacionController>/5
-        [HttpGet("{id}")]
-        public Operacion? Get(int id)
-        {
-            try
-            {
-                using (var db = new crypto_dbContext())
-                {
-                    return db.Operaciones.FirstOrDefault(a => a.IdOperacion == id);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
+                return new OperacionBC().ObtenerOperaciones(db);
             }
         }
 
@@ -43,8 +26,7 @@ namespace CryptoAPI.Controllers
             {
                 using (var db = new crypto_dbContext())
                 {
-                    db.Operaciones.Add(oOperacion);
-                    db.SaveChanges();
+                    new OperacionBC().AgregarOperacion(db, oOperacion);
                 }
             }
             catch (Exception ex)
@@ -52,25 +34,6 @@ namespace CryptoAPI.Controllers
                 throw;
             }
                
-        }
-
-        // DELETE api/<OperacionController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            try
-            {
-                using (var db = new crypto_dbContext())
-                {
-                    Operacion? oOperacion = db.Operaciones.FirstOrDefault(a => a.IdOperacion == id);
-                    db.Remove(oOperacion);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
         }
     }
 }
