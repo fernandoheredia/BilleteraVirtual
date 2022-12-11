@@ -84,8 +84,8 @@
   "transaccionFinal": [
     {
       "idUsuario": 1,
-      "codigoMovimiento": "D",
-      "cuenta": "ARS",
+      "codigoMovimiento": 1,
+      "cuenta": 2,
       "fecha": "20/10/2022",
       "debe": 0,
       "haber": 30000,
@@ -94,8 +94,8 @@
     },
     {
       "idUsuario": 2,
-      "codigoMovimiento": "D",
-      "cuenta": "ARS",
+      "codigoMovimiento": 1,
+      "cuenta": 2,
       "fecha": "20/10/2022",
       "debe": 0,
       "haber": 30000,
@@ -104,8 +104,8 @@
     },
     {
       "idUsuario": 3,
-      "codigoMovimiento": "D",
-      "cuenta": "ARS",
+      "codigoMovimiento": 1,
+      "cuenta": 2,
       "fecha": "20/10/2022",
       "debe": 0,
       "haber": 30000,
@@ -114,8 +114,8 @@
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CI",
-      "cuenta": "ARS",
+      "codigoMovimiento":3,
+      "cuenta": 2,
       "fecha": "13/11/2022 - 20:09 hrs",
       "debe": 20000,
       "haber": 0,
@@ -124,8 +124,8 @@
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento": "CF",
-      "cuenta": "BTC",
+      "codigoMovimiento":4,
+      "cuenta": 1,
       "fecha": "13/11/2022 - 20:09 hrs",
       "debe": 0,
       "haber": 0.007607058894230312,
