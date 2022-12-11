@@ -2,6 +2,7 @@ import { ConditionalExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { DataTransacciones } from 'src/app/interfaces/interfaces';
 import { TransaccionesService } from '../../services/transacciones.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-historial-transacciones',
@@ -11,11 +12,11 @@ import { TransaccionesService } from '../../services/transacciones.service';
 export class HistorialTransaccionesComponent implements OnInit {
   //variables globales
   dataTransacciones: Array<DataTransacciones> = [];
-  userId: number = 1;
+  userId: number = this.usuarioService.usuarioAutenticado.idUsuario;
   transaccionesTodas: boolean = true;
   arsVsBtc: number = 0;
 
-  constructor(private _servicioTransaccion: TransaccionesService) {}
+  constructor(private _servicioTransaccion: TransaccionesService, private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
     this.ultimasTransacciones(this.userId);

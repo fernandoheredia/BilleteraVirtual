@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { TransaccionesService } from "../../services/transacciones.service";
 
 
@@ -8,13 +9,14 @@ import { TransaccionesService } from "../../services/transacciones.service";
   styleUrls: ['./balance-total.component.css']
 })
 export class BalanceTotalComponent implements OnInit{
-  userId:number = 1
+  userId:number = this.usuarioService.usuarioAutenticado.idUsuario;
   balanceTotal: any = 0
   arsVsBtc: number = 0
 
 
   constructor(
-    private _transaccionService:TransaccionesService
+    private _transaccionService:TransaccionesService,
+    private usuarioService:UsuarioService
   ) {
     
    }

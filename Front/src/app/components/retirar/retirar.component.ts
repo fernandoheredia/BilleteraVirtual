@@ -11,6 +11,7 @@ import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { formatDate } from '@angular/common';
 
+
 @Component({
   selector: 'app-retirar',
   templateUrl: './retirar.component.html',
@@ -18,7 +19,7 @@ import { formatDate } from '@angular/common';
 })
 export class RetirarComponent implements OnInit {
 
-  userId: number = 1;
+  userId: number = this.userService.usuarioAutenticado.idUsuario;
   beneficiario = '';
   cbuBeneficiario: number = 0;
   montoIngresado: number = 0;

@@ -24,6 +24,9 @@ namespace Entities
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
         public virtual DbSet<Login> Logins { get;set; } = null!;
         public virtual DbSet<VistaUsuario> VistaUsuarios { get; set; } = null!;
+        public virtual DbSet<CuentaVista> VistaCuentas { get; set; } = null!;
+
+        public virtual DbSet<VistaOperacionFront> VistaOperacionesFront { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -161,6 +164,10 @@ namespace Entities
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
                     .HasColumnName("nombre");
+
+                entity.Property(e => e.Codigo)
+                    .HasMaxLength(10)
+                    .HasColumnName("codigo");
             });
 
             modelBuilder.Entity<Usuario>(entity =>
@@ -217,6 +224,35 @@ namespace Entities
                 entity.Property(e => e.Nombre).IsUnicode(false);
                 entity.Property(e => e.Apellido).IsUnicode(false);
             });
+
+            modelBuilder.Entity<CuentaVista>(entity =>
+            {
+                entity.HasKey(e => e.IdCuenta);
+                entity.ToView("VistaCuentas");
+                entity.Property(e => e.IdCuenta);
+                entity.Property(e => e.IdMoneda);
+                entity.Property(e => e.IdUsuario);
+                entity.Property(e => e.Cvu).IsUnicode(false);
+            }
+            );
+
+            modelBuilder.Entity<VistaOperacionFront>(entity =>
+            {
+                entity.HasKey(e => e.IdOperacion);
+                entity.ToView("VistaOperacionesFront");
+                entity.Property(e => e.IdOperacion);
+                entity.Property(e => e.IdTipoOperacion);
+                entity.Property(e => e.IdCuentaOrigen);
+                entity.Property(e => e.Fecha);
+                entity.Property(e => e.Cotizacion);
+                entity.Property(e => e.Haber);
+                entity.Property(e => e.Debe);
+                entity.Property(e => e.IdContacto);
+                entity.Property(e => e.CodigoOperacion).IsUnicode(false);
+                entity.Property(e => e.idMoneda);
+                entity.Property(e => e.codigoMoneda).IsUnicode(false);
+            }
+            );
 
             OnModelCreatingPartial(modelBuilder);
         }
