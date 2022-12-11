@@ -34,7 +34,7 @@ export class TransaccionesService {
     
     idUsuario: idUsuario,
     codigoMovimiento: CodigoTransaccion.Deposito,
-    cuenta: CodigoCuenta.pesosArgentinos,
+    cuenta: CodigoCuenta.PesosArgentinos,
     fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : 0, 
     haber: haber,
@@ -75,7 +75,7 @@ export class TransaccionesService {
     
     idUsuario: idUsuario,
     codigoMovimiento: CodigoTransaccion.Retiro,
-    cuenta: CodigoCuenta.pesosArgentinos,
+    cuenta: CodigoCuenta.PesosArgentinos,
     fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
     debe : debe, 
     haber: 0,

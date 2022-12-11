@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { QuienesSomosService } from 'src/app/services/quienes-somos.service';
 
+import { IntegranteEquipo } from "../../interfaces/interfaces";
 @Component({
   selector: 'app-quienes-somos',
   templateUrl: './quienes-somos.component.html',
@@ -8,15 +8,63 @@ import { QuienesSomosService } from 'src/app/services/quienes-somos.service';
 })
 export class QuienesSomosComponent implements OnInit {
 
-  team:any;
+  team:Array<IntegranteEquipo> = [
+    {
+      name: "Juan Rodriguez",
+      perfil: "Web Developer NodeJS + Angular",
+      imagen: "../../../assets/img/team/imagen1.jpg"
+    },
+    {
+      name: "Natalia Murat",
+      perfil: "Desarrolladora web",
+      imagen: "../../../assets/img/team/imagen2.jpg"
+    },
+    {
+      name: "Pilar Montenegro",
+      perfil: "Desarrolladora web",
+      imagen: "../../../assets/img/team/imagen3.jpg"
+    },
+    {
+      name: "Mateo Ferrero",
+      perfil: "Backend Developer C# .NET",
+      imagen: "../../../assets/img/team/imagen4.jpg"
+    },
+    {
+      name: "Agustín López",
+      perfil: "Desarrollador web .Net",
+      imagen: "../../../assets/img/team/imagen5.jpg"
+    },
+    {
+      name: "Fernanda Manzano",
+      perfil: "UI/UX Designer - Tester QA - Front end developer",
+      imagen: "../../../assets/img/team/imagen6.jpg"
+    },
+    {
+      name: "Ana Julia Ferreyra",
+      perfil: "PHP Developer",
+      imagen: "../../../assets/img/team/imagen7.jpg"
+    },
+    {
+      name: "Fernando Heredia",
+      perfil: "Desarrollador Web",
+      imagen: "../../../assets/img/team/imagen8.jpg"
+    },
+    {
+      name: "Mateo Taricco",
+      perfil: "Desarrollador Web",
+      imagen: "../../../assets/img/team/imagen9.jpg"
+    },
+    {
+      name: "Pablo Adrián Vera",
+      perfil: "Desarrollador Web",
+      imagen: "../../../assets/img/team/imagen10.jpg"
+    }
+  ];
   
-  constructor(private miServicio:QuienesSomosService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.miServicio.obtenerDatosQuienesSomos().subscribe(data =>{
-      console.log(data);
-      this.team=data;
-    })
+
   }
 
 }

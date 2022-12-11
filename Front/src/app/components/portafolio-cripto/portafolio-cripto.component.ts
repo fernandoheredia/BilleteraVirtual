@@ -39,7 +39,7 @@ export class PortafolioCriptoComponent implements OnInit {
         const element = data[index];
 
         switch(element.cuenta){
-          case CodigoCuenta.pesosArgentinos:
+          case CodigoCuenta.PesosArgentinos:
             if(element.haber!=0)
             {
               total_ars += element.haber;
@@ -49,8 +49,7 @@ export class PortafolioCriptoComponent implements OnInit {
               total_ars -= element.debe;
             }
             break;
-
-          case CodigoCuenta.bitcoin:
+            case CodigoCuenta.Bitcoin:
             if(element.haber!=0)
             {
               total_btc += element.haber;

@@ -66,12 +66,14 @@ export class HistorialTransaccionesComponent implements OnInit {
               break;
           }
           switch (element.cuenta) {
-            case CodigoCuenta.pesosArgentinos:
+            case CodigoCuenta.PesosArgentinos:
               element.booleanARS = true;
+              element.cuentaNombre = 'ARS'
               element.imgCuenta = '../../../assets/img/ARS.png';
               break;
-            case CodigoCuenta.bitcoin:
+            case CodigoCuenta.Bitcoin:
               element.booleanARS = false;
+              element.cuentaNombre = 'BTC'
               element.imgCuenta = '../../../assets/img/BTC.png';
               break;
             default:
@@ -89,6 +91,7 @@ export class HistorialTransaccionesComponent implements OnInit {
           }
           this.dataTransacciones.push(element);
         }
+        console.log('Juancitoo', resp)
       },
       (error) => {
         console.warn(error.message);
@@ -132,12 +135,14 @@ export class HistorialTransaccionesComponent implements OnInit {
               break;
           }
           switch (element.cuenta) {
-            case CodigoCuenta.pesosArgentinos:
+            case CodigoCuenta.PesosArgentinos:
               element.booleanARS = true;
+              element.cuentaNombre = 'ARS'
               element.imgCuenta = '../../../assets/img/ARS.png';
               break;
-            case CodigoCuenta.bitcoin:
+            case CodigoCuenta.Bitcoin:
               element.booleanARS = false;
+              element.cuentaNombre = 'BTC'
               element.imgCuenta = '../../../assets/img/BTC.png';
               break;
             default:

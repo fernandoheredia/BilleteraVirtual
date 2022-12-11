@@ -4,6 +4,7 @@ export interface DataTransacciones {
     codigoMovimientoText: string;
     cotARSvsBTC:          number;
     cuenta:               string;
+    cuentaNombre:         string;
     debe:                 number;
     fecha:                string;
     haber:                number;
@@ -20,4 +21,10 @@ export interface Portafolio {
     btc: number;
     ars_img: string;
     btc_img: string;
+}
+
+export interface IntegranteEquipo{
+    imagen : string;
+    name: string;
+    perfil:string;
 }

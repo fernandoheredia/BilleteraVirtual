@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { NgModel } from '@angular/forms';
 import { CodigoCuenta } from "../../enums/codigo-cuenta";
+import { CodigoTransaccion } from "../../enums/codigo-transaccion";
 
 @Component({
   selector: 'app-intercambiar',
@@ -14,14 +15,17 @@ export class IntercambiarComponent implements OnInit {
   arsVsBtc: number = 0;
   montoDisponible: number = 0;
   cotizado: number = 0;
-  monedaCotizado?: number ;
-  monedasWallet:Array<CodigoCuenta> = [CodigoCuenta.pesosArgentinos, CodigoCuenta.bitcoin ] ;
+  monedaCotizado: string = '' ;
+  monedasWallet:any = new Map ([
+    ['Bitcoin', CodigoCuenta.Bitcoin],
+    ['Pesos Argentinos', CodigoCuenta.PesosArgentinos],
+  ])
   moneda: string = '';
   montoIngresado:number = 0
   fondosInsuficientes: boolean = false
   alertShow: boolean =false
   form = new FormGroup({
-    cuentas: new FormControl(this.monedasWallet)
+    cuentas: new FormControl( this.monedasWallet)
   })
   formIntercambiar = new FormGroup({
     monto : new FormControl(this.montoIngresado)
@@ -33,6 +37,7 @@ export class IntercambiarComponent implements OnInit {
   constructor(private _transaccionService: TransaccionesService) {}
 
   ngOnInit(): void {
+    console.log('hola',  this.monedasWallet[0])
     this.getPrecioBTCvsARS();
   }
   getPrecioBTCvsARS() {
@@ -77,18 +82,18 @@ export class IntercambiarComponent implements OnInit {
     }
     this.fondosInsuficientes = false
     switch (cuentaOrigen) {
-      case CodigoCuenta.pesosArgentinos:
+      case CodigoCuenta.PesosArgentinos:
         loCotizado = montoCambiar / this.arsVsBtc;
-        this.monedaCotizado = CodigoCuenta.bitcoin;
+        this.monedaCotizado = 'BTC'
         break;
-      case CodigoCuenta.bitcoin:
+      case CodigoCuenta.Bitcoin:
         loCotizado = montoCambiar * this.arsVsBtc;
-        this.monedaCotizado = CodigoCuenta.pesosArgentinos;
+        this.monedaCotizado = 'ARS';
         break;
 
       default:
         loCotizado = 0;
-        this.monedaCotizado = 0;
+        this.monedaCotizado = '';
         break;
     }
     this.cotizado = loCotizado;
@@ -98,7 +103,7 @@ export class IntercambiarComponent implements OnInit {
     this.displayCuentaSeleccionada = false
     this.montoIngresado= 0
     this.cotizado = 0
-    this.monedaCotizado= 0
+    this.monedaCotizado= ''
     this.fondosInsuficientes = false
 
   }
@@ -112,12 +117,12 @@ export class IntercambiarComponent implements OnInit {
       return
     }
     switch (cuentaDebitar) {
-      case CodigoCuenta.pesosArgentinos:
-        cuentaDestino = CodigoCuenta.bitcoin;
+      case CodigoCuenta.PesosArgentinos:
+        cuentaDestino = CodigoCuenta.Bitcoin;
         montoDestino = montoDebitar / precioBTC;
         break;
-      case CodigoCuenta.bitcoin:
-        cuentaDestino = CodigoCuenta.pesosArgentinos;
+      case CodigoCuenta.Bitcoin:
+        cuentaDestino = CodigoCuenta.PesosArgentinos;
         montoDestino = montoDebitar * precioBTC;
         break;
 

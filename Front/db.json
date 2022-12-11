@@ -114,7 +114,7 @@
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento":3,
+      "codigoMovimiento": 3,
       "cuenta": 2,
       "fecha": "13/11/2022 - 20:09 hrs",
       "debe": 20000,
@@ -124,75 +124,63 @@
     },
     {
       "idUsuario": 1,
-      "codigoMovimiento":4,
+      "codigoMovimiento": 4,
       "cuenta": 1,
       "fecha": "13/11/2022 - 20:09 hrs",
       "debe": 0,
       "haber": 0.007607058894230312,
       "cotARSvsBTC": 2629137,
       "id": 5
-    }
-  ],
-  "team": [
-    {
-      "id": 1,
-      "name": "Juan Rodriguez",
-      "perfil": "Web Developer NodeJS + Angular",
-      "imagen": "../../../assets/img/team/imagen1.jpg"
     },
     {
-      "id": 2,
-      "name": "Natalia Murat",
-      "perfil": "Desarrolladora web",
-      "imagen": "../../../assets/img/team/imagen2.jpg"
+      "idUsuario": 1,
+      "codigoMovimiento": 1,
+      "cuenta": 2,
+      "fecha": "11/12/2022 - 19:56 hrs",
+      "debe": 0,
+      "haber": 4000,
+      "cotARSvsBTC": 0,
+      "id": 6
     },
     {
-      "id": 3,
-      "name": "Pilar Montenegro",
-      "perfil": "Desarrolladora web",
-      "imagen": "../../../assets/img/team/imagen3.jpg"
+      "idUsuario": 1,
+      "codigoMovimiento": 3,
+      "cuenta": 2,
+      "fecha": "11/12/2022 - 19:56 hrs",
+      "debe": 4000,
+      "haber": 0,
+      "cotARSvsBTC": 2911373,
+      "id": 7
     },
     {
-      "id": 4,
-      "name": "Mateo Ferrero",
-      "perfil": "Backend Developer C# .NET",
-      "imagen": "../../../assets/img/team/imagen4.jpg"
+      "idUsuario": 1,
+      "codigoMovimiento": 4,
+      "cuenta": 1,
+      "fecha": "11/12/2022 - 19:56 hrs",
+      "debe": 0,
+      "haber": 0.001373922200968409,
+      "cotARSvsBTC": 2911373,
+      "id": 8
     },
     {
-      "id": 5,
-      "name": "Agustín López",
-      "perfil": "Desarrollador web .Net",
-      "imagen": "../../../assets/img/team/imagen5.jpg"
+      "idUsuario": 1,
+      "codigoMovimiento": 3,
+      "cuenta": 2,
+      "fecha": "11/12/2022 - 19:59 hrs",
+      "debe": 5000,
+      "haber": 0,
+      "cotARSvsBTC": 2913425,
+      "id": 9
     },
     {
-      "id": 6,
-      "name": "Fernanda Manzano",
-      "perfil": "UI/UX Designer - Tester QA - Front end developer",
-      "imagen": "../../../assets/img/team/imagen6.jpg"
-    },
-    {
-      "id": 7,
-      "name": "Ana Julia Ferreyra",
-      "perfil": "PHP Developer",
-      "imagen": "../../../assets/img/team/imagen7.jpg"
-    },
-    {
-      "id": 8,
-      "name": "Fernando Heredia",
-      "perfil": "Desarrollador Web",
-      "imagen": "../../../assets/img/team/imagen8.jpg"
-    },
-    {
-      "id": 9,
-      "name": "Mateo Taricco",
-      "perfil": "Desarrollador Web",
-      "imagen": "../../../assets/img/team/imagen9.jpg"
-    },
-    {
-      "id": 10,
-      "name": "Pablo Adrián Vera",
-      "perfil": "Desarrollador Web",
-      "imagen": "../../../assets/img/team/imagen10.jpg"
+      "idUsuario": 1,
+      "codigoMovimiento": 4,
+      "cuenta": 1,
+      "fecha": "11/12/2022 - 19:59 hrs",
+      "debe": 0,
+      "haber": 0.0017161931403760179,
+      "cotARSvsBTC": 2913425,
+      "id": 10
     }
   ]
 }
