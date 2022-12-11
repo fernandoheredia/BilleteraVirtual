@@ -10,7 +10,8 @@ import { Transaccion } from 'src/app/models/transaccion';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { formatDate } from '@angular/common';
-
+import { CodigoCuenta } from "../../enums/codigo-cuenta";
+import { CodigoTransaccion} from '../../enums/codigo-transaccion'
 @Component({
   selector: 'app-retirar',
   templateUrl: './retirar.component.html',
@@ -91,7 +92,7 @@ export class RetirarComponent implements OnInit {
 
         for (let index = 0; index < datos.length; index++) {
           const element = datos[index];
-          if (element.cuenta == 'ARS') {
+          if (element.cuenta == CodigoCuenta.pesosArgentinos) {
             haber_ARS += element.haber;
             debe_ARS += element.debe;
           }
@@ -122,8 +123,8 @@ export class RetirarComponent implements OnInit {
 
     let retiroT: Transaccion = new Transaccion(
       this.userId,
-      'R',
-      'ARS',
+      CodigoTransaccion.Retiro,
+      CodigoCuenta.pesosArgentinos,
       fecha,
       debe,
       0,

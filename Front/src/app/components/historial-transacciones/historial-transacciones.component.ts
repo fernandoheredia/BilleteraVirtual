@@ -2,6 +2,8 @@ import { ConditionalExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { DataTransacciones } from 'src/app/interfaces/interfaces';
 import { TransaccionesService } from '../../services/transacciones.service';
+import { CodigoTransaccion } from "../../enums/codigo-transaccion";
+import { CodigoCuenta } from "../../enums/codigo-cuenta";
 
 @Component({
   selector: 'app-historial-transacciones',
@@ -35,25 +37,25 @@ export class HistorialTransaccionesComponent implements OnInit {
         for (let index = resp.length - 1; index >= i; index--) {
           const element = resp[index];
           switch (element.codigoMovimiento) {
-            case 'R':
+            case CodigoTransaccion.Retiro:
               //retiro
               element.classRed = true;
               element.codigoMovimientoText = 'Retiro de ';
 
               break;
-            case 'CI':
+            case CodigoTransaccion.CambioInicial:
               //Cambio Inicial
               element.classRed = true;
               element.codigoMovimientoText = 'Intercambio de ';
 
               break;
-            case 'CF':
+            case CodigoTransaccion.CambioFinal:
               //Cambio Final
               element.classRed = false;
               element.codigoMovimientoText = 'Intercambio de ';
 
               break;
-            case 'D':
+            case CodigoTransaccion.Deposito:
               //Deposito
               element.classRed = false;
               element.codigoMovimientoText = 'Deposito de ';
@@ -64,11 +66,11 @@ export class HistorialTransaccionesComponent implements OnInit {
               break;
           }
           switch (element.cuenta) {
-            case 'ARS':
+            case CodigoCuenta.pesosArgentinos:
               element.booleanARS = true;
               element.imgCuenta = '../../../assets/img/ARS.png';
               break;
-            case 'BTC':
+            case CodigoCuenta.bitcoin:
               element.booleanARS = false;
               element.imgCuenta = '../../../assets/img/BTC.png';
               break;
@@ -101,25 +103,25 @@ export class HistorialTransaccionesComponent implements OnInit {
         for (let index = resp.length - 1; index >= 0; index--) {
           const element = resp[index];
           switch (element.codigoMovimiento) {
-            case 'R':
+            case CodigoTransaccion.Retiro:
               //retiro
               element.classRed = true;
               element.codigoMovimientoText = 'Retiro de ';
 
               break;
-            case 'CI':
+            case CodigoTransaccion.CambioInicial:
               //Cambio Inicial
               element.classRed = true;
               element.codigoMovimientoText = 'Intercambio de ';
 
               break;
-            case 'CF':
+            case CodigoTransaccion.CambioFinal:
               //Cambio Final
               element.classRed = false;
               element.codigoMovimientoText = 'Intercambio de ';
 
               break;
-            case 'D':
+            case CodigoTransaccion.Deposito:
               //Deposito
               element.classRed = false;
               element.codigoMovimientoText = 'Deposito de ';
@@ -130,11 +132,11 @@ export class HistorialTransaccionesComponent implements OnInit {
               break;
           }
           switch (element.cuenta) {
-            case 'ARS':
+            case CodigoCuenta.pesosArgentinos:
               element.booleanARS = true;
               element.imgCuenta = '../../../assets/img/ARS.png';
               break;
-            case 'BTC':
+            case CodigoCuenta.bitcoin:
               element.booleanARS = false;
               element.imgCuenta = '../../../assets/img/BTC.png';
               break;
