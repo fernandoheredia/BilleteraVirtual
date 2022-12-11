@@ -42,7 +42,7 @@ export class TransaccionesService {
     },{ responseType: "json" , withCredentials: false  })
   }
 
-  cambioTransaccionDebitar(idUsuario:number,cuentaDebitar:string, montoDebitar:number, cotizacionBTC:number ):Observable<any>
+  cambioTransaccionDebitar(idUsuario:number,cuentaDebitar:number, montoDebitar:number, cotizacionBTC:number ):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     
@@ -55,7 +55,7 @@ export class TransaccionesService {
       cotARSvsBTC:cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
   }
-  cambioTransaccionDestino(idUsuario:number,cuentaDestino:string,montoDestino:number,cotizacionBTC:number ):Observable<any>
+  cambioTransaccionDestino(idUsuario:number,cuentaDestino:number,montoDestino:number,cotizacionBTC:number ):Observable<any>
   {
     return this.http.post("http://localhost:3000/transaccionFinal/",{
     idUsuario: idUsuario,

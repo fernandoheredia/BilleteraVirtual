@@ -19,8 +19,11 @@
         <li class="nav-item" data-bs-target="#navbarSupportedContent"  data-bs-toggle="collapse">
           <a class="nav-link" routerLink="/registro">REGISTRARSE</a>
         </li>
-        <li class="nav-item" data-bs-target="#navbarSupportedContent"  data-bs-toggle="collapse">
+        <li *ngIf="!estaAutenticado" class="nav-item" data-bs-target="#navbarSupportedContent"  data-bs-toggle="collapse">
           <a class="nav-link" aria-current="page" routerLink="/login">INICIAR SESIÓN</a>
+        </li>
+        <li *ngIf="estaAutenticado" class="nav-item" data-bs-target="#navbarSupportedContent"  data-bs-toggle="collapse">
+          <a class="nav-link" (click)="onCerrarSesion()" aria-current="page" routerLink="/home">CERRAR SESIÓN</a>
         </li>
       </ul>
     </div>

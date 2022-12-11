@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { CurrencyPipe } from '@angular/common';
 import { Portafolio } from 'src/app/interfaces/interfaces';
+import { CodigoCuenta } from "../../enums/codigo-cuenta";
 
 
 @Component({
@@ -15,8 +16,8 @@ export class PortafolioCriptoComponent implements OnInit {
   billetera :Portafolio = {
     ars:0,
     btc:0,
-    ars_img:'',
-    btc_img:''
+    ars_img:'../../../assets/img/ARS.png',
+    btc_img:'../../../assets/img/BTC.png'
   }; //property publica para el binding con vista
 
 
@@ -38,7 +39,7 @@ export class PortafolioCriptoComponent implements OnInit {
         const element = data[index];
 
         switch(element.cuenta){
-          case 'ARS':
+          case CodigoCuenta.pesosArgentinos:
             if(element.haber!=0)
             {
               total_ars += element.haber;
@@ -49,7 +50,7 @@ export class PortafolioCriptoComponent implements OnInit {
             }
             break;
 
-          case 'BTC':
+          case CodigoCuenta.bitcoin:
             if(element.haber!=0)
             {
               total_btc += element.haber;
@@ -67,8 +68,6 @@ export class PortafolioCriptoComponent implements OnInit {
 
       this.billetera.ars = total_ars;
       this.billetera.btc = total_btc;
-      this.billetera.ars_img = '../../../assets/img/ARS.png';
-      this.billetera.btc_img = '../../../assets/img/BTC.png';
       console.log('Objeto a trabajar: ', this.billetera);
 
     }, error=>{

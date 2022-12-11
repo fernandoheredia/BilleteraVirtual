@@ -1,4 +1,4 @@
 export enum CodigoCuenta {
-    pesosArgentinos= 'ARS',
-     bitcoin = 'BTC'
+    bitcoin = 1,
+    pesosArgentinos
 }

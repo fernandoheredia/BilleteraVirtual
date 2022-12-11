@@ -1,14 +1,14 @@
 export class Transaccion
 {
     idUsuario: number;
-    codigoMovimiento: string;
-    cuenta: string;
+    codigoMovimiento: number;
+    cuenta: number;
     fecha: string;
     debe : number; 
     haber: number;
     cotARSvsBTC: number;
 
-    constructor(idUsuario:number,codigoMovimiento: string,cuenta: string,fecha: string,debe : number,
+    constructor(idUsuario:number,codigoMovimiento: number,cuenta: number,fecha: string,debe : number,
         haber: number, cotARSvsBTC: number)
     {
         this.idUsuario=idUsuario;
