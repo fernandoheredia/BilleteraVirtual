@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { NgModel } from '@angular/forms';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { CodigoCuenta } from "../../enums/codigo-cuenta";
+import { CodigoTransaccion } from "../../enums/codigo-transaccion";
 
 @Component({
   selector: 'app-intercambiar',

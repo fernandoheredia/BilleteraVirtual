@@ -3,6 +3,7 @@ import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { CurrencyPipe } from '@angular/common';
 import { Portafolio } from 'src/app/interfaces/interfaces';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { CodigoCuenta } from "../../enums/codigo-cuenta";
 
 
 @Component({

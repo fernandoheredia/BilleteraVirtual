@@ -2,6 +2,9 @@ import { ConditionalExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { DataTransacciones } from 'src/app/interfaces/interfaces';
 import { TransaccionesService } from '../../services/transacciones.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { CodigoTransaccion } from "../../enums/codigo-transaccion";
+import { CodigoCuenta } from "../../enums/codigo-cuenta";
 
 @Component({
   selector: 'app-historial-transacciones',
