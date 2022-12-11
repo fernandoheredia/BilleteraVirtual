@@ -213,6 +213,7 @@ namespace Entities
                 entity.ToView("VistaUsuarios");
                 entity.Property(e => e.IdUsuario);
                 entity.Property(e => e.Email).IsUnicode(false);
+                entity.Property(e => e.Password).IsUnicode(false);
                 entity.Property(e => e.Nombre).IsUnicode(false);
                 entity.Property(e => e.Apellido).IsUnicode(false);
             });

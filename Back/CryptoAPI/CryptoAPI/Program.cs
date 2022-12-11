@@ -1,4 +1,7 @@
+using Microsoft.Extensions.Options;
 using System.Text.Json.Serialization;
+
+var MyAllowSpecificationOrigins = "_myAllowSpecificationOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddCors(options =>{
+    options.AddPolicy(name:MyAllowSpecificationOrigins, policy =>
+    {
+        policy.WithOrigins("*");
+        policy.AllowAnyMethod();
+        policy.AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
@@ -19,6 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(MyAllowSpecificationOrigins);
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

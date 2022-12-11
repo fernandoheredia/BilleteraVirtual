@@ -61,9 +61,9 @@ namespace CryptoAPI.Controllers
 
         [HttpPost]
         [Route("login")]
-        public Usuario Post([FromBody] Login login)
+        public VistaUsuario Post([FromBody] Login login)
         {
-            Usuario usuario;
+            VistaUsuario usuario;
             using (var db = new crypto_dbContext())
             {
                 usuario = new UsuarioBC().Login(db, login.Email, login.Password);
