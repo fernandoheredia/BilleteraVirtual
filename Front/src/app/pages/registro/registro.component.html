@@ -8,74 +8,78 @@
               <div class="card bg-light">
                 <div class="card-body ">
                   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-                    <h1 class="text-dark">Registrate</h1>
+                    <h1 class="text-dark">Registrarse</h1>
 
                     <!-- nombre -->
                     <div class="form-outline mb-2">
+                      <label class="nombre text-dark" for="nombre">Nombre</label>
                       <input
                         [(ngModel)]="enteredNombre"
                         name="nombre"
                         type="text"
                         id="nombre"
                         class="form-control"
-                        required
+                        required maxlength="50"
                       />
-                      <label class="nombre text-dark" for="nombre">Nombre</label>
+                      
                     </div>
                     <!-- apellido -->
                     <div class="form-outline mb-2">
+                      <label class="apellido text-dark" for="apellido">Apellido</label>
                       <input
                         [(ngModel)]="enteredApellido"
                         name="apellido"
                         type="text"
                         id="apellido"
                         class="form-control"
-                        required
+                        required maxlength="50"
                       />
-                      <label class="apellido text-dark" for="apellido">Apellido</label>
+                      
                     </div>
                     <!-- Fecha Nacimiento -->
                     <div class="form-outline mb-2">
+                      <label class="fechaNacimiento text-dark" for="fechaNacimiento">Fecha de Nacimiento</label>
                       <input
                         [(ngModel)]="enteredFechaNacimiento"
-                        name="fechaNacimiento"
+                        name="fechaNacimiento" required
                         type="date"
                         id="fechaNacimiento"
                         class="form-control"
+                        min="1920-01-01" max="2004-12-31" 
                         
-                        required
+                         
                       />
-                      <label class="fechaNacimiento text-dark" for="fechaNacimiento">Fecha de Nacimiento</label>
+                      
                     </div>
 
                     <!-- Email input -->
                     <div class="form-outline mb-2">
+                      <label class="email-label text-dark" for="email"
+                        >Dirección email</label>
                       <input
                         [(ngModel)]="enteredEmail"
                         name="email"
                         type="email"
                         id="email"
                         class="form-control"
-                        required
+                        required maxlength="50"
                       />
-                      <label class="email-label text-dark" for="email"
-                        >Direccion email</label
-                      >
+                      
+                      
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-2">
+                      <label class="password-label text-dark" for="password"
+                        >Contraseña (Máximo 8 caracteres)</label>
                       <input
                         [(ngModel)]="enteredPassword"
                         name="password"
                         type="password"
                         id="password"
                         class="form-control"
-                        required
+                        required maxlength="8"
                       />
-                      <label class="password-label text-dark" for="password"
-                        >Contraseña (6 o más caracteres)</label
-                      >
                     </div>
 
                     <!-- Checkbox -->

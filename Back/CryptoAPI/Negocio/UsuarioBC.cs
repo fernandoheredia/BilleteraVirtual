@@ -20,9 +20,9 @@ namespace Negocio
             return db.Usuarios.Include(a => a.ContactoBancario).FirstOrDefault(a => a.IdUsuario == id);
         }
 
-        public Usuario Login(crypto_dbContext db, string email, string pwd)
+        public VistaUsuario Login(crypto_dbContext db, string email, string pwd)
         {
-            return (Usuario?) db.Usuarios.FirstOrDefault(a => a.Email == email && a.Password == pwd);
+            return (VistaUsuario?) db.VistaUsuarios.FirstOrDefault(a => a.Email == email && a.Password == pwd);
         }
     }
 }

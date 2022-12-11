@@ -71,6 +71,14 @@
       "Apellido": "montenegro",
       "cbu": 223282835,
       "id": 9
+    },
+    {
+      "email": "",
+      "password": "12345678",
+      "Nombre": "Pilar",
+      "Apellido": "Montenegro",
+      "cbu": 5929281122,
+      "id": 10
     }
   ],
   "transaccionFinal": [
