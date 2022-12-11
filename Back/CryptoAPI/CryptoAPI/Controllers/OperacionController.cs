@@ -32,8 +32,20 @@ namespace CryptoAPI.Controllers
             catch (Exception ex)
             { 
                 throw;
+            }       
+        }
+
+        [HttpGet("{idUsuario}")]
+        public List<VistaOperacionFront> Get(int idUser) 
+        {
+            List<VistaOperacionFront> listaOperaciones = new List<VistaOperacionFront>();
+           
+            using(var db = new crypto_dbContext())
+            {
+                listaOperaciones = new OperacionBC().ObtenerOperacionesUsuario(db, idUser);
             }
-               
+
+            return listaOperaciones;
         }
     }
 }

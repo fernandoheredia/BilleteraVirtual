@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { CurrencyPipe } from '@angular/common';
 import { Portafolio } from 'src/app/interfaces/interfaces';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { CodigoCuenta } from "../../enums/codigo-cuenta";
 
 
@@ -12,7 +13,7 @@ import { CodigoCuenta } from "../../enums/codigo-cuenta";
 })
 export class PortafolioCriptoComponent implements OnInit {
 
-  userId:number=1; //harcodeo user id
+  userId:number=this.usuarioService.usuarioAutenticado.idUsuario; //harcodeo user id
   billetera :Portafolio = {
     ars:0,
     btc:0,
@@ -22,7 +23,7 @@ export class PortafolioCriptoComponent implements OnInit {
 
 
   constructor(
-    private miServicio:TransaccionesService
+    private miServicio:TransaccionesService, private usuarioService:UsuarioService
     ) { }
 
   ngOnInit(): void {

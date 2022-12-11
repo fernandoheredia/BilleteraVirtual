@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { NgModel } from '@angular/forms';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { CodigoCuenta } from "../../enums/codigo-cuenta";
+import { CodigoTransaccion } from "../../enums/codigo-transaccion";
 
 @Component({
   selector: 'app-intercambiar',
@@ -10,7 +12,7 @@ import { CodigoCuenta } from "../../enums/codigo-cuenta";
   styleUrls: ['./intercambiar.component.css'],
 })
 export class IntercambiarComponent implements OnInit {
-  userID: number = 1;
+  userID: number = this.usuarioService.usuarioAutenticado.idUsuario;
   arsVsBtc: number = 0;
   montoDisponible: number = 0;
   cotizado: number = 0;
@@ -30,7 +32,7 @@ export class IntercambiarComponent implements OnInit {
   selectedValue:number = 0
   displayCuentaSeleccionada:boolean= false
 
-  constructor(private _transaccionService: TransaccionesService) {}
+  constructor(private _transaccionService: TransaccionesService, private usuarioService:UsuarioService) {}
 
   ngOnInit(): void {
     this.getPrecioBTCvsARS();
