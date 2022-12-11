@@ -1,9 +1,9 @@
 export interface DataTransacciones {
     classRed:             boolean;
-    codigoMovimiento:     string;
+    idTipoOperacion:      number;
     codigoMovimientoText: string;
     cotARSvsBTC:          number;
-    cuenta:               string;
+    cuenta:               number;
     debe:                 number;
     fecha:                string;
     haber:                number;

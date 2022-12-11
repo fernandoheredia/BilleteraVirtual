@@ -11,7 +11,7 @@ import { CodigoTransaccion } from "../enums/codigo-transaccion";
 })
 export class TransaccionesService {
 
-
+  
   date: number
   constructor(
     private http: HttpClient
@@ -28,17 +28,13 @@ export class TransaccionesService {
     return this.http.get("http://localhost:3000/transaccionFinal/", {params: params} );
   }
   
-  depositoTransaccion(idUsuario:number, haber:number, cotizacionBTC:number ):Observable<any>
+  depositoTransaccion(idCuentaOrigen:number, haber:number):Observable<any>
   {
-    return this.http.post("http://localhost:3000/transaccionFinal/",{
-    
-    idUsuario: idUsuario,
-    codigoMovimiento: CodigoTransaccion.Deposito,
-    cuenta: CodigoCuenta.pesosArgentinos,
-    fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
-    debe : 0, 
-    haber: haber,
-    cotARSvsBTC: cotizacionBTC
+    return this.http.post("https://localhost:7206/api/Operacion",{
+      idTipoOperacion: 1,
+      idCuentaOrigen: idCuentaOrigen,
+      debe : 0, 
+      haber: haber
     },{ responseType: "json" , withCredentials: false  })
   }
 

@@ -24,7 +24,6 @@ namespace Negocio
             operacion.IdCuentaOrigen = cuentaOrigen.IdCuenta;
             operacion.Haber = nuevaOperacion.Haber;
             operacion.Debe = nuevaOperacion.Debe;
-            operacion.Cotizacion = nuevaOperacion.Cotizacion;
 
             db.Operaciones.Add(operacion);
             db.SaveChanges();

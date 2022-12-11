@@ -16,6 +16,7 @@ export class DepositarComponent implements OnInit {
   cbuUsuario: number = 0;
   montoIngresado: number = 0;
   userId: number = 1;
+  cuentaId: number = 0;
   arsVsBtc: number = 0;
 
   showAlertMonto:boolean=false;
@@ -64,10 +65,10 @@ export class DepositarComponent implements OnInit {
     }
 
     if (haber > 0) {
-      this.transaccionService.depositoTransaccion(this.userId, haber, precioBTC).subscribe(
-        (resp) => console.log(resp),
-        (error) => console.log(error)
-      );
+      this.transaccionService.depositoTransaccion(this.cuentaId, haber/* precioBTC*/).subscribe({
+        next: (v) => console.log(v),
+        error: (e) => console.log(e)
+      });
       this.showAlertMonto = false;
       setTimeout(() => {
         location.reload()
