@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { NgModel } from '@angular/forms';
-import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-intercambiar',
@@ -14,8 +13,8 @@ export class IntercambiarComponent implements OnInit {
   arsVsBtc: number = 0;
   montoDisponible: number = 0;
   cotizado: number = 0;
-  monedaCotizado: string = '';
-  monedasWallet:Array<string> = ['ARS', 'BTC' ] ;
+  monedaCotizado?: number ;
+  monedasWallet:Array<CodigoCuenta> = [CodigoCuenta.pesosArgentinos, CodigoCuenta.bitcoin ] ;
   moneda: string = '';
   montoIngresado:number = 0
   fondosInsuficientes: boolean = false
@@ -27,7 +26,7 @@ export class IntercambiarComponent implements OnInit {
     monto : new FormControl(this.montoIngresado)
   })
 
-  selectedValue:string = ''
+  selectedValue:number = 0
   displayCuentaSeleccionada:boolean= false
 
   constructor(private _transaccionService: TransaccionesService, private usuarioService:UsuarioService) {}
@@ -45,7 +44,7 @@ export class IntercambiarComponent implements OnInit {
     );
   }
 
-  getMontoDisponible(cuenta: string) {
+  getMontoDisponible(cuenta: number) {
     this._transaccionService.getTodasTransacciones(this.userID).subscribe(
       (resp) => {
         let haberes: number = 0;
@@ -67,7 +66,7 @@ export class IntercambiarComponent implements OnInit {
     );
   }
 
-  cotizar(montoCambiar: number, cuentaOrigen: string) {
+  cotizar(montoCambiar: number, cuentaOrigen: number) {
     let loCotizado: number ;
     if (montoCambiar > this.montoDisponible) {
       this.fondosInsuficientes = true
@@ -77,34 +76,34 @@ export class IntercambiarComponent implements OnInit {
     }
     this.fondosInsuficientes = false
     switch (cuentaOrigen) {
-      case 'ARS':
+      case CodigoCuenta.pesosArgentinos:
         loCotizado = montoCambiar / this.arsVsBtc;
-        this.monedaCotizado = 'BTC';
+        this.monedaCotizado = CodigoCuenta.bitcoin;
         break;
-      case 'BTC':
+      case CodigoCuenta.bitcoin:
         loCotizado = montoCambiar * this.arsVsBtc;
-        this.monedaCotizado = 'ARS';
+        this.monedaCotizado = CodigoCuenta.pesosArgentinos;
         break;
 
       default:
         loCotizado = 0;
-        this.monedaCotizado = 'Error';
+        this.monedaCotizado = 0;
         break;
     }
     this.cotizado = loCotizado;
   }
   reset(){
-    this.selectedValue = ''
+    this.selectedValue = 0
     this.displayCuentaSeleccionada = false
     this.montoIngresado= 0
     this.cotizado = 0
-    this.monedaCotizado= ''
+    this.monedaCotizado= 0
     this.fondosInsuficientes = false
 
   }
 
-  intercambioTransacc(cuentaDebitar: string, montoDebitar: number) {
-    let cuentaDestino: string = '';
+  intercambioTransacc(cuentaDebitar: number, montoDebitar: number) {
+    let cuentaDestino: number =0;
     let montoDestino: number = 0;
     let precioBTC: number = this.arsVsBtc;
     if (montoDebitar == 0) {
@@ -112,12 +111,12 @@ export class IntercambiarComponent implements OnInit {
       return
     }
     switch (cuentaDebitar) {
-      case 'ARS':
-        cuentaDestino = 'BTC';
+      case CodigoCuenta.pesosArgentinos:
+        cuentaDestino = CodigoCuenta.bitcoin;
         montoDestino = montoDebitar / precioBTC;
         break;
-      case 'BTC':
-        cuentaDestino = 'ARS';
+      case CodigoCuenta.bitcoin:
+        cuentaDestino = CodigoCuenta.pesosArgentinos;
         montoDestino = montoDebitar * precioBTC;
         break;
 
@@ -155,7 +154,7 @@ export class IntercambiarComponent implements OnInit {
   }
 
   changeSuit(event:any){
-    let cuentaSeleccionada = this.selectedValue
+    let cuentaSeleccionada:number = this.selectedValue
     this.displayCuentaSeleccionada = true
     this.getMontoDisponible(cuentaSeleccionada);
   }

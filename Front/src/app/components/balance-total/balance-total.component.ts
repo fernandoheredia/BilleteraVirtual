@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { TransaccionesService } from "../../services/transacciones.service";
+import { CodigoCuenta } from "../../enums/codigo-cuenta";
+
 
 
 @Component({
@@ -54,11 +56,11 @@ export class BalanceTotalComponent implements OnInit{
         for (let index = 0; index < respuesta.length; index++) {
           const element = respuesta[index];
           
-          if (element.cuenta == 'ARS') {
+          if (element.cuenta == CodigoCuenta.pesosArgentinos) {
             haberes += element.haber;
             deberes += element.debe;
           }
-          if(element.cuenta == 'BTC'){
+          if(element.cuenta == CodigoCuenta.bitcoin){
             haberes += (element.haber * this.arsVsBtc);
             deberes += (element.debe * this.arsVsBtc);
           }
