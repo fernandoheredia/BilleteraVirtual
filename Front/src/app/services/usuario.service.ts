@@ -76,7 +76,7 @@ export class UsuarioService {
       }));
   }
 
-  cerrarSesion():void
+  logout():void
   {
     sessionStorage.removeItem('currentUser');
     this.loggedIn.next(false);
