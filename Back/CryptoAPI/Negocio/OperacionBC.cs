@@ -14,9 +14,19 @@ namespace Negocio
             return db.Operaciones.ToList();
         }
 
-        public void AgregarOperacion(crypto_dbContext db, Operacion nuevaOperacion)
+        public void AgregarOperacion(crypto_dbContext db, VistaOperacion nuevaOperacion)
         {
-            db.Operaciones.Add(nuevaOperacion);
+            TipoOperacion? tipoOperacion = new TipoOperacionBC().ObtenerTipoOperacion(db, nuevaOperacion.IdTipoOperacion);
+            Cuenta? cuentaOrigen = new CuentaBC().ObtenerCuenta(db, nuevaOperacion.IdCuentaOrigen);
+            
+            Operacion operacion = new();
+            operacion.IdTipoOperacion = tipoOperacion.IdTipoOperacion;
+            operacion.IdCuentaOrigen = cuentaOrigen.IdCuenta;
+            operacion.Haber = nuevaOperacion.Haber;
+            operacion.Debe = nuevaOperacion.Debe;
+            operacion.Cotizacion = nuevaOperacion.Cotizacion;
+
+            db.Operaciones.Add(operacion);
             db.SaveChanges();
         }
     }
