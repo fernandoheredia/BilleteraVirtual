@@ -19,7 +19,7 @@ import { CodigoTransaccion} from '../../enums/codigo-transaccion'
 })
 export class RetirarComponent implements OnInit {
 
-  userId: number = 1;
+  userId: number = this.userService.usuarioAutenticado.idUsuario;
   beneficiario = '';
   cbuBeneficiario: number = 0;
   montoIngresado: number = 0;

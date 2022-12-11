@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { TransaccionesService } from '../../services/transacciones.service';
 
@@ -12,11 +13,12 @@ import { TransaccionesService } from '../../services/transacciones.service';
 })
 export class DepositarComponent implements OnInit {
 
-  nombreUsuario:string = '';
+  nombreUsuario:string = this.usuarioService.usuarioAutenticado.nombre;
   cbuUsuario: number = 0;
   montoIngresado: number = 0;
-  userId: number = 1;
+  userId: number = this.usuarioService.usuarioAutenticado.idUsuario;
   arsVsBtc: number = 0;
+
 
   showAlertMonto:boolean=false;
 
