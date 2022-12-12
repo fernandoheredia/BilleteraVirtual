@@ -5,12 +5,14 @@ import { Login } from '../models/login';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario';
+import {formatDate} from '@angular/common';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+  date: number
 
   url:string='https://localhost:7206/api/usuario/login';
 
@@ -21,27 +23,29 @@ export class UsuarioService {
 
   constructor(private http: HttpClient, private router:Router
     ) {
+      this.date = Date.now();
       console.log("El servicio UsuarioService está funcionando")
       this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('currentUser')||'{}'));
       this.currentUser = this.currentUserSubject.asObservable();
      }
 
   getUsuario(email: string):Observable<any>
-  {  
+  {
   let params = new HttpParams().set('email', email);
-    return this.http.get("http://localhost:3000/usuario/", {params: params} );  
+    return this.http.get("http://localhost:3000/usuario/", {params: params} );
   }
 
   setUsuario(email:string, password:string,enteredNombre:string, enteredApellido:string):Observable<any>
    {
   //   let params = new HttpParams().set('email', email);
   //   return this.http.post("http://localhost:3000/usuario/",{params: params})
-      return this.http.post("http://localhost:3000/usuario/",{
-      
-      email:email,
-      password:password,
-      Nombre:enteredNombre,
-      Apellido:enteredApellido,
+      return this.http.post('https://localhost:7206/api/usuario/registro',{
+
+  email:email,
+  password:password,
+  nombre:enteredNombre,
+  apellido:enteredApellido ,
+  fechaNacimiento: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
       cbu: Math.round(Math.random()*10000000000 )
       },{ responseType: "json" , withCredentials: false  });
 
@@ -49,9 +53,9 @@ export class UsuarioService {
   }
 
   getUsuarioId(id: number):Observable<any>
-  {  
+  {
   let params = new HttpParams().set('id', id);
-    return this.http.get("http://localhost:3000/usuario/", {params: params} );  
+    return this.http.get("http://localhost:3000/usuario/", {params: params} );
 
   }
 
@@ -84,5 +88,5 @@ export class UsuarioService {
 
 
 
-  
+
 }

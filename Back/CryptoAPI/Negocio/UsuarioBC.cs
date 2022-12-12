@@ -34,7 +34,15 @@ namespace Negocio
             usuario.Email = NuevoRegistro.Email;
             usuario.Password = NuevoRegistro.Password;
             usuario.Nombre = NuevoRegistro.Nombre;
+            usuario.Apellido = NuevoRegistro.Apellido;
             usuario.FechaNacimiento = NuevoRegistro.FechaNacimiento;
+            //Cuenta cuenta1=new();
+           // cuenta1.IdUsuario=NuevoRegistro.IdUsuario;
+           // cuenta1.IdMoneda =1;
+            //cuenta1.Activa = true;
+           // Cuenta cuenta2 = new();
+           // cuenta2.IdMoneda = 2;
+            //cuenta2.Activa = true;
 
             db.Usuarios.Add(usuario);
             db.SaveChanges();
