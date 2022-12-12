@@ -202,7 +202,7 @@ export class RetirarComponent implements OnInit {
           montoInput?.setAttribute('disabled', '');
         }
       } else {
-        console.log('datos ingresados de manera erronea');
+        console.log('datos ingresados de manera errónea');
         alert('Error en ingreso de datos');
         if (chbx != null) chbx.checked = false;
         return;
