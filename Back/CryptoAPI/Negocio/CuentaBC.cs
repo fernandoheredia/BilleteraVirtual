@@ -9,10 +9,13 @@ namespace Negocio
 {
     public class CuentaBC
     {
-        public List<CuentaVista> ObtenerCuentasUsuario(crypto_dbContext db, int userId) 
+        public List<CuentaVista> ObtenerCuentasUsuario(crypto_dbContext db, int userId)
         {
-            return db.VistaCuentas.Where(r=>r.IdUsuario==userId).ToList();
-             
+            return db.VistaCuentas.Where(r => r.IdUsuario == userId).ToList();
+        } 
+        public Cuenta? ObtenerCuenta(crypto_dbContext db, int idUser)
+        { 
+            return db.Cuentas.FirstOrDefault(a => a.IdUsuario == idUser && a.IdMoneda == 2 && a.Activa == true);
         }
     }
 }

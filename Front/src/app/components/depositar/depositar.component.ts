@@ -68,10 +68,10 @@ export class DepositarComponent implements OnInit {
     }
 
     if (haber > 0) {
-      this.transaccionService.depositoTransaccion(this.userId, haber, precioBTC).subscribe(
-        (resp) => console.log(resp),
-        (error) => console.log(error)
-      );
+      this.transaccionService.depositoTransaccion(this.userId, haber/* precioBTC*/).subscribe({
+        next: (v) => console.log(v),
+        error: (e) => console.log(e)
+      });
       this.showAlertMonto = false;
       setTimeout(() => {
         location.reload()

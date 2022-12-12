@@ -51,6 +51,10 @@ namespace Entities
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
 
+                entity.Property(e => e.Beneficiario)
+                    .HasMaxLength(50)
+                    .HasColumnName("beneficiario");
+
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.ContactoBancario)
                     .HasForeignKey(d => d.IdUsuario)

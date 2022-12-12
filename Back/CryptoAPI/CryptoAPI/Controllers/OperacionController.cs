@@ -8,7 +8,7 @@ namespace CryptoAPI.Controllers
     [ApiController]
     public class OperacionController : ControllerBase
     {
-        // GET: api/<OperacionController> sdafadsfjgdaslkhfga
+        // GET: api/<OperacionController>
         [HttpGet]
         public List<Operacion> Get()
         {
@@ -20,13 +20,13 @@ namespace CryptoAPI.Controllers
 
         // POST api/<OperacionController>
         [HttpPost]
-        public void Post([FromBody] Operacion oOperacion)
+        public void Post([FromBody] VistaOperacion oOperacion, int idUsuario)
         {
             try
             {
                 using (var db = new crypto_dbContext())
                 {
-                    new OperacionBC().AgregarOperacion(db, oOperacion);
+                    new OperacionBC().AgregarOperacion(db, oOperacion, idUsuario);
                 }
             }
             catch (Exception ex)

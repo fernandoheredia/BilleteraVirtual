@@ -14,6 +14,7 @@ export interface DataTransacciones {
     monto:                number;
     signo:                string;
     booleanARS:           boolean;
+    idTipoOperacion:      number;
 }
 
 export interface Portafolio {

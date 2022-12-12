@@ -1,6 +1,6 @@
 export enum CodigoTransaccion {
     Deposito = 1,
-    Retiro,
+    Retiro = 2,
     CambioInicial,
     CambioFinal
 }
