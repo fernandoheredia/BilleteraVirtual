@@ -13,8 +13,9 @@ import { CodigoCuenta } from "../../enums/codigo-cuenta";
 })
 export class PortafolioCriptoComponent implements OnInit {
 
-  userId:number=this.usuarioService.usuarioAutenticado.idUsuario; //harcodeo user id
-  billetera :Portafolio = {
+  userId:number=0
+
+   billetera :Portafolio = {
     ars:0,
     btc:0,
     ars_img:'../../../assets/img/ARS.png',
@@ -27,6 +28,8 @@ export class PortafolioCriptoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.userId = parseInt(localStorage.getItem('userId')!)
+    
     this.miPortafolio(this.userId);
   }
 
