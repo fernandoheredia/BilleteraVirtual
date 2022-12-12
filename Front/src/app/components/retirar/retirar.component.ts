@@ -29,7 +29,7 @@ export class RetirarComponent implements OnInit {
   showAlertDestino: boolean = false;
   User: any;
   amountState: boolean = false;
-  hola: boolean = true;
+  disableButton: boolean = true;
 
   form!: FormGroup;
 
@@ -92,7 +92,7 @@ export class RetirarComponent implements OnInit {
 
         for (let index = 0; index < datos.length; index++) {
           const element = datos[index];
-          if (element.cuenta == CodigoCuenta.pesosArgentinos) {
+          if (element.cuenta == CodigoCuenta.PesosArgentinos) {
             haber_ARS += element.haber;
             debe_ARS += element.debe;
           }
@@ -124,7 +124,7 @@ export class RetirarComponent implements OnInit {
     let retiroT: Transaccion = new Transaccion(
       this.userId,
       CodigoTransaccion.Retiro,
-      CodigoCuenta.pesosArgentinos,
+      CodigoCuenta.PesosArgentinos,
       fecha,
       debe,
       0,

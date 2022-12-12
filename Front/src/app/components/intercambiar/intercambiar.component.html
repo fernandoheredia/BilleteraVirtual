@@ -28,8 +28,8 @@
             <form [formGroup]="form">
               <select class="form-select"  formControlName="cuentas" [(ngModel)]="selectedValue" (change)="changeSuit($event)">
                 <option  value="" disabled>Seleccionar Cuenta</option>
-                <option  *ngFor="let moneda  of monedasWallet" [ngValue]="moneda" >
-                  {{moneda}}
+                <option  *ngFor="let moneda  of monedasWallet | keyvalue" [ngValue]="moneda.value" >
+                  {{moneda.key}}
                 </option>
 
               </select>
@@ -37,10 +37,7 @@
 
             <div class="row my-2 mx-1" *ngIf="displayCuentaSeleccionada"  >
               <div class="col m-0 ">
-                <p class="mt-1 mb-3 text-start fst-italic " >Seleccionado: {{selectedValue}}</p>
-              </div>
-              <div class="col m-0 ">
-                <p class="mt-1 mb-3 text-end fst-italic"  >Disponibles {{montoDisponible}} {{selectedValue}}</p>
+                <p class="mt-1 mb-3 text-end fst-italic"  >Monto disponible {{montoDisponible}}</p>
               </div>
             </div>
           </div>

@@ -56,11 +56,11 @@ export class BalanceTotalComponent implements OnInit{
         for (let index = 0; index < respuesta.length; index++) {
           const element = respuesta[index];
           
-          if (element.cuenta == CodigoCuenta.pesosArgentinos) {
+          if (element.cuenta == CodigoCuenta.PesosArgentinos) {
             haberes += element.haber;
             deberes += element.debe;
           }
-          if(element.cuenta == CodigoCuenta.bitcoin){
+          if(element.cuenta == CodigoCuenta.Bitcoin){
             haberes += (element.haber * this.arsVsBtc);
             deberes += (element.debe * this.arsVsBtc);
           }
