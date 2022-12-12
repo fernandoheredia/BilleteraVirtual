@@ -84,17 +84,15 @@ export class LoginComponent implements OnInit {
         {
           if (data.password === password && data.idUsuario!=0) 
           {
-            console.log('usuario ingresado correctamente');
-            console.log('id usuario=',data.idUsuario);
+
             this.router.navigate(['/cuenta-personal']);
           }else{
-            console.log('el usuario o contraseña ingresado no es correcto');
+
             this.validezCampo = false;
           }
         }
         else
         {
-          console.log('no se ha encontrado usuario');
           this.validezCampo = false;
         }
         

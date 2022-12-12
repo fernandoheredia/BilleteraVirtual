@@ -19,7 +19,7 @@ import { CodigoTransaccion} from '../../enums/codigo-transaccion'
 })
 export class RetirarComponent implements OnInit {
 
-  userId: number = this.userService.usuarioAutenticado.idUsuario;
+  userId: number = 0
   beneficiario = '';
   cbuBeneficiario: number = 0;
   montoIngresado: number = 0;
@@ -48,6 +48,8 @@ export class RetirarComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.userId = parseInt(localStorage.getItem('userId')!)
+    
     this.mostrarBeneficiario(this.userId);
     this.getPrecioBTCvsARS();
     this.getTotalARS();
