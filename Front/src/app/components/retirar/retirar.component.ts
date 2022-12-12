@@ -131,10 +131,17 @@ export class RetirarComponent implements OnInit {
       precioBTC
     );
 
-    this.miServicio.retiroTransaccion2(retiroT).subscribe(
-      (data) => console.log(data),
-      (error) => console.log(error)
-    );
+    // this.miServicio.retiroTransaccion2(retiroT).subscribe(
+    //   (data) => console.log(data),
+    //   (error) => console.log(error)
+    // );
+
+    this.miServicio.retiroTransaccion(this.userId, debe).subscribe(
+      {
+        next: (v) => console.log(v),
+        error: (e) => console.log(e)
+      }
+    )
   }
 
   reset() {
@@ -187,7 +194,7 @@ export class RetirarComponent implements OnInit {
           this.showAlertMonto = true;
           return;
         } else if (
-          this.form.get('cbu')?.value != this.cbuBeneficiario ||
+          //this.form.get('cbu')?.value != this.cbuBeneficiario ||
           this.form.get('nombre')?.value != this.beneficiario
         ) {
           console.log('Error: cuenta de destino no registrada');
