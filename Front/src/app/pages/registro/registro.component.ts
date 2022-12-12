@@ -36,7 +36,7 @@ export class RegistroComponent implements OnInit {
           
       },
       response => {
-          alert('Lo sentimos, no pudimos registrar tu usuario. Intentalo mas tarde')
+          alert('Lo sentimos, no pudimos registrar tu usuario. Intentalo más tarde')
       }
       )
     
