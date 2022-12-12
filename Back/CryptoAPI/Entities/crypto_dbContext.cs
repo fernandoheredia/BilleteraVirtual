@@ -25,6 +25,7 @@ namespace Entities
         public virtual DbSet<Login> Logins { get;set; } = null!;
         public virtual DbSet<VistaUsuario> VistaUsuarios { get; set; } = null!;
         public virtual DbSet<CuentaVista> VistaCuentas { get; set; } = null!;
+        public virtual DbSet<VistaRegistro> VistaRegistro { get; set; } = null!;
 
         public virtual DbSet<VistaOperacionFront> VistaOperacionesFront { get; set; } = null!;
 
@@ -222,6 +223,17 @@ namespace Entities
             {
                 entity.HasKey(e => e.IdUsuario);
                 entity.ToView("VistaUsuarios");
+                entity.Property(e => e.IdUsuario);
+                entity.Property(e => e.Email).IsUnicode(false);
+                entity.Property(e => e.Password).IsUnicode(false);
+                entity.Property(e => e.Nombre).IsUnicode(false);
+                entity.Property(e => e.Apellido).IsUnicode(false);
+            });
+
+            modelBuilder.Entity<VistaRegistro>(entity => //vista agregada para usr
+            {
+                entity.HasKey(e => e.IdUsuario);
+                entity.ToView("VistaRegistro");
                 entity.Property(e => e.IdUsuario);
                 entity.Property(e => e.Email).IsUnicode(false);
                 entity.Property(e => e.Password).IsUnicode(false);

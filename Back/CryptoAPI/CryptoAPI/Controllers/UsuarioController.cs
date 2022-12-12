@@ -89,13 +89,14 @@ namespace CryptoAPI.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] VistaUsuario oOperacion, int idUsuario)
+        [Route("registro")]
+        public void Post([FromBody] VistaRegistro NuevoRegistro)
         {
             try
             {
                 using (var db = new crypto_dbContext())
                 {
-                    new RegistroBC().AgregarOperacion(db, oOperacion, idUsuario);
+                    new UsuarioBC().RegistrarUsuario(db, NuevoRegistro);
                 }
             }
             catch (Exception ex)

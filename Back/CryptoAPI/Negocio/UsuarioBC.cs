@@ -24,18 +24,22 @@ namespace Negocio
         {
             return (VistaUsuario?) db.VistaUsuarios.FirstOrDefault(a => a.Email == email && a.Password == pwd);
         }
-        public void RegistrarUsuario(crypto_dbContext db, VistaOperacion NuevoRegistro, int idUser)
+
+        public void RegistrarUsuario(crypto_dbContext db, VistaRegistro NuevoRegistro)
         {
-            Cuenta? cuentaOrigen = new CuentaBC().ObtenerCuenta(db, idUser);
+            //Cuenta? cuentaOrigen = new CuentaBC().ObtenerCuenta(db, idUser);
             
             Usuario usuario = new();
-            usuario.IdTipoOperacion = nuevaOperacion.IdTipoOperacion;
-            usuario.IdCuentaOrigen = cuentaOrigen.IdCuenta;
-            usuario.Haber = nuevaOperacion.Haber;
-            usuario.Debe = nuevaOperacion.Debe;
+            usuario.IdUsuario = NuevoRegistro.IdUsuario;
+            usuario.Email = NuevoRegistro.Email;
+            usuario.Password = NuevoRegistro.Password;
+            usuario.Nombre = NuevoRegistro.Nombre;
+            usuario.FechaNacimiento = NuevoRegistro.FechaNacimiento;
 
-            db.Operaciones.Add(operacion);
+            db.Usuarios.Add(usuario);
             db.SaveChanges();
         }
     }
 }
+
+
