@@ -20,13 +20,13 @@ namespace CryptoAPI.Controllers
 
         // POST api/<OperacionController>
         [HttpPost]
-        public void Post([FromBody] VistaOperacion oOperacion)
+        public void Post([FromBody] VistaOperacion oOperacion, int idUsuario)
         {
             try
             {
                 using (var db = new crypto_dbContext())
                 {
-                    new OperacionBC().AgregarOperacion(db, oOperacion);
+                    new OperacionBC().AgregarOperacion(db, oOperacion, idUsuario);
                 }
             }
             catch (Exception ex)

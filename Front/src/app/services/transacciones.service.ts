@@ -28,12 +28,11 @@ export class TransaccionesService {
     return this.http.get("http://localhost:3000/transaccionFinal/", {params: params} );
   }
   
-  depositoTransaccion(idCuentaOrigen:number, haber:number):Observable<any>
+  depositoTransaccion(idUsuario:number, haber:number):Observable<any>
   {
-    return this.http.post("https://localhost:7206/api/Operacion",{
-      idTipoOperacion: 1,
-      idCuentaOrigen: idCuentaOrigen,
-      debe : 0, 
+    return this.http.post("https://localhost:7206/api/Operacion?idUsuario="+idUsuario,{
+      idTipoOperacion: CodigoTransaccion.Deposito,
+      debe : 0,
       haber: haber
     },{ responseType: "json" , withCredentials: false  })
   }
@@ -65,17 +64,12 @@ export class TransaccionesService {
   }
 
 
-  retiroTransaccion(idUsuario:number, debe:number, cotizacionBTC:number):Observable<any>
+  retiroTransaccion(idUsuario:number, debe:number):Observable<any>
   {
-    return this.http.post("http://localhost:3000/transaccionFinal/",{
-    
-    idUsuario: idUsuario,
-    codigoMovimiento: CodigoTransaccion.Retiro,
-    cuenta: CodigoCuenta.PesosArgentinos,
-    fecha: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
+    return this.http.post("https://localhost:7206/api/Operacion?idUsuario="+idUsuario,{
+    idTipoOperacion: CodigoTransaccion.Retiro,
     debe : debe, 
     haber: 0,
-    cotARSvsBTC: cotizacionBTC
     },{ responseType: "json" , withCredentials: false  })
   }
 

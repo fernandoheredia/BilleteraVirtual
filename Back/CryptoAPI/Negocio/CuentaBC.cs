@@ -13,9 +13,9 @@ namespace Negocio
         {
             return db.VistaCuentas.Where(r => r.IdUsuario == userId).ToList();
         } 
-        public Cuenta? ObtenerCuenta(crypto_dbContext db, int id)
+        public Cuenta? ObtenerCuenta(crypto_dbContext db, int idUser)
         { 
-            return db.Cuentas.FirstOrDefault(a => a.IdCuenta == id);
+            return db.Cuentas.FirstOrDefault(a => a.IdUsuario == idUser && a.IdMoneda == 2 && a.Activa == true);
         }
     }
 }
