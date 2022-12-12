@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -17,9 +18,13 @@ export class NavComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  //this.usuarioService.estaAutenticado.subscribe( boolean => console.log('Esta logueado ?',boolean))
+    this.usuarioService.estaAutenticado.subscribe(res=> {
+      console.log('observable', res)
+      this.estaAutenticado = res }
+    );
+ }
 
-    this.usuarioService.estaAutenticado.subscribe(res=>(this.estaAutenticado=res));
-  }
 
   onCerrarSesion(){
     this.usuarioService.logout();

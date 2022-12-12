@@ -14,13 +14,15 @@ import { CodigoCuenta } from "../../enums/codigo-cuenta";
 export class HistorialTransaccionesComponent implements OnInit {
   //variables globales
   dataTransacciones: Array<DataTransacciones> = [];
-  userId: number = this.usuarioService.usuarioAutenticado.idUsuario;
+  userId: number = 0
   transaccionesTodas: boolean = true;
   arsVsBtc: number = 0;
 
   constructor(private _servicioTransaccion: TransaccionesService, private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
+    
+    this.userId = parseInt(localStorage.getItem('userId')!)
     this.ultimasTransacciones(this.userId);
   }
 

@@ -12,7 +12,7 @@ import { CodigoTransaccion } from "../../enums/codigo-transaccion";
   styleUrls: ['./intercambiar.component.css'],
 })
 export class IntercambiarComponent implements OnInit {
-  userID: number = this.usuarioService.usuarioAutenticado.idUsuario;
+  userID: number = 0
   arsVsBtc: number = 0;
   montoDisponible: number = 0;
   cotizado: number = 0;
@@ -38,7 +38,8 @@ export class IntercambiarComponent implements OnInit {
   constructor(private _transaccionService: TransaccionesService, private usuarioService:UsuarioService) {}
 
   ngOnInit(): void {
-    console.log('hola',  this.monedasWallet[0])
+    this.userID = parseInt(localStorage.getItem('userId')!)
+
     this.getPrecioBTCvsARS();
   }
   getPrecioBTCvsARS() {

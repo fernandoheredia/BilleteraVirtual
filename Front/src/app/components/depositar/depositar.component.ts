@@ -16,7 +16,7 @@ export class DepositarComponent implements OnInit {
   nombreUsuario:string = this.usuarioService.usuarioAutenticado.nombre;
   cbuUsuario: number = 0;
   montoIngresado: number = 0;
-  userId: number = this.usuarioService.usuarioAutenticado.idUsuario;
+  userId: number = 0
   arsVsBtc: number = 0;
 
 
@@ -37,6 +37,8 @@ export class DepositarComponent implements OnInit {
     }
   
   ngOnInit(): void {
+    this.userId = parseInt(localStorage.getItem('userId')!)
+    
     this.infoUsuarioById(this.userId);
   }
   infoUsuarioById(id:number){
