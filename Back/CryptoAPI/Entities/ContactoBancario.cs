@@ -13,6 +13,7 @@ namespace Entities
         public int IdContacto { get; set; }
         public int IdUsuario { get; set; }
         public string Cbu { get; set; } = null!;
+        public string Beneficiario { get; set; } = null!;
 
         public virtual Usuario IdUsuarioNavigation { get; set; } = null!;
         public virtual ICollection<Operacion> Operaciones { get; set; }
