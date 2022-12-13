@@ -30,7 +30,7 @@ export class TransaccionesService {
   
   depositoTransaccion(idUsuario:number, haber:number):Observable<any>
   {
-    return this.http.post("https://localhost:7206/api/Operacion?idUsuario="+idUsuario,{
+    return this.http.post(`https://localhost:7206/api/Operacion?idUsuario=${idUsuario}`,{
       idTipoOperacion: CodigoTransaccion.Deposito,
       debe : 0,
       haber: haber
@@ -66,7 +66,7 @@ export class TransaccionesService {
 
   retiroTransaccion(idUsuario:number, debe:number):Observable<any>
   {
-    return this.http.post("https://localhost:7206/api/Operacion?idUsuario="+idUsuario,{
+    return this.http.post(`https://localhost:7206/api/Operacion?idUsuario=${idUsuario}`,{
     idTipoOperacion: CodigoTransaccion.Retiro,
     debe : debe, 
     haber: 0,
