@@ -19,29 +19,46 @@ export class RegistroComponent implements OnInit {
   enteredNombre:string='';
   enteredApellido:string='';
   enteredFechaNacimiento:string="";
-  
-  
+
+
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(f: NgForm){
-    
-    
+
+
       this.usuarioService.setUsuario(this.enteredEmail,this.enteredPassword,this.enteredNombre,this.enteredApellido).subscribe(
         (val) => {
           this.success = true;
           setTimeout( () => { this.router.navigate(['/cuenta-personal']); }, 1000 );
-          
+
       },
       response => {
           alert('Lo sentimos, no pudimos registrar tu usuario. Intentalo más tarde')
       }
       )
-    
-   
-      
+
+
+
   }
 
 }
+
+
+//registroUsuario(){
+  //this.usuarioService.setUsuario(this.enteredEmail,this.enteredPassword,this.enteredNombre,this.enteredApellido).subscribe
+    //({
+      //next: (v) => {
+        //console.log(v);
+        //this.success = true;
+        //setTimeout(()=>{this.router.navigate(['/cuenta-personal']); }, 1000);
+      //},
+      //error: (e) => {
+        //console.log(e);
+        //alert('Lo sentimos, no pudimos registrar tu usuario. Intentalo más tarde');
+      //}
+    //});
+  //}
+//}
