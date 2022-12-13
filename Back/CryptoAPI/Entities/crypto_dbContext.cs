@@ -123,7 +123,7 @@ namespace Entities
                     .HasColumnName("cotizacion");
 
                 entity.Property(e => e.Debe)
-                    .HasColumnType("decimal(18, 5)")
+                    .HasColumnType("decimal(18, 18)")
                     .HasColumnName("debe");
 
                 entity.Property(e => e.Fecha)
@@ -132,7 +132,7 @@ namespace Entities
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Haber)
-                    .HasColumnType("decimal(18, 5)")
+                    .HasColumnType("decimal(18, 18)")
                     .HasColumnName("haber");
 
                 entity.Property(e => e.IdContacto).HasColumnName("idContacto");
@@ -254,19 +254,17 @@ namespace Entities
 
             modelBuilder.Entity<VistaOperacionFront>(entity =>
             {
-                entity.HasKey(e => e.IdOperacion);
+                entity.HasKey(e => e.Id);
                 entity.ToView("VistaOperacionesFront");
-                entity.Property(e => e.IdOperacion);
-                entity.Property(e => e.IdTipoOperacion);
+                entity.Property(e => e.Id);
+                entity.Property(e => e.CodigoMovimiento);
                 entity.Property(e => e.IdCuentaOrigen);
                 entity.Property(e => e.Fecha);
-                entity.Property(e => e.Cotizacion);
+                entity.Property(e => e.CotARSvsBTC);
                 entity.Property(e => e.Haber);
                 entity.Property(e => e.Debe);
                 entity.Property(e => e.IdContacto);
-                entity.Property(e => e.CodigoOperacion).IsUnicode(false);
-                entity.Property(e => e.idMoneda);
-                entity.Property(e => e.codigoMoneda).IsUnicode(false);
+                entity.Property(e => e.Cuenta);
             }
             );
 
