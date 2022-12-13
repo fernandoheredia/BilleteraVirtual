@@ -35,7 +35,7 @@ namespace Negocio
             usuario.Password = NuevoRegistro.Password;
             usuario.Nombre = NuevoRegistro.Nombre;
             usuario.Apellido = NuevoRegistro.Apellido;
-            usuario.FechaNacimiento = NuevoRegistro.FechaNacimiento;
+            //usuario.FechaNacimiento = NuevoRegistro.FechaNacimiento;
             //Cuenta cuenta1=new();
            // cuenta1.IdUsuario=NuevoRegistro.IdUsuario;
            // cuenta1.IdMoneda =1;

@@ -13,6 +13,6 @@ namespace Entities
         public string Password { get; set; } = null!;
         public string Nombre { get; set; } = null!;
         public string Apellido { get; set; } = null!;
-        public DateTime FechaNacimiento { get; set; }
+        //public DateTime FechaNacimiento { get; set; }
     }
 }

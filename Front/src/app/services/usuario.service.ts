@@ -42,14 +42,14 @@ export class UsuarioService {
    {
   //   let params = new HttpParams().set('email', email);
   //   return this.http.post("http://localhost:3000/usuario/",{params: params})
-      return this.http.post('https://localhost:7206/api/usuario/registro',{
+      return this.http.post("https://localhost:7206/api/usuario/registro",{
 
   email:email,
   password:password,
   nombre:enteredNombre,
   apellido:enteredApellido ,
-  fechaNacimiento: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
-      cbu: Math.round(Math.random()*10000000000 )
+  //fechaNacimiento: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
+      //cbu: Math.round(Math.random()*10000000000 )
       },{ responseType: "json" , withCredentials: false  });
 
 
@@ -66,7 +66,7 @@ export class UsuarioService {
     return this.currentUserSubject.value}
 
   get estaAutenticado():Observable< boolean>{
-    
+
     if(!this.loggedIn.getValue())
     {
        this.router.navigate(['home']);
