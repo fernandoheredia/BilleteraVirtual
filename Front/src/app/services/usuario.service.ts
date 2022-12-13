@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Login } from '../models/login';
 import {map} from 'rxjs/operators';
@@ -12,24 +12,20 @@ import {formatDate} from '@angular/common';
   providedIn: 'root'
 })
 export class UsuarioService {
-  date: number
+
+  
 
   url:string='https://localhost:7206/api/usuario/login';
 
-  loggedIn : BehaviorSubject<boolean>;
-  currentUserSubject:BehaviorSubject<Usuario>;
 
+  currentUserSubject:BehaviorSubject<Usuario>;
+  loggedUser$ = new EventEmitter<boolean>(false)
 
 
   constructor(private http: HttpClient, private router:Router
     ) {
-      this.date = Date.now();
-      console.log("El servicio UsuarioService está funcionando")
-      this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('currentUser')||'{}'));
-      this.loggedIn= new BehaviorSubject<boolean>(false);
+      this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse(sessionStorage.getItem('currentUser')||'{}'));
 
-      console.log("El servicio UsuarioService está funcionando", this.currentUserSubject)
-      console.log("El servicio UsuarioService está funcionando", this.loggedIn)
      }
 
   getUsuario(email: string):Observable<any>
@@ -65,23 +61,15 @@ export class UsuarioService {
   get usuarioAutenticado():Usuario{
     return this.currentUserSubject.value}
 
-  get estaAutenticado():Observable< boolean>{
-
-    if(!this.loggedIn.getValue())
-    {
-       this.router.navigate(['home']);
-    }
-    return this.loggedIn.asObservable();
-  }
 
   iniciarSesion(login:Login):Observable<any>
   {
       return this.http.post<any>(this.url,login).pipe(map(data=>{
         let userId = data.idUsuario
         localStorage.setItem('userId', userId )
-        sessionStorage.setItem('currentUser',JSON.stringify(data));//data.idUsuario
+        sessionStorage.setItem('currentUser',JSON.stringify(data));
         this.currentUserSubject.next(data);
-        this.loggedIn.next(true);
+       
         return data;
       }));
   }
@@ -90,8 +78,6 @@ export class UsuarioService {
   {
     localStorage.removeItem('userId')
     sessionStorage.removeItem('currentUser');
-
-    this.loggedIn.next(true);
   }
 
 
