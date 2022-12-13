@@ -1,5 +1,5 @@
 import { APP_BASE_HREF } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Route, Router, RouterLink } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit {
         {
           if (data.password === password && data.idUsuario!=0) 
           {
-
+            this.usuarioService.loggedUser$.emit(true)
             this.router.navigate(['/cuenta-personal']);
           }else{
 
