@@ -24,10 +24,8 @@ export class TransaccionesService {
 
   getTodasTransacciones(idUsuario: number):Observable<any>
   {  
-    let url = "http://localhost:3000/transaccionFinal/";
-    let urlProd = 'https://localhost:7206/api/operacion/';
-    let params = new HttpParams().set('idUsuario', idUsuario);
-    return this.http.get(urlProd, {params: params} );
+  let params = new HttpParams().set('idUsuario', idUsuario);
+    return this.http.get(`https://localhost:7206/api/operacion/${idUsuario}`);
   }
   
   depositoTransaccion(idUsuario:number, haber:number):Observable<any>

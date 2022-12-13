@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CryptoAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/operacion")]
     [ApiController]
     public class OperacionController : ControllerBase
     {
@@ -36,13 +36,13 @@ namespace CryptoAPI.Controllers
         }
 
         [HttpGet("{idUsuario}")]
-        public List<VistaOperacionFront> Get(int idUser) 
+        public List<VistaOperacionFront> Get(int idUsuario) 
         {
             List<VistaOperacionFront> listaOperaciones = new List<VistaOperacionFront>();
            
             using(var db = new crypto_dbContext())
             {
-                listaOperaciones = new OperacionBC().ObtenerOperacionesUsuario(db, idUser);
+                listaOperaciones = new OperacionBC().ObtenerOperacionesUsuario(db, idUsuario);
             }
 
             return listaOperaciones;
