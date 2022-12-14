@@ -11,7 +11,7 @@ import { CodigoCuenta } from "../../enums/codigo-cuenta";
   styleUrls: ['./balance-total.component.css']
 })
 export class BalanceTotalComponent implements OnInit{
-  //userId:number = this.usuarioService.usuarioAutenticado.idUsuario;
+
   userId:number = 0 
   balanceTotal: any = 0
   arsVsBtc: number = 0
@@ -51,6 +51,7 @@ export class BalanceTotalComponent implements OnInit{
   getBalanceTotal() {
     this._transaccionService.getTodasTransacciones(this.userId).subscribe(
       (resp) => {
+      
         let haberes: number = 0;
         let deberes: number = 0;
         let respuesta = resp;

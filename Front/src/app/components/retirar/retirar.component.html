@@ -8,26 +8,33 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body">
-        <form [formGroup]="form">
-          <div class="row justify-content-around">
-            <div class="">
-              <div class="card-content p-2 bg-dark text-white">
-                <legend>Enviar Pesos Argentinos</legend>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-bank"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"
-                  />
-                </svg>
-                <h5><label>Transferencia bancaria</label></h5>
-                <legend>Banco o billetera digital</legend>
+      <div class="modal-body p-0">
+      <!--  <form [formGroup]="form">-->
+
+          <div class="row justify-content-center">
+            <div class="card bg-light">
+              <div class="card-body ">
+                <p class="fs-1 text-dark text-start">Enviá pesos argentinos</p>
+                <div class="row">
+                  <div class="col-1">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-bank"
+                    viewBox="0 0 16 16"
+                    >
+                      <path
+                       d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="col-11">
+                    <p class="fs-5 text-start">Transferencia bancaria</p>
+                  </div>
+                </div>
+                <legend class="text-center">Banco o billetera digital</legend>
                 <div class="mb-3">
                   <form [formGroup]="form">
                     <select class="form-select" formControlName="beneficiarios" [(ngModel)]="selectedValue" (change)="changeSuit($event)">
@@ -35,23 +42,15 @@
                       <option  *ngFor="let contacto of dataBeneficiarios" >
                         {{contacto.beneficiario}}
                       </option>
-      
                     </select>
                   </form>
-                  <!-- <input
-                    type="text"
-                    id="nombreInput"
-                    formControlName="nombre"
-                    class="form-control"
-                    placeholder="Beneficiario"
-                  /> -->
                   <div
                     *ngIf="
-                      nombre?.invalid && (nombre?.dirty || nombre?.touched)
+                      beneficiarios?.invalid && (beneficiarios?.dirty || beneficiarios?.touched)
                     "
                     class="alert"
                   >
-                    <div *ngIf="nombre?.errors?.['required']">
+                    <div *ngIf="beneficiarios?.errors?.['required']">
                       Nombre de beneficiario requerido
                     </div>
                   </div>
@@ -108,23 +107,24 @@
                       Validar datos ingresados
                     </label>
                   </div>
+                  <p *ngIf="amountState">El monto ingresado no es válido</p>
+                  <br>
+                  <button
+                    type="button"
+                    id="btn"
+                    [disabled]="disableButton"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#retirar-detalle"
+                    (click)="Continuar()"
+                  >
+                    Continuar
+                  </button>
                 </div>
-                <p *ngIf="amountState">El monto ingresado no es válido</p>
-                <button
-                  type="button"
-                  id="btn"
-                  [disabled]="disableButton"
-                  class="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#retirar-detalle"
-                  (click)="Continuar()"
-                >
-                  Continuar
-                </button>
               </div>
             </div>
           </div>
-        </form>
+       <!-- </form> -->
       </div>
     </div>
   </div>
@@ -192,11 +192,11 @@
               </div>
               <div class="mb-3">
                 <label class="">Beneficiario</label><br />
-                <label class="form-label">{{ beneficiario }}</label>
+                <label class="form-label">{{ miContacto.beneficiario }}</label>
               </div>
               <div class="mb-3">
                 <label class="form-label">CBU/CVU</label><br />
-                <label class="form-label">{{ cbuBeneficiario }}</label>
+                <label class="form-label">{{ miContacto.cbu }}</label>
               </div>
               <!-- <div class="mb-3">
                 <div class="mb-3">

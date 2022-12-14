@@ -36,7 +36,8 @@ export class RetirarComponent implements OnInit {
   selectedValue: string = '';
   displayCuentaSeleccionada:boolean= false
   dataBeneficiarios:Array<ContactoBancario>=[];
-
+  miContacto:ContactoBancario = new ContactoBancario(0,0,'','');
+  idContacto:number = 0;
   form!: FormGroup;
 
   usuario: any;
@@ -46,8 +47,7 @@ export class RetirarComponent implements OnInit {
     private formbuilder: FormBuilder
   ) {
     this.form = this.formbuilder.group({
-      //nombre: ['', [Validators.required]],
-      //cbu: ['', [Validators.required]],
+
       monto: ['', [Validators.required]],
       beneficiarios: ['', [Validators.required]],
     });
@@ -87,31 +87,12 @@ export class RetirarComponent implements OnInit {
     );
   }
 
-  // mostrarBeneficiario(userId: number) {
-  //   this.userService.getContactosBancarios(userId).subscribe(
-  //     (data) => {
-  //     this.contactos = data;
-  //     this.beneficiario = this.form.get('beneficiarios')?.value;
-  //     console.log("MOSTRANDO BENEFICIARIOS");
-  //     console.log(this.selectedValue);
-  //     console.log(this.contactos);
-  //     this.User = data[0];
-  //     //this.beneficiario = this.User.Nombre;
-  //     //this.cbuBeneficiario = this.User.cbu;
-  //     //console.log('cbu: ', this.cbu);
-  //   });
-  // }
 
   mostrarBeneficiario(userId: number) {
     this.userService.getContactosBancarios(userId).subscribe(
       (data)=>{
         this.dataBeneficiarios = data;
-        for (let index = 0; index < this.dataBeneficiarios.length; index++) {
-          const element = this.dataBeneficiarios[index];
-          let miContacto:ContactoBancario = new ContactoBancario(element.idContacto,element.idUsuario,element.cbu,element.beneficiario);
-        }
       }
-
     );
   }
   changeSuit(event:any){
@@ -142,7 +123,6 @@ export class RetirarComponent implements OnInit {
         }
         const disponible = haber_ARS - debe_ARS;
         this.disponible_ARS = disponible;
-        console.log('Pesos disponibles: ', this.disponible_ARS);
       },
       (error) => console.log(error)
     );
@@ -179,7 +159,7 @@ export class RetirarComponent implements OnInit {
     //   (error) => console.log(error)
     // );
 
-    this.miServicio.retiroTransaccion(this.userId, debe).subscribe(
+    this.miServicio.retiroTransaccion(this.userId, debe,  this.miContacto.idContacto).subscribe(
       {
         next: (v) => console.log(v),
         error: (e) => console.log(e)
@@ -215,8 +195,10 @@ export class RetirarComponent implements OnInit {
     for (let index = 0; index<=this.dataBeneficiarios.length; index++)
     {
       if (this.dataBeneficiarios[index].beneficiario == this.selectedValue){
-        this.cbuBeneficiario = this.dataBeneficiarios[index].cbu;
-        this.beneficiario = this.dataBeneficiarios[index].beneficiario;
+        this.miContacto = this.dataBeneficiarios[index];
+        // this.miContacto.cbu = this.dataBeneficiarios[index].cbu;
+        // this.beneficiario = this.dataBeneficiarios[index].beneficiario;
+        // this.idContacto = this.dataBeneficiarios[index].idContacto;
       }
     }
   }

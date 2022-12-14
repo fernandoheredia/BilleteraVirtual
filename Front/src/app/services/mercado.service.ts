@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class MercadoService {
   
   constructor(private http:HttpClient) { 
-    console.log("El servicio mercado está corriendo.")
+
   }
   
   url:string = 'https://api.coingecko.com/api/v3/simple/price'

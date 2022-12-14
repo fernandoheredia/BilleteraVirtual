@@ -5,7 +5,7 @@ import { Login } from '../models/login';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario';
-import {formatDate} from '@angular/common';
+
 
 
 @Injectable({
@@ -19,7 +19,7 @@ export class UsuarioService {
 
 
   currentUserSubject:BehaviorSubject<Usuario>;
-  loggedUser$ = new EventEmitter<boolean>(false)
+
 
 
   constructor(private http: HttpClient, private router:Router
@@ -69,6 +69,7 @@ export class UsuarioService {
 
   iniciarSesion(login:Login):Observable<any>
   {
+      
       return this.http.post<any>(this.url,login).pipe(map(data=>{
         let userId = data.idUsuario
         localStorage.setItem('userId', userId )
