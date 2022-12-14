@@ -35,11 +35,6 @@ export class QuienesSomosComponent implements OnInit {
       imagen: "../../../assets/img/team/imagen5.jpg"
     },
     {
-      name: "Fernanda Manzano",
-      perfil: "UI/UX Designer - Tester QA - Front end developer",
-      imagen: "../../../assets/img/team/imagen6.jpg"
-    },
-    {
       name: "Ana Julia Ferreyra",
       perfil: "PHP Developer",
       imagen: "../../../assets/img/team/imagen7.jpg"
