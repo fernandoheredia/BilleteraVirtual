@@ -35,18 +35,16 @@ export class UsuarioService {
     return this.http.get("http://localhost:3000/usuario/", {params: params} );
   }
 
-  setUsuario(email:string, password:string,enteredNombre:string, enteredApellido:string):Observable<any>
+  setUsuario(email:string, password:string,enteredNombre:string, enteredApellido:string, enteredFechaNacimiento:string):Observable<any>
    {
   //   let params = new HttpParams().set('email', email);
   //   return this.http.post("http://localhost:3000/usuario/",{params: params})
       return this.http.post("https://localhost:7206/api/usuario/registro",{
-
-  email:email,
-  password:password,
-  nombre:enteredNombre,
-  apellido:enteredApellido ,
-  //fechaNacimiento:formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en'),
-      //cbu: Math.round(Math.random()*10000000000 )
+        email:email,
+        password:password,
+        nombre:enteredNombre,
+        apellido:enteredApellido ,
+        fechaNacimiento:enteredFechaNacimiento,
       },{ responseType: "json" , withCredentials: false  });
 
   }

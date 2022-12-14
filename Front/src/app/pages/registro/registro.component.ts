@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
   onSubmit(f: NgForm){
 
 
-      this.usuarioService.setUsuario(this.enteredEmail,this.enteredPassword,this.enteredNombre,this.enteredApellido).subscribe(
+      this.usuarioService.setUsuario(this.enteredEmail,this.enteredPassword,this.enteredNombre,this.enteredApellido,this.enteredFechaNacimiento).subscribe(
         (val) => {
           this.success = true;
           setTimeout( () => { this.router.navigate(['/cuenta-personal']); }, 1000 );
