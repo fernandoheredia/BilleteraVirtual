@@ -239,6 +239,8 @@ namespace Entities
                 entity.Property(e => e.Password).IsUnicode(false);
                 entity.Property(e => e.Nombre).IsUnicode(false);
                 entity.Property(e => e.Apellido).IsUnicode(false);
+                entity.Property(e => e.FechaNacimiento).IsUnicode(false);
+  
             });
 
             modelBuilder.Entity<CuentaVista>(entity =>

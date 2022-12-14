@@ -13,7 +13,7 @@ import {formatDate} from '@angular/common';
 })
 export class UsuarioService {
 
-  
+  date: number
 
   url:string='https://localhost:7206/api/usuario/login';
 
@@ -24,6 +24,7 @@ export class UsuarioService {
 
   constructor(private http: HttpClient, private router:Router
     ) {
+      this.date = Date.now();
       this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse(sessionStorage.getItem('currentUser')||'{}'));
 
      }
@@ -44,10 +45,9 @@ export class UsuarioService {
   password:password,
   nombre:enteredNombre,
   apellido:enteredApellido ,
-  //fechaNacimiento: formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en')+' hrs',
+  //fechaNacimiento:formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en'),
       //cbu: Math.round(Math.random()*10000000000 )
       },{ responseType: "json" , withCredentials: false  });
-
 
   }
 
@@ -69,7 +69,7 @@ export class UsuarioService {
         localStorage.setItem('userId', userId )
         sessionStorage.setItem('currentUser',JSON.stringify(data));
         this.currentUserSubject.next(data);
-       
+
         return data;
       }));
   }
