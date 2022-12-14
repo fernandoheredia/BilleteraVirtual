@@ -18,7 +18,7 @@ export class RegistroComponent implements OnInit {
   enteredPassword:string='';
   enteredNombre:string='';
   enteredApellido:string='';
-  enteredFechaNacimiento:string="";
+  enteredFechaNacimiento:string='';
 
 
   constructor(private usuarioService: UsuarioService, private router: Router) { }

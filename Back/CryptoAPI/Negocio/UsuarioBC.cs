@@ -36,6 +36,7 @@ namespace Negocio
             usuario.Nombre = NuevoRegistro.Nombre;
             usuario.Apellido = NuevoRegistro.Apellido;
             //usuario.FechaNacimiento = NuevoRegistro.FechaNacimiento;
+            usuario.FechaNacimiento = DateTime.Now;
             //Cuenta cuenta1=new();
            // cuenta1.IdUsuario=NuevoRegistro.IdUsuario;
            // cuenta1.IdMoneda =1;
