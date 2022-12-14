@@ -1,3 +1,4 @@
+import { ParseSourceSpan } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { resetFakeAsyncZone } from '@angular/core/testing';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -18,10 +19,9 @@ export class DepositarComponent implements OnInit {
   montoIngresado: number = 0;
   userId: number = 0
   arsVsBtc: number = 0;
-
-
+  cvuPesos: string = '';
   showAlertMonto:boolean=false;
-
+  cuentas: Array<any> = [];
   form: FormGroup = new FormGroup({
     monto: new FormControl(this.montoIngresado)
   });
@@ -41,16 +41,19 @@ export class DepositarComponent implements OnInit {
     this.infoUsuarioById(this.usuarioService.usuarioAutenticado.idUsuario);
   }
   infoUsuarioById(userId:number){
-    this.usuarioService.getUsuarioId(userId).subscribe({
+    this.usuarioService.getCuentasUsuarioId(userId).subscribe({
     next: (resp) =>{
-      //let [respuesta] = resp;
-      console.log('RESPUESDLASKJ',resp)
-      this.cbuUsuario = resp.cuenta[0].cvu;
-      // this.nombreUsuario = resp.Nombre + ' ' + resp.Apellido;
+      this.cuentas = resp;
+      for (let i = 0; i <= this.cuentas.length; i++){
+        if(this.cuentas[i].idMoneda == 2){
+          this.cvuPesos = this.cuentas[i].cvu;
+        }
+      }
     },
     error: (err)=> console.log(err)
   })
   }
+  
 
   // this.mercadoService.obtenerPrecios().subscribe({
   //   next: (v) => this.precios = v,
