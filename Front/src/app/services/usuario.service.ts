@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpParams } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Login } from '../models/login';
@@ -47,6 +47,10 @@ export class UsuarioService {
         fechaNacimiento:enteredFechaNacimiento,
       },{ responseType: "json" , withCredentials: false  });
 
+  }
+
+  getUsuarioId(id:number):Observable<any>{
+    return this.http.get(`https://localhost:7206/api/usuario/cuentas/${id}`);
   }
 
   getCuentasUsuarioId(id: number):Observable<any>
