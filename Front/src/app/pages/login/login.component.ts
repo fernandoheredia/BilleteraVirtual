@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
   login(email:string,password:string)
   {
     let login:Login = new Login(email,password);
-    //this.usuarioService.usuarioAutenticado;
+
     //llamar al servicio usuario
     this.usuarioService.iniciarSesion(login).subscribe(
       (data)=>{

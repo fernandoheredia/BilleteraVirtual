@@ -47,8 +47,7 @@ export class RetirarComponent implements OnInit {
     private formbuilder: FormBuilder
   ) {
     this.form = this.formbuilder.group({
-      //nombre: ['', [Validators.required]],
-      //cbu: ['', [Validators.required]],
+
       monto: ['', [Validators.required]],
       beneficiarios: ['', [Validators.required]],
     });
@@ -88,20 +87,6 @@ export class RetirarComponent implements OnInit {
     );
   }
 
-  // mostrarBeneficiario(userId: number) {
-  //   this.userService.getContactosBancarios(userId).subscribe(
-  //     (data) => {
-  //     this.contactos = data;
-  //     this.beneficiario = this.form.get('beneficiarios')?.value;
-  //     console.log("MOSTRANDO BENEFICIARIOS");
-  //     console.log(this.selectedValue);
-  //     console.log(this.contactos);
-  //     this.User = data[0];
-  //     //this.beneficiario = this.User.Nombre;
-  //     //this.cbuBeneficiario = this.User.cbu;
-  //     //console.log('cbu: ', this.cbu);
-  //   });
-  // }
 
   mostrarBeneficiario(userId: number) {
     this.userService.getContactosBancarios(userId).subscribe(

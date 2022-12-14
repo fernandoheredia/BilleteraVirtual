@@ -31,7 +31,7 @@ export class DepositarComponent implements OnInit {
     private transaccionService:TransaccionesService,
     private usuarioService:UsuarioService
     ){
-      this.form=this.formbuilder.group({
+      this.form= this.formbuilder.group({
         monto:['', [Validators.required]]
     })
     }
@@ -49,6 +49,7 @@ export class DepositarComponent implements OnInit {
           this.cvuPesos = this.cuentas[i].cvu;
         }
       }
+      console.log('cuentas', this.cuentas)
     },
     error: (err)=> console.log(err)
   })

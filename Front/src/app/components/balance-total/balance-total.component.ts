@@ -51,7 +51,7 @@ export class BalanceTotalComponent implements OnInit{
   getBalanceTotal() {
     this._transaccionService.getTodasTransacciones(this.userId).subscribe(
       (resp) => {
-        console.log('balance total',resp)
+      
         let haberes: number = 0;
         let deberes: number = 0;
         let respuesta = resp;
