@@ -24,7 +24,7 @@ export class TransaccionesService {
 
   getTodasTransacciones(idUsuario: number):Observable<any>
   {  
-  let params = new HttpParams().set('idUsuario', idUsuario);
+  //let params = new HttpParams().set('idUsuario', idUsuario);
     return this.http.get(`https://localhost:7206/api/operacion/${idUsuario}`);
   }
   

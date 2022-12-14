@@ -53,10 +53,15 @@ export class UsuarioService {
 
   getUsuarioId(id: number):Observable<any>
   {
-  let params = new HttpParams().set('id', id);
-    return this.http.get("http://localhost:3000/usuario/", {params: params} );
+  //let params = new HttpParams().set('id', id);
+    return this.http.get(`https://localhost:7206/api/usuario/cuentas/${id}`);
 
   }
+
+  getContactosBancarios(id:number):Observable<any>{
+    return this.http.get(`https://localhost:7206/api/contacto/${id}`)
+  }
+  
 
   get usuarioAutenticado():Usuario{
     return this.currentUserSubject.value}
@@ -69,7 +74,6 @@ export class UsuarioService {
         localStorage.setItem('userId', userId )
         sessionStorage.setItem('currentUser',JSON.stringify(data));
         this.currentUserSubject.next(data);
-       
         return data;
       }));
   }

@@ -29,13 +29,22 @@
                 <h5><label>Transferencia bancaria</label></h5>
                 <legend>Banco o billetera digital</legend>
                 <div class="mb-3">
-                  <input
+                  <form [formGroup]="form">
+                    <select class="form-select" formControlName="beneficiarios" [(ngModel)]="selectedValue" (change)="changeSuit($event)">
+                      <option  value="" disabled>Seleccionar Beneficiario</option>
+                      <option  *ngFor="let contacto of dataBeneficiarios" >
+                        {{contacto.beneficiario}}
+                      </option>
+      
+                    </select>
+                  </form>
+                  <!-- <input
                     type="text"
                     id="nombreInput"
                     formControlName="nombre"
                     class="form-control"
                     placeholder="Beneficiario"
-                  />
+                  /> -->
                   <div
                     *ngIf="
                       nombre?.invalid && (nombre?.dirty || nombre?.touched)
@@ -48,13 +57,14 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <input
+                  <!-- <input
                     type="text"
                     id="cbuInput"
+                    [(ngModel)]="cbuBeneficiario"
                     formControlName="cbu"
                     class="form-control"
                     placeholder="CBU/CVU"
-                  />
+                  /> -->
                   <div
                     *ngIf="cbu?.invalid && (cbu?.dirty || cbu?.touched)"
                     class="alert"
@@ -95,7 +105,7 @@
                       (change)="checkForm($event)"
                     />
                     <label class="form-check-label" for="disabledFieldsetCheck">
-                      No soy un Robot
+                      Validar datos ingresados
                     </label>
                   </div>
                 </div>
@@ -188,7 +198,7 @@
                 <label class="form-label">CBU/CVU</label><br />
                 <label class="form-label">{{ cbuBeneficiario }}</label>
               </div>
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <div class="mb-3">
                   <input
                     type="text"
@@ -197,7 +207,7 @@
                     placeholder="PIN de transacción"
                   />
                 </div>
-              </div>
+              </div> -->
               <button
                 type="submit"
                 class="btn btn-primary"

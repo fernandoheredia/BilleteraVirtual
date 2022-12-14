@@ -38,20 +38,24 @@ export class DepositarComponent implements OnInit {
   
   ngOnInit(): void {
     this.userId = parseInt(localStorage.getItem('userId')!)
-    
-    this.infoUsuarioById(this.userId);
+    this.infoUsuarioById(this.usuarioService.usuarioAutenticado.idUsuario);
   }
-  infoUsuarioById(id:number){
-  this.usuarioService.getUsuarioId(id).subscribe(
-      (resp) =>{
-        let [respuesta] = resp;
-        console.log('RESPUESDLASKJ',respuesta)
-        this.cbuUsuario = respuesta.cbu;
-        this.nombreUsuario = respuesta.Nombre + ' ' + respuesta.Apellido;
-      },
-      (err)=> console.log(err)
-    );
+  infoUsuarioById(userId:number){
+    this.usuarioService.getUsuarioId(userId).subscribe({
+    next: (resp) =>{
+      //let [respuesta] = resp;
+      console.log('RESPUESDLASKJ',resp)
+      this.cbuUsuario = resp.cuenta[0].cvu;
+      // this.nombreUsuario = resp.Nombre + ' ' + resp.Apellido;
+    },
+    error: (err)=> console.log(err)
+  })
   }
+
+  // this.mercadoService.obtenerPrecios().subscribe({
+  //   next: (v) => this.precios = v,
+  //   error: (e) => console.log(e)
+  // })
   copyInputMessage(inputElement: any){
     inputElement.select();
     document.execCommand('copy');

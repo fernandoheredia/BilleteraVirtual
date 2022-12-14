@@ -11,7 +11,9 @@ import { TransaccionesService } from 'src/app/services/transacciones.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { formatDate } from '@angular/common';
 import { CodigoCuenta } from "../../enums/codigo-cuenta";
-import { CodigoTransaccion} from '../../enums/codigo-transaccion'
+import { CodigoTransaccion} from '../../enums/codigo-transaccion';
+import { ContactoBancario } from 'src/app/models/contactoBancario';
+
 @Component({
   selector: 'app-retirar',
   templateUrl: './retirar.component.html',
@@ -21,7 +23,7 @@ export class RetirarComponent implements OnInit {
 
   userId: number = 0
   beneficiario = '';
-  cbuBeneficiario: number = 0;
+  cbuBeneficiario: string = '';
   montoIngresado: number = 0;
   arsVsBtc: number = 0;
   disponible_ARS: number = 0;
@@ -30,6 +32,10 @@ export class RetirarComponent implements OnInit {
   User: any;
   amountState: boolean = false;
   disableButton: boolean = true;
+  contactos:any;
+  selectedValue: string = '';
+  displayCuentaSeleccionada:boolean= false
+  dataBeneficiarios:Array<ContactoBancario>=[];
 
   form!: FormGroup;
 
@@ -40,9 +46,10 @@ export class RetirarComponent implements OnInit {
     private formbuilder: FormBuilder
   ) {
     this.form = this.formbuilder.group({
-      nombre: ['', [Validators.required]],
-      cbu: ['', [Validators.required]],
+      //nombre: ['', [Validators.required]],
+      //cbu: ['', [Validators.required]],
       monto: ['', [Validators.required]],
+      beneficiarios: ['', [Validators.required]],
     });
   }
 
@@ -53,6 +60,10 @@ export class RetirarComponent implements OnInit {
     this.mostrarBeneficiario(this.userId);
     this.getPrecioBTCvsARS();
     this.getTotalARS();
+  }
+
+  get beneficiarios(){
+    return this.form.get('beneficiarios')
   }
 
   get nombre() {
@@ -76,15 +87,45 @@ export class RetirarComponent implements OnInit {
     );
   }
 
-  mostrarBeneficiario(userId: number) {
-    this.userService.getUsuarioId(userId).subscribe((data) => {
-      this.User = data[0];
-      this.beneficiario = this.User.Nombre;
-      this.cbuBeneficiario = this.User.cbu;
-      console.log('cbu: ', this.cbu);
-    });
-  }
+  // mostrarBeneficiario(userId: number) {
+  //   this.userService.getContactosBancarios(userId).subscribe(
+  //     (data) => {
+  //     this.contactos = data;
+  //     this.beneficiario = this.form.get('beneficiarios')?.value;
+  //     console.log("MOSTRANDO BENEFICIARIOS");
+  //     console.log(this.selectedValue);
+  //     console.log(this.contactos);
+  //     this.User = data[0];
+  //     //this.beneficiario = this.User.Nombre;
+  //     //this.cbuBeneficiario = this.User.cbu;
+  //     //console.log('cbu: ', this.cbu);
+  //   });
+  // }
 
+  mostrarBeneficiario(userId: number) {
+    this.userService.getContactosBancarios(userId).subscribe(
+      (data)=>{
+        this.dataBeneficiarios = data;
+        for (let index = 0; index < this.dataBeneficiarios.length; index++) {
+          const element = this.dataBeneficiarios[index];
+          let miContacto:ContactoBancario = new ContactoBancario(element.idContacto,element.idUsuario,element.cbu,element.beneficiario);
+        }
+      }
+
+    );
+  }
+  changeSuit(event:any){
+    //let cuentaSeleccionada:number = this.selectedValue
+    this.displayCuentaSeleccionada = true
+    //this.getMontoDisponible(cuentaSeleccionada);
+  }
+  onSubmit(){
+  //let monto = this.formIntercambiar.value
+  //console.log('monto a cotizar',monto.monto);
+  //console.log('cuenta seleccionada', this.selectedValue)
+  //this.cotizar(monto.monto, this.selectedValue)
+  
+  }
   getTotalARS() {
     this.miServicio.getTodasTransacciones(this.userId).subscribe(
       (data) => {
@@ -170,7 +211,15 @@ export class RetirarComponent implements OnInit {
 
   //disable si faltan campos o monto no válido
 
-  Continuar() {}
+  Continuar() {
+    for (let index = 0; index<=this.dataBeneficiarios.length; index++)
+    {
+      if (this.dataBeneficiarios[index].beneficiario == this.selectedValue){
+        this.cbuBeneficiario = this.dataBeneficiarios[index].cbu;
+        this.beneficiario = this.dataBeneficiarios[index].beneficiario;
+      }
+    }
+  }
 
   checkForm(e: any) {
     const btn = document.getElementById('btn') as HTMLButtonElement | null;
@@ -195,16 +244,17 @@ export class RetirarComponent implements OnInit {
           console.log('Error: no se puede realizar retiro con el monto ingresado',this.montoIngresado);
           this.showAlertMonto = true;
           return;
-        } else if (
-          //this.form.get('cbu')?.value != this.cbuBeneficiario ||
-          this.form.get('nombre')?.value != this.beneficiario
-        ) {
-          console.log('Error: cuenta de destino no registrada');
-          this.showAlertDestino = true;
-          return;
-        } else {
+        } 
+        //else if (
+        //   this.form.get('cbu')?.value != this.cbuBeneficiario ||
+        //   this.form.get('nombre')?.value != this.beneficiario
+        // ) {
+        //   console.log('Error: cuenta de destino no registrada');
+        //   this.showAlertDestino = true;
+        //   return;
+        // } 
+         else {
           console.log('datos ingresados correctamente');
-
           btn?.removeAttribute('disabled');
           nombreInput?.setAttribute('disabled', '');
           cbuInput?.setAttribute('disabled', '');

@@ -123,7 +123,7 @@ namespace Entities
                     .HasColumnName("cotizacion");
 
                 entity.Property(e => e.Debe)
-                    .HasColumnType("decimal(18, 18)")
+                    .HasColumnType("decimal(23, 18)")
                     .HasColumnName("debe");
 
                 entity.Property(e => e.Fecha)
@@ -132,7 +132,7 @@ namespace Entities
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Haber)
-                    .HasColumnType("decimal(18, 18)")
+                    .HasColumnType("decimal(23, 18)")
                     .HasColumnName("haber");
 
                 entity.Property(e => e.IdContacto).HasColumnName("idContacto");
