@@ -18,7 +18,7 @@ namespace Negocio
             return db.Cuentas.FirstOrDefault(a => a.IdUsuario == idUser && a.IdMoneda == 2 && a.Activa == true);
         }
 
-        public void RegistrarCuentas(crypto_dbContext db, UserIdObject idUsuario)
+        public void RegistrarCuentas(crypto_dbContext db, int idUsuario)
         {
             bool activa = true;
             int idMoneda;
@@ -30,7 +30,7 @@ namespace Negocio
                 idMoneda = i;
                 var x = rand.Next(0,1000000);
                 cvu = x.ToString("000000");
-                miCuenta.IdUsuario = idUsuario.IdUsuario;
+                miCuenta.IdUsuario = idUsuario;
                 miCuenta.Activa = activa;
                 miCuenta.IdMoneda = idMoneda;
                 miCuenta.Cvu = cvu;

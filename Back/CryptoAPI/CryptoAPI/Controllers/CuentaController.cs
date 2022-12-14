@@ -21,6 +21,7 @@ namespace CryptoAPI.Controllers
             return listaCuentas;
         }
 
+        /*
         [HttpPost]
         public void Post([FromBody]UserIdObject idUsuario)
         {
@@ -28,7 +29,7 @@ namespace CryptoAPI.Controllers
             {
                 new CuentaBC().RegistrarCuentas(db, idUsuario);
             }
-        }
+        }*/
 
     }
 }

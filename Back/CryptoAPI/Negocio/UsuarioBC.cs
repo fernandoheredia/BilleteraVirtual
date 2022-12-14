@@ -30,23 +30,28 @@ namespace Negocio
             //Cuenta? cuentaOrigen = new CuentaBC().ObtenerCuenta(db, idUser);
             
             Usuario usuario = new();
-            usuario.IdUsuario = NuevoRegistro.IdUsuario;
+            //usuario.IdUsuario = NuevoRegistro.IdUsuario;
             usuario.Email = NuevoRegistro.Email;
             usuario.Password = NuevoRegistro.Password;
             usuario.Nombre = NuevoRegistro.Nombre;
             usuario.Apellido = NuevoRegistro.Apellido;
             //usuario.FechaNacimiento = NuevoRegistro.FechaNacimiento;
-            usuario.FechaNacimiento = DateTime.Now;
-            //Cuenta cuenta1=new();
-           // cuenta1.IdUsuario=NuevoRegistro.IdUsuario;
-           // cuenta1.IdMoneda =1;
-            //cuenta1.Activa = true;
-           // Cuenta cuenta2 = new();
-           // cuenta2.IdMoneda = 2;
-            //cuenta2.Activa = true;
+            //usuario.FechaNacimiento = DateTime.Now;
+            string fechaCadena = NuevoRegistro.FechaNacimiento;
+            DateTime fechaNacimiento = DateTime.Parse(fechaCadena);
+            usuario.FechaNacimiento = fechaNacimiento;
 
             db.Usuarios.Add(usuario);
             db.SaveChanges();
+
+            //buscamos el nuevo usuario
+            VistaUsuario miNuevoUsuario = Login(db,NuevoRegistro.Email,NuevoRegistro.Password);
+
+            //creacion de cuentas
+            new CuentaBC().RegistrarCuentas(db, miNuevoUsuario.IdUsuario);
+
+            //creacion de contactos
+            new ContactoBancarioBC().RegistrarContactos(db, miNuevoUsuario.IdUsuario);
         }
     }
 }
