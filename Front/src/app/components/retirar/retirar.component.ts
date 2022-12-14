@@ -36,7 +36,8 @@ export class RetirarComponent implements OnInit {
   selectedValue: string = '';
   displayCuentaSeleccionada:boolean= false
   dataBeneficiarios:Array<ContactoBancario>=[];
-
+  miContacto:ContactoBancario = new ContactoBancario(0,0,'','');
+  idContacto:number = 0;
   form!: FormGroup;
 
   usuario: any;
@@ -106,12 +107,7 @@ export class RetirarComponent implements OnInit {
     this.userService.getContactosBancarios(userId).subscribe(
       (data)=>{
         this.dataBeneficiarios = data;
-        for (let index = 0; index < this.dataBeneficiarios.length; index++) {
-          const element = this.dataBeneficiarios[index];
-          let miContacto:ContactoBancario = new ContactoBancario(element.idContacto,element.idUsuario,element.cbu,element.beneficiario);
-        }
       }
-
     );
   }
   changeSuit(event:any){
@@ -178,7 +174,7 @@ export class RetirarComponent implements OnInit {
     //   (error) => console.log(error)
     // );
 
-    this.miServicio.retiroTransaccion(this.userId, debe).subscribe(
+    this.miServicio.retiroTransaccion(this.userId, debe,  this.miContacto.idContacto).subscribe(
       {
         next: (v) => console.log(v),
         error: (e) => console.log(e)
@@ -214,8 +210,10 @@ export class RetirarComponent implements OnInit {
     for (let index = 0; index<=this.dataBeneficiarios.length; index++)
     {
       if (this.dataBeneficiarios[index].beneficiario == this.selectedValue){
-        this.cbuBeneficiario = this.dataBeneficiarios[index].cbu;
-        this.beneficiario = this.dataBeneficiarios[index].beneficiario;
+        this.miContacto = this.dataBeneficiarios[index];
+        // this.miContacto.cbu = this.dataBeneficiarios[index].cbu;
+        // this.beneficiario = this.dataBeneficiarios[index].beneficiario;
+        // this.idContacto = this.dataBeneficiarios[index].idContacto;
       }
     }
   }

@@ -10,8 +10,9 @@ namespace Entities
     {
         public int IdOperacion { get; set; }
         public int IdTipoOperacion { get; set; }
-        public int IdCuentaOrigen { get; set; }
+        public int? IdCuentaOrigen { get; set; }
         public decimal Haber { get; set; }
         public decimal Debe { get; set; }
+        public int? IdContacto { get; set; }
     }
 }

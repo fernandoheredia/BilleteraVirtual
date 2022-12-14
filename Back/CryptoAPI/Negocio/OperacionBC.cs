@@ -20,6 +20,10 @@ namespace Negocio
             
             Operacion operacion = new();
             operacion.IdTipoOperacion = nuevaOperacion.IdTipoOperacion;
+            if (nuevaOperacion.IdTipoOperacion == 2)
+            {
+                operacion.IdContacto = nuevaOperacion.IdContacto;
+            }
             operacion.IdCuentaOrigen = cuentaOrigen.IdCuenta;
             operacion.Haber = nuevaOperacion.Haber;
             operacion.Debe = nuevaOperacion.Debe;

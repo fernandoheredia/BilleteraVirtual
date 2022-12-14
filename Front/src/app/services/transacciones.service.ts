@@ -62,12 +62,13 @@ export class TransaccionesService {
   }
 
 
-  retiroTransaccion(idUsuario:number, debe:number):Observable<any>
+  retiroTransaccion(idUsuario:number, debe:number, idContacto:number):Observable<any>
   {
     return this.http.post(`https://localhost:7206/api/Operacion?idUsuario=${idUsuario}`,{
     idTipoOperacion: CodigoTransaccion.Retiro,
     debe : debe, 
     haber: 0,
+    idContacto: idContacto,
     },{ responseType: "json" , withCredentials: false  })
   }
 

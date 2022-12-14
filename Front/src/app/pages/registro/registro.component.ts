@@ -19,20 +19,32 @@ export class RegistroComponent implements OnInit {
   enteredNombre:string='';
   enteredApellido:string='';
   enteredFechaNacimiento:string='';
+  form!: FormGroup;
 
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private router: Router, private formBuilder:FormBuilder) { 
+    this.form = formBuilder.group({
+      nombre:[''],
+      apellido:[''],
+      fechaNacimiento:[''],
+      email:[''],
+      password:['']
+    })
+  }
 
   ngOnInit(): void {
   }
-
+  get nombre() {
+    return this.form.get('nombre');
+  }
   onSubmit(f: NgForm){
-
+      localStorage.removeItem('userId');
+      sessionStorage.removeItem('currentUser');
 
       this.usuarioService.setUsuario(this.enteredEmail,this.enteredPassword,this.enteredNombre,this.enteredApellido,this.enteredFechaNacimiento).subscribe(
         (val) => {
           this.success = true;
-          setTimeout( () => { this.router.navigate(['/cuenta-personal']); }, 1000 );
+          setTimeout( () => { this.router.navigate(['/login']); }, 500 );
 
       },
       response => {

@@ -19,9 +19,9 @@
                         type="text"
                         id="nombre"
                         class="form-control"
+                        formControlName="nombre"
                         required maxlength="50"
                       />
-
                     </div>
                     <!-- apellido -->
                     <div class="form-outline mb-2">
@@ -34,7 +34,6 @@
                         class="form-control"
                         required maxlength="50"
                       />
-
                     </div>
                     <!-- Fecha Nacimiento -->
                     <div class="form-outline mb-2">
@@ -46,16 +45,12 @@
                         id="fechaNacimiento"
                         class="form-control"
                         min="1920-01-01" max="2004-12-31"
-
-
                       />
-
                     </div>
 
                     <!-- Email input -->
                     <div class="form-outline mb-2">
-                      <label class="email-label text-dark" for="email"
-                        >Dirección email</label>
+                      <label class="email-label text-dark" for="email">Dirección email</label>
                       <input
                         [(ngModel)]="enteredEmail"
                         name="email"
@@ -70,8 +65,7 @@
 
                     <!-- Password input -->
                     <div class="form-outline mb-2">
-                      <label class="password-label text-dark" for="password"
-                        >Contraseña (Máximo 8 carácteres)</label>
+                      <label class="password-label text-dark" for="password">Contraseña (Máximo 8 carácteres)</label>
                       <input
                         [(ngModel)]="enteredPassword"
                         name="password"
