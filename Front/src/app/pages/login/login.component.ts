@@ -80,12 +80,10 @@ export class LoginComponent implements OnInit {
     this.usuarioService.iniciarSesion(login).subscribe(
       (data)=>{
         
-        if(data!=null)
-        {
+        if(data!=null){
           if (data.password === password && data.idUsuario!=0) 
           {
-            this.usuarioService.loggedUser$.emit(true)
-            this.router.navigate(['/cuenta-personal']);
+            this.router.navigate(['/cuenta-personal'])
           }else{
 
             this.validezCampo = false;

@@ -16,10 +16,8 @@ export class TransaccionesService {
   constructor(
     private http: HttpClient
   ) {
-    console.log("El servicio TransaccionesService está funcionando")
     this.date = Date.now();
-    console.log('La fecha es ',formatDate(this.date, 'dd/MM/yyyy - HH:mm' , 'en'))
-   }
+  }
 
 
   getTodasTransacciones(idUsuario: number):Observable<any>

@@ -71,7 +71,6 @@ export class PortafolioCriptoComponent implements OnInit {
 
       this.billetera.ars = total_ars;
       this.billetera.btc = total_btc;
-      console.log('Objeto a trabajar: ', this.billetera);
 
     }, error=>{
       console.warn(error.message);

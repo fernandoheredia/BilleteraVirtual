@@ -31,7 +31,7 @@ export class HistorialTransaccionesComponent implements OnInit {
     this.dataTransacciones = [];
     this._servicioTransaccion.getTodasTransacciones(userId).subscribe(
       (resp) => {
-        console.log("NAti: ",resp);
+
         let i: number;
         if (resp.length > 5) {
           i = resp.length - 5;
@@ -95,7 +95,7 @@ export class HistorialTransaccionesComponent implements OnInit {
           }
           this.dataTransacciones.push(element);
         }
-        //console.log('Juancitoo', resp)
+
       },
       (error) => {
         console.warn(error.message);

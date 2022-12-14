@@ -19,7 +19,7 @@ export class MercadoComponent implements OnInit {
       next: (v) => this.precios = v,
       error: (e) => console.log(e)
     })
-    console.log(this.precios)
+
   }
   
 

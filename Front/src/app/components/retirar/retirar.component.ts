@@ -142,7 +142,6 @@ export class RetirarComponent implements OnInit {
         }
         const disponible = haber_ARS - debe_ARS;
         this.disponible_ARS = disponible;
-        console.log('Pesos disponibles: ', this.disponible_ARS);
       },
       (error) => console.log(error)
     );
