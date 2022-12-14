@@ -49,11 +49,9 @@ export class UsuarioService {
 
   }
 
-  getUsuarioId(id: number):Observable<any>
+  getCuentasUsuarioId(id: number):Observable<any>
   {
-  //let params = new HttpParams().set('id', id);
-    return this.http.get(`https://localhost:7206/api/usuario/cuentas/${id}`);
-
+    return this.http.get(`https://localhost:7206/api/cuenta/${id}`);
   }
 
   getContactosBancarios(id:number):Observable<any>{
