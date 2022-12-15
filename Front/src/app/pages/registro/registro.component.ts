@@ -34,9 +34,9 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  get nombre() {
+  /*get nombre() {
     return this.form.get('nombre');
-  }
+  }*/
   onSubmit(f: NgForm){
       localStorage.removeItem('userId');
       sessionStorage.removeItem('currentUser');
